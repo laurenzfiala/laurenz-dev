@@ -1,0 +1,35 @@
+
+.link-hover() {
+  color: @linkHoverColor;
+  border-bottom: solid @linkHoverColor @borderWidth;
+}
+
+a,
+.link {
+  display: inline;
+
+  padding-bottom: @linkBorderSpacing;
+
+  text-decoration: transparent;
+  border-bottom: solid @linkColor @borderWidth;
+  color: @linkColor;
+
+  &.plain {
+    border-bottom: 0;
+  }
+
+  &:hover {
+    .link-hover();
+  }
+}
+
+.link-container {
+  border-bottom: 0 !important;
+
+  &:hover {
+    a,
+    .link {
+      .link-hover();
+    }
+  }
+}
