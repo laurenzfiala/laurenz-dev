@@ -1,25 +1,37 @@
-@g:               1rem;
-@g2:              (@g*2);
-@g3:              (@g*3);
-@g4:              (@g*4);
+@g:                   1rem;
+@g2:                  (@g*2);
+@g3:                  (@g*3);
+@g4:                  (@g*4);
 
-@textColor:       #222222;
-@subtleTextColor: #888888;
+@textColor:           #222222;
+@subtleTextColor:     #888888;
 
-@linkColor:       #000000;
-@linkHoverColor:  @secondaryColor;
-@linkBorderSpacing: 3px;
+@linkColor:           #000000;
+@linkHoverColor:      @secondaryColor;
+@linkBorderSpacing:   4px;
+@linkBoxShadow:       inset 0 -@borderWidth 0 0 @borderColor;
+@linkHoverBoxShadow:  inset 0 -@borderWidth 0 0 @linkHoverColor;
+@linkTransition:      box-shadow @transitionDur, color @transitionDur;
+@linkFocusOutline:    @borderWidth dashed @aPrimaryColor;
 
-@primaryColor:    #FF8652;
-@secondaryColor:  #FF2C88;
+@primaryColor:        #FF8652;
+@secondaryColor:      #FF2C88;
 
-@bgColorLight:    #fefefe;
-@bgColor:         #dedede;
+@bgColorLight:        #fefefe;
+@bgColor:             #f9f9f9;
 
-@borderWidth:     2px;
+@borderColor:         rgba(0, 0, 0,0.35);
+@borderWidth:         3px;
 
-@fontSizeSm:      0.9rem;
-@fontSizeMd:      1.15rem;
-@fontSizeLg:      1.35rem;
+@fontSizeSm:          0.9rem;
+@fontSizeMd:          1.15rem;
+@fontSizeLg:          1.35rem;
 
-@maxContainerWidth: 1200px;
+@maxContainerWidth:   1200px;
+
+@transitionDur:       0.25s;
+
+@xs:                  ~"only screen and (max-width: 500px)";
+@sm:                  ~"only screen and (min-width: 501px) and (max-width: 750px)";
+@md:                  ~"only screen and (min-width: 751px) and (max-width: 1200px)";
+@lg:                  ~"only screen and (min-width: 1201px)";

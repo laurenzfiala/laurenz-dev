@@ -1,0 +1,12 @@
+@import (reference) "variables";
+
+@aPrimaryColor:       #000000;
+@aSecondaryColor:     #d72c6c; // this will definitely be forgotten if changed in vars.less, so lets keep it high-vis
+
+.a-link-hover() {
+  color: @aSecondaryColor;
+}
+
+.a-link-focus() {
+  outline: @linkFocusOutline;
+}

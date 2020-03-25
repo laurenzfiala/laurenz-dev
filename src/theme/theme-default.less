@@ -1,7 +1,40 @@
+@import (reference) "variables";
 
 .link-hover() {
   color: @linkHoverColor;
-  border-bottom: solid @linkHoverColor @borderWidth;
+  box-shadow: @linkHoverBoxShadow;
+}
+
+.link-external-hover() {
+  &:after {
+    border-top-color: @linkHoverColor;
+    border-right-color: @linkHoverColor;
+  }
+}
+
+.link-external() {
+
+  &:hover,
+  &:active,
+  &:focus {
+    .link-external-hover();
+  }
+
+  &:after {
+    content: "";
+    display: inline-block;
+
+    width: 4px;
+    height: 4px;
+    margin-top: 0.25em;
+
+    vertical-align: text-top;
+
+    border-top: solid @linkColor 1px;
+    border-right: solid @linkColor 1px;
+
+    transition: border-top-color @transitionDur, border-right-color @transitionDur;
+  }
 }
 
 a,
@@ -11,25 +44,61 @@ a,
   padding-bottom: @linkBorderSpacing;
 
   text-decoration: transparent;
-  border-bottom: solid @linkColor @borderWidth;
+  line-height: 1;
+  box-shadow: @linkBoxShadow;
   color: @linkColor;
+
+  transition: @linkTransition;
 
   &.plain {
     border-bottom: 0;
   }
 
-  &:hover {
+  &[target="_blank"]:not(.link-container) {
+    .link-external();
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
     .link-hover();
   }
 }
 
 .link-container {
-  border-bottom: 0 !important;
+  box-shadow: unset !important;
 
-  &:hover {
+  &[target="_blank"] {
+    a,
+    .link {
+      .link-external();
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      a,
+      .link {
+        .link-external-hover();
+      }
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
     a,
     .link {
       .link-hover();
+    }
+  }
+
+  &:focus {
+    .a-link-focus();
+
+    a,
+    .link {
+      .a-link-hover();
     }
   }
 }

@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <Header/>
-    <router-view/>
-    <!--<Footer/>-->
+    <div class="content">
+      <router-view/>
+    </div>
+    <Footer/>
   </div>
 </template>
 
@@ -10,8 +12,9 @@
   import Vue from "vue";
   import {Component} from "vue-property-decorator";
   import Header from "@/components/Header";
+  import Footer from "@/components/Footer";
   @Component({
-    components: {Header}
+    components: {Header, Footer}
   })
   export default class App extends Vue {
   }
@@ -36,5 +39,9 @@
 
     background-color: @bgColor;
     color: @textColor;
+
+    > .content {
+      flex-grow: 1;
+    }
   }
 </style>

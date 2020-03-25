@@ -44,14 +44,14 @@ export default class Header extends Vue {
     display: flex;
     flex-direction: row;
 
-    margin-right: -@g;
+    margin-right: -(@g*1.5);
 
     a {
       display: flex;
       align-items: center;
 
-      padding: @g;
-      margin-right: @g;
+      padding: (@g*1.5);
+      //margin-right: @g;
     }
   }
 
@@ -61,4 +61,8 @@ export default class Header extends Vue {
     align-items: center;
   }
 }
+
+  .link-container.active .link {
+    .link-hover();
+  }
 </style>
