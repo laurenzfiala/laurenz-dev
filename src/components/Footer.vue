@@ -23,6 +23,10 @@ export default class Footer extends Vue {
 <style scoped lang="less">
 @import (reference) '../theme/theme';
 
+.footer-wrapper {
+  box-shadow: inset 0 -@borderWidth 0 @borderColor;
+}
+
 .footer-container {
   display: flex;
   flex-direction: row;

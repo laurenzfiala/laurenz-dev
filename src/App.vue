@@ -33,7 +33,7 @@
 
     min-height: 100vh;
 
-    font-family: 'Now', sans-serif;
+    font-family: 'Mulinito', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 

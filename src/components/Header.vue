@@ -1,18 +1,19 @@
 <template>
-  <nav class="header-container">
+  <div class="container">
+    <nav class="header-container">
+      <div class="logo-container">
+        <img class="logo" src="../assets/logo.png" />
+      </div>
 
-    <div class="left">
-      <img class="logo" src="../assets/logo.png" />
-    </div>
+      <div class="links-container">
+        <router-link class="link" to="/bio">Bio</router-link>
+        <router-link class="link" to="/links">Links</router-link>
+        <router-link class="link" to="/games">Board Games</router-link>
+        <router-link class="link" to="/projects">Projects</router-link>
+      </div>
 
-    <div class="right">
-      <router-link class="link-container" active-class="active" to="/"><div class="link">Home</div></router-link>
-      <router-link class="link-container" to="/"><div class="link">Bio</div></router-link>
-      <router-link class="link-container" to="/"><div class="link">Recreation</div></router-link>
-      <a class="link-container" href="https://github.com/laurenzfiala" target="_blank"><div class="link">Github</div></a>
-    </div>
-
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <script lang="ts">
@@ -27,42 +28,37 @@ export default class Header extends Vue {
 @import (reference) '../theme/theme';
 
 .header-container {
-  padding: @g2 @g3;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
+  margin: @g2 0;
+  padding: @g2;
+
+  border-radius: 100px;
   font-weight: 200;
-  font-size: @fontSizeLg;
+  font-size: @fontSizeMd;
+
+  background-color: @bgColorDark;
+}
+
+.logo-container {
+  margin: -@g2;
 
   .logo {
-    height: 50px;
-  }
-
-  .right {
-    display: flex;
-    flex-direction: row;
-
-    margin-right: -(@g*1.5);
-
-    a {
-      display: flex;
-      align-items: center;
-
-      padding: (@g*1.5);
-      //margin-right: @g;
-    }
-  }
-
-  .left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    height: 100%;
   }
 }
 
-  .link-container.active .link {
-    .link-hover();
+.links-container {
+  display: flex;
+  flex-direction: row;
+
+  .link {
+    display: flex;
+    align-items: center;
+
+    padding: 0 @g2;
   }
+}
 </style>
