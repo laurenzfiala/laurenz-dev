@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "postversion": "git push && git push --tags && node version.ts && npm run build"
+    "postversion": "git push && git push --tags && npm run build"
   },
   "dependencies": {
     "core-js": "^3.6.4",
