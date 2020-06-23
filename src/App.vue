@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <div class="content">
+    <div class="content container">
       <router-view/>
     </div>
     <Footer/>
@@ -33,12 +33,14 @@
 
     min-height: 100vh;
 
-    font-family: 'Mulinito', sans-serif;
+    font-family: 'Acari Sans Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
     background-color: @bgColor;
     color: @textColor;
+
+    line-height: @lineHeight;
 
     > .content {
       flex-grow: 1;

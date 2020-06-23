@@ -1,6 +1,6 @@
 <template>
   <div class="footer-wrapper">
-    <footer class="footer-container container">
+    <footer class="footer-container">
       <div>
         &copy; Laurenz Fiala {{ currentYear }}
       </div>
@@ -24,7 +24,6 @@ export default class Footer extends Vue {
 @import (reference) '../theme/theme';
 
 .footer-wrapper {
-  box-shadow: inset 0 -@borderWidth 0 @borderColor;
 }
 
 .footer-container {
@@ -33,10 +32,15 @@ export default class Footer extends Vue {
   align-items: center;
   justify-content: space-between;
 
-  padding-top: @g4;
-  padding-bottom: @g4;
+  padding: @g4 @g3;
+  margin-right: @g;
+  margin-bottom: @g;
+  margin-left: @g;
 
-  font-size: @fontSizeMd;
+  font-size: @fontSizeSm;
+  color: @subtleTextColor;
+
+  border-bottom: solid (@borderWidth + 1px) @borderColor;
 
   .version {
     color: @subtleTextColor;
