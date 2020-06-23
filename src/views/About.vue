@@ -19,45 +19,48 @@
     <section>
       <h2>I am passionate about...</h2>
       <p>
-        <b>Usability</b>
+        <b>Usability.</b>
         <span class="text-subtle">
-          has become my favourite topic over the last two years. Meaningfully improving
-          applications, thinking about their users' context and testing them is of great appeal to me. So, I am
-          currently attending all the courses to help me get started.
+          Working as a software developer, I realized this might be what really interests me. It's also the reason
+          i study this specific bachelors' programme. Usability has become my favourite topic over the last two years.
+          Meaningfully improving applications, thinking about their users' context and testing them is of great appeal
+          to me. If an application is especially pleasant to use, I am super ecstatic about it for days.
+          Hopefully you find this website fine too 😄!
         </span>
       </p>
 
       <p>
-        <b>Side Projects</b>
+        <b>Side Projects.</b>
         <span class="text-subtle">
-          are mostly programming-related things like a Raspberry-based temperature
-          display/logger for my room, this website etc. Recently I've played with the idea of creating my own
+          These are mostly programming-related things like a Raspberry-based temperature
+          display/logger for my room, this website and more. Recently I've played with the idea of creating my own
           board-gaming-computer to make keeping track of score easier, maybe even with Spotify integration. These things
           take time, since I do not like half-assed stuff and don't have that much free-time in between uni and work.
         </span>
       </p>
 
       <p>
-        <b>Breaking Bad</b>
+        <b>Breaking Bad.</b>
         <span class="text-subtle">
-          is the best series ever! The amount of times I have watched this superb series is beyond sane. Although
+          It's the best series ever! The amount of times I have watched this superb series is beyond sane. Although
           this has kinda become a running gag among some of my friends, I don't regret it at all.
         </span>
       </p>
 
       <p>
-        <b>Hiking</b>
+        <b>Hiking.</b>
         <span class="text-subtle">
-          is the best way to wind-down, especially after months of being in a big city. I try to go hiking almost
+          My go-to way to wind down, especially after months of being in a big city. I try to go hiking almost
           every day in the summer when I'm in Salzburg.
         </span>
       </p>
-    </section>
 
-    <section>
-      <h2>Abc</h2>
       <p>
-        123
+        <b>Public Transport.</b>
+        <span class="text-subtle">
+          Always have been and always will be. One day I'll make that public transportation game I have
+          planned for years.
+        </span>
       </p>
     </section>
   </div>
