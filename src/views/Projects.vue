@@ -54,12 +54,18 @@
     </section>
 
     <section class="highlight">
-      <h2>iid pr</h2>
+      <h2>Todolify</h2>
       <p>
-        desc
+        During winter semester of 2019/20 we were tasked to design an application as part of the project
+        »Introduction to interaction design«. Our team of four decided to design something simple, a Todo-App. This
+        turned out to be quite the challenge. Our initial proposals turned out to lack innovation and were <i>just
+        another Todo-App</i>. In the end we concentrated on a unique feature, which made the whole team more excited and
+        brought new life to our ideas.<br/>
+        The USP of this design is, that the user does a rough time-estimation themselves. They can then let the app
+        display an agenda when they have time to work on their Todo's.
       </p>
       <div class="d-flex flex-wrap align-items-center ml--1 mt--1">
-        <a class="link-btn ml-1 mt-1" href="https://github.com/laurenzfiala/cgue20-matterialist">
+        <a class="link-btn ml-1 mt-1" href="/static/IID_PR_2020W_latest.pdf" download>
           <img class="btn-icon" src="../assets/icons/download.svg" />
           Final Proposal
         </a>
