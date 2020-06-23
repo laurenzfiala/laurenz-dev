@@ -6,7 +6,7 @@
       <div>&copy; Laurenz Fiala {{ currentYear }}</div>
       <div class="footer-line mx-1"></div>
       <div class="text-align-right">
-        <div class="version">v1.0.0</div>
+        <div class="version" title="yes, i like semver!">v{{ currentVersion }}</div>
       </div>
       <div class="footer-line ml-1 fixed"></div>
     </footer>
@@ -19,6 +19,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class Footer extends Vue {
   public currentYear: string = new Date().getFullYear() + '';
+  public currentVersion: string = process.env.VUE_APP_VERSION;
 }
 </script>
 
