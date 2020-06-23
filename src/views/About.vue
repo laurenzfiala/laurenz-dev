@@ -49,8 +49,16 @@
         <p>
           <b>Hiking</b>
           <span class="text-subtle">
-            is the best way to wind-down, especially after months of being inside a big city. I try to go hiking almost
+            is the best way to wind-down, especially after months of being in a big city. I try to go hiking almost
             every day in the summer when I'm in Salzburg.
+          </span>
+        </p>
+
+        <p>
+          <b>CSS</b>
+          <span class="text-subtle">
+            is one of the least-bad standard web technologies, and I love learning new stuff about it. Especially
+            trying to overcome some weird limitation in my own way is really fun!
           </span>
         </p>
       </div>

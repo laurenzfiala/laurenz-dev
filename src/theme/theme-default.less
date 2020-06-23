@@ -159,8 +159,11 @@ button {
     transition: background-color @transitionDur;
   }
 
-  &:hover:before  {
-    background-color: transparent;
+  &:focus,
+  &:hover {
+    &:before  {
+      background-color: transparent;
+    }
   }
 
   .btn-icon {
