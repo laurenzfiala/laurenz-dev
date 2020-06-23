@@ -43,9 +43,6 @@
   }
 
   .minecraft-input {
-    display: block;
-    width: 100%;
-
     padding: (@g/2);
 
     color: #ffffff;

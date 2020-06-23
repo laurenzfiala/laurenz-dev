@@ -3,7 +3,7 @@
 
     <section>
       <div class="link-toolbar">
-        <div class="mt-1 ml-1">Find all public repositories on my Github page.</div>
+        <div class="mt-1 ml-1">Find all public repositories on my Github page</div>
         <div class="link-toolbar-btns">
           <a class="link-btn" href="https://github.com/laurenzfiala">
             <img class="btn-icon" src="../assets/icons/github.svg" />
