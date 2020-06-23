@@ -1,7 +1,7 @@
 <template>
   <nav class="header-container">
     <div class="header-line-left"></div>
-    <router-link class="plain" to="/about" tabindex="-1">
+    <router-link class="logo-link plain" to="/about" tabindex="-1">
       <div class="logo-container">
         <img class="logo" src="../assets/logo.png" alt="Website logo" />
       </div>
@@ -78,7 +78,7 @@ export default class Header extends Vue {
   .header-line {
     display: none;
   }
-  .logo-container {
+  .logo-link {
     margin-bottom: @g2;
   }
   .links-container {

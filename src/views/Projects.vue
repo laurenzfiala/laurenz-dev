@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <section>
       <div class="link-toolbar">
         <div class="mt-1 ml-1">Find all public repositories on my Github page.</div>
@@ -11,6 +12,7 @@
         </div>
       </div>
     </section>
+
     <section class="highlight">
       <h2>University of Salzburg</h2>
       <p>
@@ -32,6 +34,56 @@
         urban-trees-climate.sbg.ac.at
       </a>
     </section>
+
+    <section class="highlight">
+      <h2>MATTERialist</h2>
+      <p>
+        My first substantial piece of software I have ever written in C++. It was part of a course named
+        »Computergraphics« at TU. Together with another group member, we developed a 3D game where the player can
+        project properties onto a piece of geometry to finish the obstacle course. Two types of projectors were
+        realized: ice and low-gravity. Due to (very) poor planning on our part, we really had to crunch hard to get it working
+        before the deadline, but in the end it payed off. I'm quite proud that we suffered through it and delivered
+        this fun prototype.
+      </p>
+      <div>
+        <a class="link-btn" href="https://github.com/laurenzfiala/cgue20-matterialist">
+          <img class="btn-icon" src="../assets/icons/github.svg" />
+          cgue20-matterialist
+        </a>
+      </div>
+    </section>
+
+    <section class="highlight">
+      <h2>iid pr</h2>
+      <p>
+        desc
+      </p>
+      <div class="d-flex flex-wrap align-items-center ml--1 mt--1">
+        <a class="link-btn ml-1 mt-1" href="https://github.com/laurenzfiala/cgue20-matterialist">
+          <img class="btn-icon" src="../assets/icons/download.svg" />
+          Final Proposal
+        </a>
+        <small class="text-subtle ml-1 mt-1">Download .pdf</small>
+      </div>
+    </section>
+
+    <section class="highlight">
+      <h2>lib-indexer</h2>
+      <p>
+        As part of 2019W's course »Introduction to image processing«, two colleagues and I developed software to
+        read out books from library shelves. It was realized using MATLAB (this was a requirement) and, as one of four
+        groups, we were chosen to present our program to students in a school in Vienna. It was quite a new experience
+        to develop visual-computing software for the first time. It is certainly very difficult to get good results from
+        images.
+      </p>
+      <div>
+        <a class="link-btn" href="https://github.com/vucenovic/lib-indexer">
+          <img class="btn-icon" src="../assets/icons/github.svg" />
+          lib-indexer
+        </a>
+      </div>
+    </section>
+
     <section class="highlight">
       <h2>tobiaskropp.at</h2>
       <p>
@@ -47,5 +99,6 @@
         </a>
       </div>
     </section>
+
   </div>
 </template>

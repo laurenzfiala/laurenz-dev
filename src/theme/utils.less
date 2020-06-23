@@ -47,6 +47,19 @@
   display: none;
 }
 
+.d-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .spacing-utils(@n, @i: 1) when (@i =< @n) {
   @spacing: (@g * @i);
   .mt-@{i} {
