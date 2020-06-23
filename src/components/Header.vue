@@ -1,9 +1,9 @@
 <template>
   <nav class="header-container">
     <div class="header-line-left"></div>
-    <router-link class="plain" to="/about">
+    <router-link class="plain" to="/about" tabindex="-1">
       <div class="logo-container">
-        <img class="logo" src="../assets/logo.png" />
+        <img class="logo" src="../assets/logo.png" alt="Website logo" />
       </div>
     </router-link>
 
@@ -11,7 +11,7 @@
       <div class="header-line flex-grow-1 d-none"></div>
       <router-link to="/about">about me</router-link>
       <router-link to="/blog">blog</router-link>
-      <router-link to="/links">links</router-link>
+      <router-link to="/projects">projects</router-link>
       <router-link to="/games">games</router-link>
     </div>
 
@@ -105,6 +105,7 @@ export default class Header extends Vue {
     display: flex;
     align-items: center;
 
+    padding-bottom: @linkBorderSpacingLg;
     margin-left: @g;
 
     &:hover,

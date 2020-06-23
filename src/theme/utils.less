@@ -1,23 +1,30 @@
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media @xs, @sm, @md {
+@media @xs, @sm {
   .container {
-    padding-right: @g;
-    padding-left: @g;
+    margin-right: @g;
+    margin-left: @g;
   }
 }
 
-@media @lg {
+@media @md, @lg {
   .container {
-    width: 1200px;
+    max-width: 1200px;
 
     margin-left: @g4;
-    margin-right: auto;
+    margin-right: @g4;
   }
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: right;
+}
+
+.text-align-justify {
+  text-align: justify;
 }
 
 .text-align-right {
@@ -26,6 +33,10 @@
 
 .text-subtle {
   color: @subtleTextColor;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
 }
 
 .flex-grow-1 {

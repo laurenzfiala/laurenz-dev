@@ -1,12 +1,14 @@
 <template>
   <div class="footer-wrapper">
     <footer class="footer-container">
-      <div>
-        &copy; Laurenz Fiala {{ currentYear }}
-      </div>
+      <div class="footer-line mr-1 fixed"></div>
+      <router-link class="imprint" to="/imprint">Imprint</router-link>
+      <div>&copy; Laurenz Fiala {{ currentYear }}</div>
+      <div class="footer-line mx-1"></div>
       <div class="text-align-right">
         <div class="version">v1.0.0</div>
       </div>
+      <div class="footer-line ml-1 fixed"></div>
     </footer>
   </div>
 </template>
@@ -29,21 +31,49 @@ export default class Footer extends Vue {
 .footer-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 
-  padding: @g4 @g3;
+  padding: @g 0;
   margin-right: @g;
   margin-bottom: @g;
   margin-left: @g;
 
-  font-size: @fontSizeSm;
-  color: @subtleTextColor;
+  font-size: @fontSizeMd;
+  color: @textColor;
 
-  border-bottom: solid (@borderWidth + 1px) @borderColor;
+  a {
+    padding-bottom: @linkBorderSpacingLg;
+  }
+}
 
-  .version {
-    color: @subtleTextColor;
+.imprint {
+  margin-right: @g;
+}
+
+.footer-line {
+  height: @borderWidth;
+  flex-grow: 1;
+
+  box-shadow: @linkBoxShadow;
+
+  &.fixed {
+    width: @g2;
+    flex-grow: 0;
+  }
+}
+
+@media @xs, @sm {
+  .footer-container {
+    flex-direction: column;
+
+    padding: @g 0;
+  }
+  .footer-line {
+    display: none;
+  }
+  .imprint {
+    margin-right: 0;
   }
 }
 </style>

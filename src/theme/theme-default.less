@@ -167,6 +167,22 @@ button {
     height: 1.5rem;
     margin-right: calc(@g - @borderWidthBtn);
   }
+
+  &.btn-lg {
+    width: 150px;
+    height: 150px;
+
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+
+    .btn-icon {
+      height: 60px;
+      margin-right: 0;
+      margin-bottom: calc((@g/2) - @borderWidthBtn);
+    }
+  }
 }
 
 section {
@@ -187,4 +203,40 @@ hr {
 p {
   margin-top: @g;
   margin-bottom: @g;
+
+  text-align: justify;
+
+  &.left {
+    text-align: left;
+  }
+}
+
+.link-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+
+  margin-top: -@g;
+  margin-left: -@g;
+}
+
+.link-toolbar-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  > * {
+    margin-top: @g;
+    margin-left: @g;
+  }
+}
+
+@media @xs, @sm {
+  .link-toolbar {
+    flex-direction: column;
+  }
 }

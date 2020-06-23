@@ -3,10 +3,10 @@
     <!-- INTRO -->
     <section class="highlight">
       <div class="intro">
-        <img class="portrait" src="../assets/images/portrait.png" />
+        <img class="portrait" src="../assets/images/portrait.png" alt="Picture of Laurenz Fiala" />
         <div>
           <h2>Hi, I'm Laurenz!</h2>
-          <p>
+          <p class="left">
             And i am currently getting my Bachelors' in Media Informatics and Visual
             Computing at TU Wien. Additionally, i am working with the University of Salzburg on building out a platform for
             students and citizens to study trees and their effects on the climate.
@@ -47,11 +47,10 @@
         </p>
 
         <p>
-          <b>Mountains</b>
+          <b>Hiking</b>
           <span class="text-subtle">
-            are my anchor. Even though I'm currently living in Vienna, my love for mountains is stronger than
-            ever. I try to go hiking almost every day in the summer and shake off the intensity that comes with living
-            in a big city.
+            is the best way to wind-down, especially after months of being inside a big city. I try to go hiking almost
+            every day in the summer when I'm in Salzburg.
           </span>
         </p>
       </div>
@@ -72,5 +71,15 @@
     float: left;
     height: 225px;
     margin-right: @g4;
+  }
+
+  @media @xs, @sm {
+    .intro {
+      flex-direction: column;
+    }
+    .portrait {
+      margin-right: 0;
+      margin-bottom: @g2;
+    }
   }
 </style>
