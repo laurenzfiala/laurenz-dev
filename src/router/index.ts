@@ -10,27 +10,27 @@ const routes = [
   },
   {
     path: '/about',
-    name: 'About me',
+    name: 'about me',
     component: () => import('../views/About.vue')
   },
   {
     path: '/blog',
-    name: 'Blog',
+    name: 'blog',
     component: () => import('../views/Blog.vue')
   },
   {
     path: '/projects',
-    name: 'Projects',
+    name: 'projects',
     component: () => import('../views/Projects.vue')
   },
   {
     path: '/games',
-    name: 'Games',
+    name: 'games',
     component: () => import('../views/Games.vue')
   },
   {
     path: '/imprint',
-    name: 'Imprint',
+    name: 'imprint',
     component: () => import('../views/Imprint.vue')
   }
 ];

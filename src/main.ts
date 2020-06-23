@@ -6,5 +6,10 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
+  watch: {
+    $route(to) {
+      document.title = `laurenz.dev / ${to.name}`;
+    }
+  }
 }).$mount('#app');
