@@ -31,8 +31,6 @@
   @import (reference) '../theme/theme';
 
   .minecraft {
-    max-width: 400px;
-
     color: #dddddd;
 
     &,
@@ -42,17 +40,20 @@
     }
   }
 
+  .minecraft-input-label {
+    display: block;
+
+    padding: (@g/4);
+  }
+
   .minecraft-input {
+    width: calc(100% - @g);
+    max-width: 400px;
+
     padding: (@g/2);
 
     color: #ffffff;
     border: solid #dddddd 2px;
     background-color: #000000;
-  }
-
-  .minecraft-input-label {
-    display: block;
-
-    padding: (@g/4);
   }
 </style>

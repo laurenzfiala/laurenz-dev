@@ -25,7 +25,7 @@
         Starting in June 2020, a new project has been granted by the <a href="https://www.ffg.at/">Austrian Research
         Promotion Agency</a>
         with a similar focus on education, but this time with a broader scope. Three university-departments are
-        cooperating with schools around Autria.<br/>
+        cooperating with schools around Austria.<br/>
         In the coming months, the old website will steadily be transformed to fit the new project and I will build new
         CMS-like tools for students to easily customize their own Trees' webpage with data, charts and text.
       </p>
