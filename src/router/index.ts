@@ -32,6 +32,11 @@ const routes = [
     path: '/imprint',
     name: 'imprint',
     component: () => import('../views/Imprint.vue')
+  },
+  {
+    path: '*',
+    name: '404',
+    component: () => import('../views/404.vue')
   }
 ];
 
