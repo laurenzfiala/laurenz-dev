@@ -1,17 +1,15 @@
 <template>
   <div class="about">
     <!-- INTRO -->
-    <section class="highlight">
-      <div class="intro">
-        <img class="portrait" src="../assets/images/portrait.png" alt="Picture of Laurenz Fiala" />
-        <div>
-          <h2>Hi, I'm Laurenz!</h2>
-          <p class="left">
-            And i am currently getting my Bachelors' in Media Informatics and Visual
-            Computing at TU Wien. Additionally, i am working with the University of Salzburg on building out a platform for
-            students and citizens to study trees and their effects on the climate.
-          </p>
-        </div>
+    <section class="highlight intro">
+      <img class="portrait" src="../assets/images/portrait.png" alt="Picture of Laurenz Fiala" />
+      <div>
+        <h2>Hi, I'm Laurenz!</h2>
+        <p class="left">
+          And i am currently getting my Bachelors' in Media Informatics and Visual
+          Computing at TU Wien. Additionally, i am working with the University of Salzburg on building out a platform for
+          students and citizens to study trees and their effects on the climate.
+        </p>
       </div>
     </section>
 
@@ -73,20 +71,24 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    padding: @g3;
   }
 
   .portrait {
     float: left;
     height: 225px;
-    margin: @g @g4 @g @g2;
+    margin-right: @g3;
   }
 
   @media @xs, @sm {
     .intro {
       flex-direction: column;
+
+      padding: @g;
     }
     .portrait {
-      margin: @g 0 @g2 0;
+      margin-top: @g;
       margin-right: 0;
       margin-bottom: @g2;
     }
