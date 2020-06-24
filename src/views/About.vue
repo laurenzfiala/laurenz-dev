@@ -78,7 +78,7 @@
   .portrait {
     float: left;
     height: 225px;
-    margin-right: @g4;
+    margin: @g @g4 @g @g2;
   }
 
   @media @xs, @sm {
@@ -86,6 +86,7 @@
       flex-direction: column;
     }
     .portrait {
+      margin: @g 0 @g2 0;
       margin-right: 0;
       margin-bottom: @g2;
     }
