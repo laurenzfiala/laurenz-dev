@@ -25,6 +25,10 @@
 
   body {
     margin: 0;
+
+    &.no-scroll {
+      overflow: hidden;
+    }
   }
 
   #app {

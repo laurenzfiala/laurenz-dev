@@ -37,6 +37,44 @@
   }
 }
 
+.button() {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: (@g/2) @g;
+
+  color: @textColor;
+  font-size: @fontSizeMd;
+  border: 0;
+  background: linear-gradient(to right, @primaryColor, @secondaryColor);
+  border-radius: @borderRadius;
+  text-decoration: none !important;
+
+  &:before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+    top: @borderWidthBtn;
+    right: @borderWidthBtn;
+    bottom: @borderWidthBtn;
+    left: @borderWidthBtn;
+
+    border-radius: @borderRadius;
+    background-color: @bgColor;
+
+    transition: background-color @transitionDur;
+  }
+
+  &.active {
+
+  }
+}
+
 a:not(.link-btn),
 .link {
   display: inline;
@@ -127,40 +165,12 @@ a,
 
 .link-btn,
 button {
-  position: relative;
-  z-index: 1;
-
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-
-  padding: (@g/2) @g;
-
-  color: @textColor;
-  font-size: @fontSizeMd;
-  border: 0;
-  background: linear-gradient(to right, @primaryColor, @secondaryColor);
-  border-radius: @borderRadius;
-  text-decoration: none;
-
-  &:before {
-    content: "";
-
-    position: absolute;
-    z-index: -1;
-    top: @borderWidthBtn;
-    right: @borderWidthBtn;
-    bottom: @borderWidthBtn;
-    left: @borderWidthBtn;
-
-    border-radius: @borderRadius;
-    background-color: @bgColor;
-
-    transition: background-color @transitionDur;
-  }
+  .button();
 
   &:focus,
-  &:hover {
+  &:hover,
+  &.active {
+
     &:before  {
       background-color: transparent;
     }
@@ -168,6 +178,7 @@ button {
 
   .btn-icon {
     height: 1.5rem;
+
     margin-right: calc(@g - @borderWidthBtn);
   }
 
@@ -214,6 +225,20 @@ p {
   }
 }
 
+.btn-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-top: -@g;
+  margin-left: -@g;
+
+  > * {
+    margin-top: @g;
+    margin-left: @g;
+  }
+}
+
 .link-toolbar {
   display: flex;
   flex-direction: row;
@@ -239,10 +264,26 @@ p {
 }
 
 @media @xs, @sm {
-  .link-toolbar {
-    flex-direction: column;
-  }
   section.highlight {
     padding: @g;
   }
+  .btn-bar {
+    justify-content: flex-end;
+  }
+  .link-toolbar {
+    flex-direction: column;
+  }
+}
+
+.tag {
+  padding: (@g/2);
+
+  vertical-align: text-bottom;
+
+  text-transform: lowercase;
+  color: @tagColor;
+  font-size: @tagFontSize;
+  font-weight: @tagFontWeight;
+  background-color: @tagBgColor;
+  border-radius: @tagBorderRadius;
 }

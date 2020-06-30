@@ -23,8 +23,41 @@
         </ul>
       </div>
     </article>
+    <article>
+      <h2>A blog entry</h2>
+      <p>
+        <textarea ref="editortest"></textarea>
+      </p>
+      <div class="article-info">
+        <div>Laurenz Fiala</div>
+        <div>25.03.2021 12:40</div>
+        <div class="flex-grow-1"></div>
+        <ul class="tags">
+          <li>Web</li>
+          <li>Usability</li>
+        </ul>
+      </div>
+    </article>
   </div>
 </template>
+
+<script lang="ts">
+  import {Component, Vue} from 'vue-property-decorator';
+  import EasyMDE from 'easymde';
+
+  @Component
+  export default class Blog extends Vue {
+
+    constructor() {
+      super();
+    }
+
+    private mounted() {
+      new EasyMDE({element: this.$refs.editortest as HTMLElement});
+    }
+
+  }
+</script>
 
 <style scoped lang="less">
   @import (reference) '../theme/theme';

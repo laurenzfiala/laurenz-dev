@@ -1,3 +1,4 @@
+@import (reference) "variables";
 
 @media @xs, @sm {
   .container {
@@ -43,8 +44,16 @@
   flex-grow: 1;
 }
 
-.d-none {
-  display: none;
+@media (pointer: coarse) {
+  .d-mouse-only {
+    display: none !important;
+  }
+}
+
+@media (pointer: fine) {
+  .d-touch-only {
+    display: none !important;
+  }
 }
 
 .d-flex {
@@ -60,53 +69,100 @@
   flex-wrap: wrap;
 }
 
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
+.d-inline-block {
+  display: inline-block;
+}
+.d-inline {
+  display: inline;
+}
+.d-flex {
+  display: flex;
+}
+.d-inline-flex {
+  display: inline-flex;
+}
+
+.display-utils(@sizes, @i: 1) when (@i =< length(@sizes)) {
+  @size: extract(@sizes, @i);
+  @media @@size {
+    .d-none-@{size} {
+      display: none !important;
+    }
+    .d-block-@{size} {
+      display: block !important;
+    }
+    .d-inline-block-@{size} {
+      display: inline-block !important;
+    }
+    .d-inline-@{size} {
+      display: inline !important;
+    }
+    .d-flex-@{size} {
+      display: flex !important;
+    }
+    .d-inline-flex-@{size} {
+      display: inline-flex !important;
+    }
+  }
+  .display-utils(@sizes, (@i + 1));
+}
+
+@size-steps: ~"xs", ~"sm", ~"md", ~"lg";
+.display-utils(@size-steps);
+
 .spacing-utils(@n, @i: 1) when (@i =< @n) {
   @spacing: (@g * @i);
   .mt-@{i} {
-    margin-top: @spacing;
+    margin-top: @spacing !important;
   }
   .mr-@{i} {
-    margin-right: @spacing;
+    margin-right: @spacing !important;
   }
   .mb-@{i} {
-    margin-bottom: @spacing;
+    margin-bottom: @spacing !important;
   }
   .ml-@{i} {
-    margin-left: @spacing;
+    margin-left: @spacing !important;
   }
   .mx-@{i} {
-    margin-right: @spacing;
-    margin-left: @spacing;
+    margin-right: @spacing !important;
+    margin-left: @spacing !important;
   }
   .my-@{i} {
-    margin-top: @spacing;
-    margin-bottom: @spacing;
+    margin-top: @spacing !important;
+    margin-bottom: @spacing !important;
   }
   .m-@{i} {
-    margin: @spacing;
+    margin: @spacing !important;
   }
   .pt-@{i} {
-    padding-top: @spacing;
+    padding-top: @spacing !important;
   }
   .pr-@{i} {
-    padding-right: @spacing;
+    padding-right: @spacing !important;
   }
   .pb-@{i} {
-    padding-bottom: @spacing;
+    padding-bottom: @spacing !important;
   }
   .pl-@{i} {
-    padding-left: @spacing;
+    padding-left: @spacing !important;
   }
   .px-@{i} {
-    padding-right: @spacing;
-    padding-left: @spacing;
+    padding-right: @spacing !important;
+    padding-left: @spacing !important;
   }
   .py-@{i} {
-    padding-top: @spacing;
-    padding-bottom: @spacing;
+    padding-top: @spacing !important;
+    padding-bottom: @spacing !important;
   }
   .p-@{i} {
-    padding: @spacing;
+    padding: @spacing !important;
   }
   .spacing-utils(@n, (@i + 1));
 }

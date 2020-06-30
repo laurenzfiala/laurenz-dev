@@ -60,6 +60,38 @@
           planned for years.
         </span>
       </p>
+
+      <p>
+        <b>Polish.</b>
+        <span class="text-subtle">
+          While coding this website, I realized that one of the things I like the most about creating interfaces is
+          polishing them until they feel really good to use. And the great thing is: I don't nearly know how to do that
+          well yet. So, lots to learn!
+        </span>
+      </p>
+    </section>
+
+    <!-- GOALS -->
+    <section>
+      <h2>My current goals / projects are...</h2>
+      <p>
+        <b>Bachelors degree.</b>
+      </p>
+      <p>
+        <b>Masters degree.</b>
+        <span class="text-subtle">
+          When I started my bachelors' I honestly didn't think this was very likely. Now, halfway through it, I am sure
+          that I'm going to do it.
+        </span>
+      </p>
+      <p>
+        <b>Board-games computer.</b>
+        <span class="text-subtle">
+          I have yet to decide on a suitable technology, but it's probably going to be JavaFX. The point is to have
+          a Raspberry Pi hooked up to a touchscreen, so it's easy to enter info on current games. I'm thinking of a dice
+          simulator (maybe 3D?), something to track scores of players and a 'past games' view.
+        </span>
+      </p>
     </section>
   </div>
 </template>
