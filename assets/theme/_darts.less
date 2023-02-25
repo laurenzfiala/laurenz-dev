@@ -1,0 +1,48 @@
+@import (reference) "variables";
+
+@buttonMinHeight: 4rem;
+@buttonHeight: 8.5vh;
+
+.darts-root {
+  --darts-color-series-1: #ff8888;
+  --darts-color-series-2: #8da6f8;
+  --darts-color-series-3: #85d993;
+  --darts-color-series-4: #f6c26a;
+  --darts-color-series-5: #dc8bd1;
+  --darts-color-series-6: #e7de61;
+  --darts-color-series-7: #60dcd1;
+  --darts-color-series-8: #9e7ad2;
+}
+
+.darts-button() {
+  min-height: 4rem;
+  @media (pointer: coarse) {
+    height: 8.5vh;
+  }
+}
+
+.darts-game-button() {
+  .darts-button();
+}
+
+.link-arrow {
+
+  &:hover,
+  &:focus {
+
+    &::before {
+      border-width: 1em;
+    }
+  }
+
+  &.back {
+
+    &:hover,
+    &:focus {
+
+      &::before {
+        border-width: 1em;
+      }
+    }
+  }
+}

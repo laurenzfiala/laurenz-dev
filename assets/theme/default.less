@@ -1,0 +1,29 @@
+@import (reference) "variables";
+
+@font-face {
+  font-family: Comfortaa;
+  src: url("../fonts/Comfortaa-VariableFont_wght.ttf");
+}
+
+html, body, #__nuxt, #__layout {
+  height: 100%;
+}
+
+body {
+  font-family: Comfortaa, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+h1 {
+  @apply text-2xl mt-6 mb-4;
+}
+
+h2 {
+  @apply text-xl mt-4 mb-2;
+}
+
+.badge {
+  padding: 0.1em 0.25em;
+  background-color: var(--secondary-color-light);
+}

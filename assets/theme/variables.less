@@ -1,0 +1,52 @@
+
+@input-padding: 0.35rem 0.65rem;
+@border-width: 0.15rem;
+@opacity-subtle: 0.3;
+
+@border-radius: 0;
+@border-radius-secondary: 0.25rem;
+
+@dark: ~"(prefers-color-scheme: dark)";
+@touch: ~"(pointer: coarse)";
+
+:root {
+  --bg-color: #f9fafb;
+  --text-color: #000000;
+  --text-color-subtle: rgba(0, 0, 0, 0.7);
+  --primary-color-light: rgba(167, 139, 250, 0.5);
+  --secondary-color-light: rgba(244, 114, 144, 0.5);
+  --primary-color: rgb(167, 139, 250);
+  --secondary-color: rgb(244, 114, 144);
+  --primary-color-dark: rgb(139, 92, 246);
+  --secondary-color-dark: rgb(219, 39, 144);
+
+  --danger-color: rgb(236, 116, 116);
+  --danger-border-color: rgb(220, 77, 77);
+  --danger-text-color: white;
+
+  --input-bg: #efefef;
+  --border-color: #c7c7c7;
+  --border-color-transparent: #c7c7c700;
+
+  --dnd-section-bg: rgba(167, 139, 250, 0.1);
+}
+
+@media @dark {
+  :root {
+    --bg-color: #212121;
+    --text-color: #ffffff;
+    --text-color-subtle: rgba(255, 255, 255, 0.7);
+    --primary-color-light: rgba(206, 190, 255, 0.5);
+    --secondary-color-light: rgba(244, 114, 144, 0.5);
+    --primary-color: rgb(190, 171, 255);
+    --secondary-color: rgb(245, 105, 137);
+    --primary-color-dark: rgb(172, 139, 250);
+    --secondary-color-dark: rgb(222, 90, 167);
+
+    --input-bg: #444444;
+    --border-color: #919191;
+    --border-color-transparent: #91919100;
+
+    --dnd-section-bg: rgba(206, 190, 255, 0.1);
+  }
+}

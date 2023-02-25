@@ -1,0 +1,85 @@
+@import (reference) "variables";
+
+.-link() {
+  position: relative;
+  color: var(--primary-color-dark);
+  font-weight: bold;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    color: var(--secondary-color-dark);
+
+    &::after {
+      background-color: var(--secondary-color-light);
+    }
+  }
+
+  &::after {
+     content: "";
+
+     position: absolute;
+     bottom: -0.15rem;
+     left: 0;
+     right: 0;
+     height: @border-width;
+
+     opacity: 1;
+     transition: background-color 0.2s;
+
+     background-color: var(--primary-color-light);
+   }
+
+  &[role="button"] {
+    background-color: var(--input-bg);
+    padding: @input-padding;
+    @apply m-1;
+
+    &::after {
+      bottom: 0;
+    }
+  }
+}
+
+.link,
+a:not(.plain) {
+  .-link();
+}
+
+.link-arrow {
+  .-link();
+
+  &::before {
+    position: absolute;
+    z-index: 1;
+    content: "";
+    top: 50%;
+    left: 0;
+    height: 0;
+    width: 0;
+    border: solid transparent;
+    pointer-events: none;
+    border-left-color: var(--bg-color);
+    border-width: 0;
+    transition: border-width 0.15s;
+    transform: translateY(-50%);
+  }
+
+  &:hover,
+  &:focus {
+
+    &::before {
+      border-width: 0.5em;
+    }
+  }
+
+  &.back {
+
+    &::before {
+      left: auto;
+      right: 0;
+      border-left-color: transparent;
+      border-right-color: var(--bg-color);
+    }
+  }
+}
