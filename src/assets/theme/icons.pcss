@@ -1,0 +1,73 @@
+
+@each $icon in (
+    github,
+    ts
+) {
+    .i-$(icon) {
+        background-image: url('/src/assets/img/logo/$(icon).svg');
+    }
+    .i-dark.i-$(icon) {
+        background-image: url('/src/assets/img/logo/$(icon)_dark.svg');
+    }
+    :root.dark {
+        .dark\:i-light.i-$(icon) {
+            background-image: url('/src/assets/img/logo/$(icon).svg');
+        }
+        .dark\:i-dark.i-$(icon) {
+            background-image: url('/src/assets/img/logo/$(icon)_dark.svg');
+        }
+    }
+}
+
+@each $icon in (
+    cv,
+    dnd,
+    dart,
+    imprint
+) {
+    .i-$(icon) {
+        background-image: url('/src/assets/icon/$(icon).png');
+    }
+    .i-dark.i-$(icon) {
+        background-image: url('/src/assets/icon/$(icon)_dark.png');
+    }
+    :root.dark {
+        .dark\:i-light.i-$(icon) {
+            background-image: url('/src/assets/icon/$(icon).png');
+        }
+        .dark\:i-dark.i-$(icon) {
+            background-image: url('/src/assets/icon/$(icon)_dark.png');
+        }
+    }
+}
+
+@each $icon in (
+    d20,
+    d12,
+    d10,
+    d8,
+    d6,
+    d4
+) {
+    .i-dnd-$(icon) {
+        background-image: url('/src/assets/icon/dnd/$(icon).png');
+    }
+    .i-dark.i-dnd-$(icon) {
+        background-image: url('/src/assets/icon/dnd/$(icon)_dark.png');
+    }
+    :root.dark {
+        .dark\:i-light.i-dnd-$(icon) {
+            background-image: url('/src/assets/icon/dnd/$(icon).png');
+        }
+        .dark\:i-dark.i-dnd-$(icon) {
+            background-image: url('/src/assets/icon/dnd/$(icon)_dark.png');
+        }
+    }
+}
+
+.i {
+    display: inline-block;
+    background-size: contain;
+    width: 1em;
+    height: 1em;
+}

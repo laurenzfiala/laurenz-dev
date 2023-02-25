@@ -1,0 +1,34 @@
+
+:root {
+    --color-primary: 253 196 105;
+    --color-secondary: 238 54 108;
+    --color-text: theme('colors.zinc.900');
+    --color-text-subtle: theme('colors.zinc.500');
+    --bg-color-body: theme('colors.zinc.50');
+    --color-border: theme('colors.gray.300');
+    --padding-button: theme('spacing.[1.5]') theme('spacing.3') theme('spacing.1') theme('spacing.3');
+    --font-size-logo: 4rem;
+    --button-bg-color: transparent;
+    --button-bg-color-hover: theme('colors.zinc.200');
+    --nav-icon-container-size: 1.35rem;
+    --nav-icon-opacity: 0.4;
+}
+
+:root.dark {
+    --color-text: theme('colors.zinc.50');
+    --color-text-subtle: theme('colors.zinc.300');
+    --bg-color-body: theme('colors.zinc.900');
+    --color-border: theme('colors.gray.700');
+    --button-bg-color: theme('colors.zinc.900');
+    --button-bg-color-hover: theme('colors.zinc.800');
+    --nav-icon-opacity: 1;
+}
+
+@media only screen and (max-width: theme('screens.md')) {
+    :root {
+        --font-size-logo: 2.5rem;
+        --padding-button: theme('spacing.4') theme('spacing.5') theme('spacing.[3.5]') theme('spacing.5');
+        --nav-icon-container-size: 1.5rem;
+        --nav-icon-opacity: 1;
+    }
+}
