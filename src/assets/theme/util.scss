@@ -1,0 +1,63 @@
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+$sizes: base, lg, xl;
+@each $size in $sizes {
+  .fs-#{$size} {
+    --fs: var(--fs-#{$size});
+    font-size: var(--fs);
+  }
+}
+
+.me-1 {
+  margin-right: 0.5rem;
+}
+
+.my-3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 1.5rem;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.child-base-0 {
+  > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+.position-relative {
+  position: relative;
+}
+
+.z-1 {
+  z-index: 1;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.theme-appearance-light .d-dark {
+  display: none;
+}
+
+.theme-appearance-dark .d-light {
+  display: none;
+}

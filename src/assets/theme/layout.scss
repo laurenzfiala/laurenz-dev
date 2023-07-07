@@ -1,0 +1,17 @@
+.img-container {
+  position: relative;
+  background-color: var(--bg-bar);
+  height: 200px;
+  margin-bottom: 1rem;
+
+  > img {
+    height: 100%;
+  }
+}
+
+p {
+  text-align: justify;
+  font-size: 110%;
+  margin: 0 1.5rem 2rem 0;
+  max-width: 800px;
+}

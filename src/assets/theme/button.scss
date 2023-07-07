@@ -1,0 +1,30 @@
+button {
+  --color: var(--color-muted);
+  --border-color: var(--color-muted);
+  --bg: var(--color-bg);
+
+  min-height: calc(var(--fs, 0) * 0.72); // TODO replace with line height var
+  background: var(--bg);
+  border: solid var(--border-color) 0.2em;
+  color: var(--color);
+  font-weight: 900;
+  font-family: 'Manrope', sans-serif;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  outline: 0;
+
+  &:focus,
+  &:hover {
+    --border-color: #adadad;
+  }
+
+  &.active {
+    --bg: var(--border-color);
+    --color: var(--color-bg);
+  }
+
+  + button {
+    border-left: 0;
+  }
+}
