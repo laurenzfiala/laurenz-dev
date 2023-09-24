@@ -1,0 +1,10 @@
+:root {
+  --color-text: theme('colors.black');
+  --color-text-muted: theme('colors.neutral.500');
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root {
+    --color-text: theme('colors.white');
+  }
+}

@@ -1,0 +1,14 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Recursive', sans-serif;
+}
+
+h1 {
+  @apply text-2xl !important;
+}
+
+h2 {
+  @apply text-lg !important;
+}

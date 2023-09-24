@@ -1,0 +1,21 @@
+<a
+  routerLink="test"
+  class="text-start rounded-lg inline-block py-3 px-4 m-1 transition-all bg-neutral-100 border-2 border-neutral-200 hover:shadow-lg link-container"
+>
+  <div class="flex flex-row justify-between items-center">
+    <strong class="link mb-1">
+      {{ heading }}
+    </strong>
+
+    <div class="flex flex-row gap-1">
+      <div
+        *ngFor="let tag of tags"
+        class="block capitalize rounded-full py-0.5 px-2 text-xs text-white bg-primary-400"
+      >
+        {{ tag }}
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="subheading" class="subheading text-muted text-sm">{{ subheading }}</div>
+</a>

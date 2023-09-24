@@ -1,0 +1,19 @@
+section,
+footer {
+  max-width: 38rem;
+  margin-inline: auto;
+
+  @apply mb-[10rem] px-8;
+}
+
+footer {
+  @apply mb-[4rem];
+}
+
+section p {
+  text-align: justify;
+}
+
+.mb-p {
+  @apply mb-3;
+}

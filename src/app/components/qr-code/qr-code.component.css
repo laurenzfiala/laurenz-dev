@@ -1,0 +1,27 @@
+.qr-activator {
+  @apply w-[6rem] relative;
+}
+
+.overlay {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @apply w-[3rem] absolute z-10 transition-all shadow-lg shadow-neutral-700 rounded-full;
+}
+
+.qr {
+  @apply blur transition-all;
+}
+
+.active .overlay {
+  opacity: 0;
+}
+
+.active .qr {
+  @apply blur-0;
+}
+
+.subtle .overlay {
+  @apply saturate-0;
+}

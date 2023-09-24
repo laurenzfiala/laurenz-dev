@@ -1,0 +1,38 @@
+<div class="flex flex-row items-center justify-center h-[70vh]" [class.allow-anim]="_allowAnim">
+  <nav>
+    <a
+      routerLink="/about"
+      routerLinkActive
+      [class.hint]="_hintLinkIndex === 0 && _hintActive"
+      [ngClass]="activeClass(0)"
+      (isActiveChange)="activeChange(0, $event)"
+      >laurenz</a
+    >
+    ·
+    <a
+      routerLink="/"
+      routerLinkActive
+      [class.hint]="_hintLinkIndex === 1 && _hintActive"
+      [ngClass]="activeClass(1)"
+      (isActiveChange)="activeChange(1, $event)"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >dev</a
+    >
+    ·
+    <a
+      routerLink="/posts"
+      routerLinkActive
+      [ngClass]="activeClass(2)"
+      (isActiveChange)="activeChange(2, $event)"
+      >posts</a
+    >
+    ·
+    <a
+      routerLink="/cv"
+      routerLinkActive
+      [ngClass]="activeClass(3)"
+      (isActiveChange)="activeChange(3, $event)"
+      >cv</a
+    >
+  </nav>
+</div>

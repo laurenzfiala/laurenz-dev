@@ -1,0 +1,9 @@
+<button
+  class="qr-activator"
+  [class.active]="active"
+  [class.subtle]="subtle"
+  (click)="action.emit()"
+>
+  <img [src]="overlayUrl" class="overlay" />
+  <img [src]="qrUrl" class="qr" /><!-- TODO dark:invert -->
+</button>

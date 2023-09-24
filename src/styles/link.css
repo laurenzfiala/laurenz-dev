@@ -1,0 +1,11 @@
+.link-container:hover .link {
+  @apply text-primary-400;
+}
+
+.link {
+  @apply font-bold underline underline-offset-2 decoration-2 decoration-primary-400 transition-all;
+}
+
+.link:hover {
+  @apply text-primary-400;
+}

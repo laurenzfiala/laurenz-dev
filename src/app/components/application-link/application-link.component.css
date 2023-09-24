@@ -1,0 +1,15 @@
+:host {
+  display: contents;
+}
+
+a {
+  width: 250px;
+}
+
+.subheading {
+  hyphens: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

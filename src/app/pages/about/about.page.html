@@ -1,0 +1,102 @@
+<section>
+  <h1>Hi 👋</h1>
+  <div class="divider"></div>
+
+  <p>
+    I'm Laurenz, a software engineer and usability-aficionado. This space is intended as a place
+    where I can show my current and past creations and document the process too.
+  </p>
+  <p>
+    I also aim to regularly post over on the <a routerLink="/posts" class="link">posts</a> page once
+    it's finished, so I have a reference for future work. All while improving my skills in
+    hyper-iterative development.
+    <small>
+      Psst, I also hope this gives me the motivation to more regularly work on my personal projects.
+    </small>
+  </p>
+  <p class="mt-2">
+    What I do in my free time you ask? Well, I like to go hiking with friends, talk about the most
+    useless technical details and going on Interrail trips with my partner.
+  </p>
+</section>
+
+<section>
+  <img
+    src="../../../assets/imgs/about/portrait.jpg"
+    class="inline-block w-[20rem] max-w-[80svw] aspect-square rounded-full"
+  />
+</section>
+
+<section>
+  <h1>Contact</h1>
+  <div class="divider"></div>
+
+  <p class="mb-p">
+    Feel free to send me a message via e-mail or telegram! I am glad to hear any web-related or
+    technical news. Corrections and discussions are also welcome. 😄 If you're looking to hire, I am
+    also happy to consider your request. I am, however, not looking for advertisers or other
+    commerical communications.
+  </p>
+
+  <div class="text-muted text-sm text-start">
+    <strong>Data privacy:</strong>
+    <div class="flex flex-row">
+      <p [class.line-clamp-1]="!_showMsgDataProtectionInfo">
+        I will delete all data as soon as the correspondence is concluded, (maximum of 30 days after
+        the last message) or you request it. Note that I might keep anonymized copies of the
+        communications for longer. My e-mail provider deletes any metadata logs after 14 days.
+      </p>
+      <button
+        *ngIf="!_showMsgDataProtectionInfo"
+        class="link flex-shrink-0"
+        (click)="_showMsgDataProtectionInfo = true"
+      >
+        Read more
+      </button>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="flex flex-col items-center my-12">
+    <!-- EMAIL -->
+    <button role="link" class="link-container py-2 px-4" (click)="sendMail()">
+      <img src="../../../assets/imgs/about/email_logo.svg" class="w-[1.4em] inline-block me-1.5" />
+      <span class="link">E-mail</span>
+    </button>
+
+    <!-- TELEGRAM -->
+    <a class="link-container py-2 px-4" href="https://t.me/lorrowolf">
+      <img
+        src="../../../assets/imgs/about/telegram_logo.svg"
+        class="w-[1.4em] inline-block me-1.5"
+      />
+      <span class="link">Telegram</span>
+    </a>
+  </div>
+
+  <!-- QR Codes -->
+  <div
+    class="flex flex-row flex-wrap justify-center items-center gap-6 mt-12"
+    [class.qr-active]="_activeQr"
+  >
+    <div>
+      <!-- EMAIL -->
+      <app-qr-code
+        [active]="_activeQr === 'email'"
+        [subtle]="!!_activeQr"
+        overlayUrl="../../../assets/imgs/about/email_logo.svg"
+        qrUrl="../../../assets/imgs/about/qr_email.svg"
+        (action)="_activeQr = 'email'"
+      ></app-qr-code>
+    </div>
+
+    <!-- TELEGRAM -->
+    <app-qr-code
+      [active]="_activeQr === 'telegram'"
+      [subtle]="!!_activeQr"
+      overlayUrl="../../../assets/imgs/about/telegram_logo.svg"
+      qrUrl="../../../assets/imgs/about/qr_telegram.svg"
+      (action)="_activeQr = 'telegram'"
+    ></app-qr-code>
+  </div>
+</section>

@@ -1,0 +1,118 @@
+:host {
+  @apply text-3xl;
+}
+
+nav {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Recursive', sans-serif;
+
+  overflow-x: auto;
+  scrollbar-width: thin;
+
+  @apply px-6 mx-auto;
+}
+
+a {
+  @apply px-3 py-5;
+  transition: font-weight 0.25s;
+}
+
+a {
+  color: transparent;
+  font-weight: 700;
+
+  background: linear-gradient(
+    to right,
+    theme('textColor.DEFAULT') 20%,
+    theme('colors.secondary.DEFAULT') 40%,
+    theme('colors.primary.DEFAULT') 60%,
+    theme('textColor.DEFAULT') 80%
+  );
+  background-size: 500% 100%;
+  background-clip: text;
+  background-position-x: 0;
+
+  animation-duration: theme('transitions.medium');
+  animation-timing-function: ease-in-out;
+
+  transition:
+    transform theme('transitions.short'),
+    opacity theme('transitions.short');
+}
+
+a:active {
+  transform: scale(0.95);
+}
+
+a.hint:not(:active) {
+  animation: -anim-link-hint 0.75s;
+}
+
+a.active {
+  background-position-x: 50%;
+}
+
+a.intro-left {
+  animation-name: -anim-link-intro-to-left;
+}
+
+a.intro-right {
+  animation-name: -anim-link-intro-to-right;
+}
+
+a.outro-left {
+  animation-name: -anim-link-outro-to-left;
+}
+
+a.outro-right {
+  animation-name: -anim-link-outro-to-right;
+}
+
+@keyframes -anim-link-intro-to-left {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 50%;
+  }
+}
+
+@keyframes -anim-link-outro-to-left {
+  0% {
+    background-position-x: 50%;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes -anim-link-intro-to-right {
+  0% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 50%;
+  }
+}
+
+@keyframes -anim-link-outro-to-right {
+  0% {
+    background-position-x: 50%;
+  }
+  100% {
+    background-position-x: 0;
+  }
+}
+
+@keyframes -anim-link-hint {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  10% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+}
