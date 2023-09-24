@@ -1,5 +1,9 @@
 .qr-activator {
-  @apply w-[6rem] relative;
+  @apply w-[6rem] relative dark:w-[7rem] dark:p-1;
+}
+
+.qr-activator.active {
+  @apply dark:bg-white;
 }
 
 .overlay {
@@ -11,7 +15,7 @@
 }
 
 .qr {
-  @apply blur transition-all;
+  @apply blur-[0.25rem] transition-all dark:invert;
 }
 
 .active .overlay {
@@ -19,7 +23,7 @@
 }
 
 .active .qr {
-  @apply blur-0;
+  @apply blur-0 dark:invert-0;
 }
 
 .subtle .overlay {
