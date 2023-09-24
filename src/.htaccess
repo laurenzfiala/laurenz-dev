@@ -26,4 +26,4 @@ AddOutputFilterByType DEFLATE application/x-javascript
   </IfModule>
 </FilesMatch>
 
-Header add Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha384-Ob2ZtoQsFl5nMG2mtrymfSRpJ5M6UP4z5gGkmD+q4WO8/tq3l521iIffCPzAwPAb' 'sha384-KUz27tNpc2TU+4dOTf+7nWuNZDQw4Jt+50BZiGnU/tYHIN6oirnBzsZAIPTIFhcP' 'sha384-Z63nXk2tfEmCp59XUDqrxk4CNX5SbHDIpYWIilFBFSScgsyKXvrTOlJeU6uNee8b'; img-src 'self'"
+Header add Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' <auto-hashes>; img-src 'self'"

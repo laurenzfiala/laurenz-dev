@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration producation",
+    "build": "ng build",
+    "postbuild": "node .scripts/postbuild.node.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
