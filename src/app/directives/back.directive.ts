@@ -1,6 +1,10 @@
-import {Directive, HostListener, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Location} from '@angular/common';
+import { Directive, HostListener, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, ResolveFn, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { HistoryService } from '../services/history.service';
+import { bug } from '../utils/error.util';
+import { Route, RouteData } from '../app-routing.module';
+import { firstValueFrom, Observable } from 'rxjs';
 
 /**
  * Navigates the user back to the previous page.
@@ -14,6 +18,7 @@ import {Location} from '@angular/common';
     role: 'link',
     tabindex: '0',
   },
+  exportAs: 'back',
 })
 export class BackDirective implements OnInit {
   /**
@@ -29,10 +34,13 @@ export class BackDirective implements OnInit {
    */
   private _targetUrl?: string;
 
+  private _targetPageTitle?: string;
+
   constructor(
     private _router: Router,
     private _route: ActivatedRoute,
     private _location: Location,
+    private _backService: HistoryService,
   ) {}
 
   @HostListener('click')
@@ -48,6 +56,58 @@ export class BackDirective implements OnInit {
   ngOnInit() {
     this._targetUrl =
       this._router.lastSuccessfulNavigation?.previousNavigation?.finalUrl?.toString();
+
+    let previousRoute = this._backService.previousRoute();
+    const currentRouteUrl = this._route.snapshot.url.join('/');
+    if (previousRoute?.url.join('/').startsWith(currentRouteUrl)) {
+      // if previous route was a child route -> ignore
+      previousRoute = undefined;
+    }
+
+    void (async () => {
+      this._targetPageTitle = await this.resolveTitle(
+        previousRoute?.title ?? this.findParentRoute()?.data?.title ?? bug(),
+      );
+    })();
+  }
+
+  /**
+   * Finds the route associated with the `parentPageId` of the activated route data.
+   * @returns the parent route of null if none was found or no parent was specified
+   * @private
+   */
+  private findParentRoute(): Route | null {
+    const data = this._route.snapshot.data as RouteData;
+    const parentPageId = data.parentPageId;
+
+    if (parentPageId === undefined) {
+      return null;
+    }
+
+    // TODO check all routes
+    return (
+      (this._router.config.at(0)!.children as Route[]).find((route) => {
+        return route.data?.pageId && route.data.pageId === parentPageId;
+      }) ?? null
+    );
+  }
+
+  private async resolveTitle(title: string | ResolveFn<string>): Promise<string | undefined> {
+    const route = this._route.snapshot;
+    const routerState = this._router.routerState.snapshot;
+
+    if (typeof title === 'string') {
+      return title;
+    }
+    const result = title(route, routerState);
+
+    if (typeof result === 'string') {
+      return Promise.resolve(result);
+    } else if (result instanceof Observable) {
+      return firstValueFrom(result);
+    } else {
+      return result;
+    }
   }
 
   /**
@@ -66,5 +126,9 @@ export class BackDirective implements OnInit {
     const activatedRouteUrl = `/${this._route.snapshot.url.join('/')}`;
 
     return !!lastNavigationUrl && !lastNavigationUrl.startsWith(activatedRouteUrl);
+  }
+
+  get targetPageTitle() {
+    return this._targetPageTitle;
   }
 }

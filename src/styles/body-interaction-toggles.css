@@ -1,0 +1,7 @@
+.interaction-disable-user-select {
+  user-select: none;
+}
+
+.interaction-disable-scroll {
+  overflow: hidden;
+}

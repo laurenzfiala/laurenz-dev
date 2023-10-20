@@ -1,0 +1,19 @@
+<div #scrollContainer (scroll)="onScroll()" class="overflow-x-auto scrollbar-none max-w-full">
+  <ng-content></ng-content>
+</div>
+
+<div class="scrollbar-wrapper flex flex-row justify-center">
+  <div
+    #scrollbarContainer
+    class="scrollbar-container w-[40vw] max-w-[200px] h-[2.5rem] flex flex-col justify-center"
+    [class.__active]="_scroll"
+    (mousedown)="startScroll($event)"
+  >
+    <div class="w-full h-[3px] bg-neutral-200 dark:bg-neutral-800 relative scrollbar">
+      <div
+        #scrollbarHandle
+        class="scrollbar-handle w-[3rem] h-full bg-neutral-400 dark:bg-neutral-600 rounded-full absolute top-0"
+      ></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div
+  class="bg-fade-top"
+  [ngStyle]="{'--bg-src': _environment ? ('url(\'' + _environment.topBg.src + '\')') : ''}"
+>
+  <div class="flex flex-row">
+    <a
+      #back="back"
+      class="cursor-pointer flex-grow md:flex-grow-0 flex flex-row items-center p-2 transition-all opacity-70 hover:opacity-100"
+      appBack=".."
+    >
+      <img src="/assets/imgs/icons/chevron-left.svg" class="h-[2.5rem] me-3 dark:invert" />
+      <div class="back-label text-lg hidden md:block">{{ back.targetPageTitle }}</div>
+    </a>
+  </div>
+</div>
+
+<app-content *ngIf="_content" [content]="_content"></app-content>
+
+<div *ngIf="_error" class="m-4">{{_error.message}}</div>
+
+<router-outlet></router-outlet>

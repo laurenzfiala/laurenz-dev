@@ -1,0 +1,29 @@
+<div [class.sticky-heading-overlay]="content?.showSticky ?? showSticky">
+  <h1
+    *ngIf="(content?.level ?? level) === 1"
+    [class.heading-extra-margin]="!(content?.showDivider ?? showDivider)"
+  >
+    <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+  </h1>
+  <h2
+    *ngIf="(content?.level ?? level) === 2"
+    [class.heading-extra-margin]="!(content?.showDivider ?? showDivider)"
+  >
+    <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+  </h2>
+  <div *ngIf="content?.showDivider ?? showDivider" class="divider"></div>
+</div>
+
+<ng-container *ngIf="content?.showSticky ?? showSticky">
+  <h1 *ngIf="(content?.level ?? level) === 1" class="sticky-heading" aria-hidden="true">
+    <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+  </h1>
+  <h2 *ngIf="(content?.level ?? level) === 2" class="sticky-heading" aria-hidden="true">
+    <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+  </h2>
+  <div class="post-sticky-filler"></div>
+</ng-container>
+
+<ng-template #contentTemplate>
+  {{ content?.text ?? text ?? '' }}
+</ng-template>

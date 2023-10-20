@@ -1,0 +1,29 @@
+.bg-fade-top {
+  --bg-src: theme('colors.bg.DEFAULT');
+
+  background:
+    linear-gradient(
+      to bottom,
+      theme('colors.bg.DEFAULT / 30%') 0%,
+      theme('colors.bg.DEFAULT') 100%
+    ),
+    center / cover no-repeat var(--bg-src);
+
+  @apply h-[30svh] -mb-[20svh] p-4;
+}
+
+@media screen(md) {
+  .bg-fade-top {
+    background:
+      radial-gradient(farthest-corner at 50% -30%, transparent 0%, theme('colors.bg.DEFAULT') 70%),
+      center / cover no-repeat var(--bg-src);
+  }
+}
+
+.back-label {
+  text-shadow: 0.5px 1px 0px theme('colors.bg.DEFAULT / 50%');
+}
+
+app-content ::ng-deep section:first-child {
+  @apply mb-6;
+}

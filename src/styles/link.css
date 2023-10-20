@@ -1,4 +1,5 @@
-.link-container:hover .link {
+.link-container:hover .link,
+.link-container:focus-visible .link {
   @apply text-primary-400;
 }
 
@@ -6,6 +7,7 @@
   @apply font-bold underline underline-offset-2 decoration-2 decoration-primary-400 transition-all;
 }
 
-.link:hover {
+.link:hover,
+.link:focus-visible {
   @apply text-primary-400;
 }
