@@ -1,0 +1,8 @@
+.label-overlay {
+  mask-image: linear-gradient(
+    to right,
+    transparent var(--start),
+    white var(--start) var(--end),
+    transparent var(--end)
+  );
+}

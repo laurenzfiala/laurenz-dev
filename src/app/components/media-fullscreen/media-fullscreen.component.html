@@ -1,0 +1,41 @@
+<div
+  [ngClass]="{ 'opacity-0 pointer-events-none': !_show, 'opacity-100 backdrop-blur-xl': _show }"
+  class="fixed z-50 top-0 right-0 bottom-0 left-0 bg-black/80 text-contrast transition-all grid"
+  (click)="hide($event)"
+>
+  <div
+    *ngIf="_selectedMedia | async as selectedMedia"
+    class="p-4 flex flex-col justify-center items-center"
+    [class.opacity-0]="_isLoading"
+  >
+    <img
+      *ngIf="selectedMedia.type === 'image'"
+      #imageEl
+      [src]="selectedMedia.src"
+      [alt]="selectedMedia.alt"
+      class="constrain-w drop-shadow-2xl"
+      (click)="next()"
+      (load)="_isLoading = false; updateMediaConstraint()"
+    />
+    <video
+      *ngIf="selectedMedia.type === 'video'"
+      #videoEl
+      class="constrain-w drop-shadow-2xl"
+      (loadedmetadata)="_isLoading = false; updateMediaConstraint()"
+      (click)="next()"
+      loop
+      autoplay
+      [defaultMuted]="true"
+    >
+      <source [src]="selectedMedia.src" />
+      Your browser can't display this video.
+    </video>
+  </div>
+  <button
+    (click)="hide($event)"
+    class="absolute top-0 right-0 opacity-70 hover:opacity-100 transition-opacity p-2"
+    style="filter: drop-shadow(0 2px 3px rgb(0 0 0 / 1))"
+  >
+    <img class="w-[2.5rem] invert" src="/assets/imgs/icons/close.svg" aria-label="Close" />
+  </button>
+</div>

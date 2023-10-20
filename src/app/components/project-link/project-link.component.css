@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+a {
+  --bg: theme('colors.transparent');
+
+  background-color: var(--bg);
+
+  @apply flex flex-row items-center text-start shadow-xl rounded-lg p-4 transition-all relative;
+}
+
+a:hover,
+a:focus-visible,
+a > .overlay-end {
+  --bg: theme('colors.neutral.100');
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+  a {
+    --bg: theme('colors.neutral.900');
+  }
+
+  a:hover,
+  a:focus-visible,
+  a > .overlay-end {
+    --bg: theme('colors.neutral.800');
+  }
+}
+
+a > .overlay-end {
+  background: linear-gradient(to right, transparent 0%, var(--bg) 2rem) left no-repeat;
+  background-size: cover;
+
+  @apply absolute right-0 top-0 bottom-0 text-sm flex flex-row justify-center items-center py-4 px-4 md:px-8 rounded-r-lg transition-all opacity-0;
+}
+
+a:hover .overlay-end,
+a:focus-visible .overlay-end {
+  @apply opacity-100;
+}
+
+.ellipsis {
+  @apply overflow-hidden text-ellipsis;
+}

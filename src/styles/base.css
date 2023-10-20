@@ -1,0 +1,22 @@
+html {
+  font-size: 110%;
+  line-height: 1.65;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to bottom, transparent, rgb(227, 227, 227)) no-repeat bottom;
+  background-size: auto 10rem;
+
+  @apply bg text flex flex-col;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(to bottom, transparent, rgb(20, 20, 20)) no-repeat bottom;
+    background-size: auto 10rem;
+
+    @apply bg text;
+  }
+}

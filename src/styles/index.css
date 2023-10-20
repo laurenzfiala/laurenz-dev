@@ -1,44 +1,20 @@
-@import url('variables.css');
-@import url('fonts.css');
-@import url('heading.css');
-@import url('divider.css');
-@import url('layout.css');
-@import url('link.css');
+/* layer order/precedence in layers.css */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('variables.css') layer(global);
+@import url('fonts.css') layer(global);
+@import url('heading.css') layer(global);
+@import url('divider.css') layer(global);
+@import url('layout.css') layer(global);
+@import url('link.css') layer(global);
+@import url('body-interaction-toggles.css') layer(global);
+@import url('scrollbar.css') layer(global);
+@import url('base.css') layer(global);
 
-:root {
-  --color-text: theme('colors.black');
-  --color-text-muted: theme('colors.neutral.500');
+@layer framework {
+  @tailwind base;
+  @tailwind components;
 }
 
-@media only screen and (prefers-color-scheme: dark) {
-  :root {
-    --color-text: theme('colors.white');
-  }
-}
-
-html {
-  min-height: 100%;
-  font-size: 110%;
-  line-height: 1.65;
-}
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(to bottom, transparent, rgb(227, 227, 227)) no-repeat bottom;
-  background-size: auto 10rem;
-
-  @apply bg-neutral-50;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background: linear-gradient(to bottom, transparent, rgb(20, 20, 20)) no-repeat bottom;
-    background-size: auto 10rem;
-
-    @apply bg-neutral-900 text-white;
-  }
+@layer utils {
+  @tailwind utilities;
 }

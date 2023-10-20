@@ -6,9 +6,9 @@ h4 {
 }
 
 h1 {
-  @apply text-2xl !important;
+  @apply text-2xl;
 }
 
 h2 {
-  @apply text-lg !important;
+  @apply text-lg;
 }

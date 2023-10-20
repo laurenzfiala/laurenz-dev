@@ -1,7 +1,9 @@
-<app-nav></app-nav>
+<app-nav *ngIf="showNav$ | async"></app-nav>
 
-<div class="text-center">
+<div class="text-center grow flex flex-col h-full">
   <router-outlet></router-outlet>
+
+  <div class="flex-grow"></div>
 
   <app-footer></app-footer>
 </div>

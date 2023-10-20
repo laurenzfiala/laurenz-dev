@@ -1,0 +1,7 @@
+.constrain-w {
+  width: 100%;
+}
+
+.constrain-h {
+  height: calc(100dvh - 2rem);
+}

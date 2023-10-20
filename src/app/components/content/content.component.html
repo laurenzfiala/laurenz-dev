@@ -1,0 +1,16 @@
+<ng-container *ngIf="_contentSections">
+  <section
+    *ngFor="let section of _contentSections"
+    [ngClass]="{ 'px-0 max-w-none': section.section.wide }"
+  >
+    <ng-container *ngFor="let element of section.content">
+      <app-heading *ngIf="element.type === 'heading'" [content]="element"></app-heading>
+      <p *ngIf="element.type === 'paragraph'">{{ element.text }}</p>
+      <app-file *ngIf="element.type === 'file'" [content]="element"></app-file>
+      <app-timeline *ngIf="element.type === 'timeline'" [ranges]="element.ranges"></app-timeline>
+      <div *ngIf="element.type === 'carousel'" style="--carousel-padding: var(--paragraph-align-x)">
+        <app-carousel [media]="element.media"></app-carousel>
+      </div>
+    </ng-container>
+  </section>
+</ng-container>

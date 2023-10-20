@@ -1,0 +1,14 @@
+:host {
+  --padding: var(--carousel-padding, 0);
+}
+
+.carousel-item {
+  @apply relative;
+}
+
+.carousel-item.is-video::after {
+  content: '';
+  background: center / 2.5rem no-repeat url('/assets/imgs/icons/play.svg');
+
+  @apply absolute top-0 right-0 bottom-0 left-0 opacity-30 hover:opacity-60 transition-all;
+}

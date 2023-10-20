@@ -1,0 +1,43 @@
+<div class="relative my-[1.75rem]">
+  <div class="flex flex-row justify-stretch items-end my-10">
+    <!-- YEARS -->
+    <div
+      *ngFor="let year of _years; let first = first"
+      class="relative first:rounded-l last:rounded-r bg-neutral-200 dark:bg-neutral-800 h-12 flex flex-row basis-0 grow justify-center items-center"
+    >
+      <div *ngIf="!first" class="absolute left-[-1px] h-[15%] w-[2px] bg rounded-full"></div>
+      <span class="text-neutral-400">{{ year.label }}</span>
+
+      <!-- LABEL OVERLAY -->
+      <div
+        *ngFor="let range of year.ranges"
+        [ngStyle]="{ '--start': range.start, '--end': range.end }"
+        class="absolute z-10 left-0 top-0 h-12 right-0 flex flex-row items-center justify-center text-contrast label-overlay opacity-60"
+      >
+        {{ year.label }}
+      </div>
+    </div>
+  </div>
+
+  <!-- RANGES -->
+  <div class="absolute z-1 top-0 right-0 bottom-0 left-0">
+    <div
+      *ngFor="let range of _ranges"
+      [ngStyle]="{ '--left': range.left, '--width': range.width }"
+      class="absolute top-0 left-[var(--left)] w-[var(--width)] h-12 bg-primary rounded shadow-lg shadow-neutral-400 dark:shadow-none"
+    >
+      <div class="absolute bottom-[100%] left-0 right-0 flex flex-row flex-wrap pb-2 -m-0.5">
+        <div class="flex flex-row items-center flex-grow whitespace-nowrap max-w-full">
+          <span class="text-primary me-1 leading-4">•</span>
+          <span class="text-xs">{{ range.range.from | date: "MMMM '''yy" }}</span>
+        </div>
+      </div>
+      <div class="absolute top-[100%] left-0 right-0 flex flex-row flex-wrap pt-2 -m-0.5">
+        <div class="flex flex-row items-center flex-grow justify-end whitespace-nowrap max-w-full">
+          <span class="text-xs">{{ range.range.to | date: "MMMM '''yy" }}</span>
+          <span class="text-primary ms-1 leading-4">•</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

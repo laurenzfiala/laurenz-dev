@@ -47,12 +47,19 @@ module.exports = {
           900: '#5d1a89',
           950: '#400566',
         },
+        bg: {
+          DEFAULT: 'rgba(var(--bg) / <alpha-value>)',
+        },
+      },
+      backgroundColor: {
+        DEFAULT: 'rgb(var(--bg) / <alpha-value>)',
       },
       transitionDuration: {
         DEFAULT: '100ms',
       },
       textColor: {
         DEFAULT: 'var(--color-text)',
+        contrast: 'var(--color-text-contrast)',
         muted: 'var(--color-text-muted)',
       },
     },

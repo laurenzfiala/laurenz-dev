@@ -1,9 +1,20 @@
+:root {
+  --paragraph-width: 38rem;
+  --paragraph-padding-inline: 2rem;
+  --paragraph-align-x: max(
+    calc(50% - var(--paragraph-width) / 2 + var(--paragraph-padding-inline)),
+    var(--paragraph-padding-inline)
+  );
+}
+
 section,
 footer {
-  max-width: 38rem;
+  position: relative;
+  max-width: var(--paragraph-width);
+  padding-inline: var(--paragraph-padding-inline);
   margin-inline: auto;
 
-  @apply mb-[10rem] px-8;
+  @apply mb-[8rem];
 }
 
 footer {
