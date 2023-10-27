@@ -17,6 +17,7 @@ import { TabComponent } from './components/tabs/tab/tab.component';
 import { QrCodeComponent } from './components/qr-code/qr-code.component';
 import { NgOptimizedImage } from '@angular/common';
 import { UnfinishedComponent } from './components/unfinished/unfinished.component';
+import { BackDirective } from './directives/back.directive';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { UnfinishedComponent } from './components/unfinished/unfinished.componen
     TabComponent,
     QrCodeComponent,
     UnfinishedComponent,
+    BackDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, NgOptimizedImage],
   providers: [],
