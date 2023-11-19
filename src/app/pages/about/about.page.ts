@@ -11,6 +11,7 @@ export class AboutPage {
 
   protected _activeQr: 'email' | 'telegram' | null = null;
   protected _showMsgDataProtectionInfo = false;
+  protected _showQrCodes = false;
 
   protected sendMail() {
     location.href = `mailto:${AboutPage.E_MAIL.substring(8)}${AboutPage.E_MAIL.substring(0, 8)}`;

@@ -1,4 +1,6 @@
 :host {
+  display: contents;
+
   @apply text-3xl;
 }
 
@@ -8,19 +10,15 @@ nav {
   font-family: 'Recursive', sans-serif;
 
   overflow-x: auto;
-  scrollbar-width: thin;
 
-  @apply px-6 mx-auto;
+  @apply px-6 mx-auto h-full;
 }
 
 a {
-  @apply px-3 py-5;
-  transition: font-weight 0.25s;
-}
-
-a {
+  position: relative;
   color: transparent;
   font-weight: 700;
+  transition: font-weight 0.25s;
 
   background: linear-gradient(
     to right,
@@ -39,6 +37,41 @@ a {
   transition:
     transform theme('transitions.short'),
     opacity theme('transitions.short');
+
+  @apply px-3 py-8;
+}
+
+a::after {
+  --bg: theme('colors.neutral.300');
+
+  content: '';
+
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 0.75em);
+  transform: translateX(-50%);
+  width: 1.5rem;
+  height: 3px;
+  border-radius: 99px;
+
+  background: linear-gradient(
+    to right,
+    var(--bg) 20%,
+    theme('colors.secondary.DEFAULT') 40%,
+    theme('colors.primary.DEFAULT') 60%,
+    var(--bg) 80%
+  );
+  background-size: 500% 100%;
+  background-position-x: 0;
+
+  animation-duration: theme('transitions.medium');
+  animation-timing-function: ease-in-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  a::after {
+    --bg: theme('colors.neutral.700');
+  }
 }
 
 a:active {
@@ -46,26 +79,53 @@ a:active {
 }
 
 a.hint:not(:active) {
-  animation: -anim-link-hint 0.75s;
+  animation:
+    -anim-link-hint 0.75s,
+    -anim-link-intro-to-left 0.75s 0.15s forwards,
+    -anim-link-outro-to-right 0.75s 1.15s forwards;
 }
 
-a.active {
+a.hint.hint-direction-right:not(:active) {
+  animation:
+    -anim-link-hint 0.75s,
+    -anim-link-intro-to-right 0.75s 0.15s forwards,
+    -anim-link-outro-to-left 0.75s 1.15s forwards;
+}
+
+a.hint:not(:active)::after {
+  animation:
+    -anim-link-intro-to-left 0.75s 0.15s forwards,
+    -anim-link-outro-to-right 0.75s 1.15s forwards;
+}
+
+a.hint.hint-direction-right:not(:active)::after {
+  animation:
+    -anim-link-intro-to-right 0.75s 0.15s forwards,
+    -anim-link-outro-to-left 0.75s 1.15s forwards;
+}
+
+a.active,
+a.active::after {
   background-position-x: 50%;
 }
 
-a.intro-left {
+a.intro-left,
+a.intro-left::after {
   animation-name: -anim-link-intro-to-left;
 }
 
-a.intro-right {
+a.intro-right,
+a.intro-right::after {
   animation-name: -anim-link-intro-to-right;
 }
 
-a.outro-left {
+a.outro-left,
+a.outro-left::after {
   animation-name: -anim-link-outro-to-left;
 }
 
-a.outro-right {
+a.outro-right,
+a.outro-right::after {
   animation-name: -anim-link-outro-to-right;
 }
 

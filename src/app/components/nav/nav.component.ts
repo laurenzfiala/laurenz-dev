@@ -25,6 +25,7 @@ export class NavComponent implements AfterViewInit {
   protected _activeLinkIndex: number | null = null;
   protected _hintActive = true;
   protected _hintLinkIndex: number | null = null;
+  protected _hintDirection: 'left' | 'right' = 'left';
 
   ngAfterViewInit() {
     timer(2000)
@@ -36,16 +37,15 @@ export class NavComponent implements AfterViewInit {
       .subscribe(() => {
         if (this._activeLinkIndex !== null) {
           this._hintLinkIndex = this._activeLinkIndex > 0 ? 0 : 1;
+          this._hintDirection = this._activeLinkIndex < this._hintLinkIndex ? 'right' : 'left';
           this._cdRef.markForCheck();
         }
       });
   }
 
-  protected activeChange(index: number, event: boolean) {
-    if (!event) {
-      if (index === this._activeLinkIndex) {
-        this._activeLinkIndex = null;
-      }
+  protected activeChange(index: number, isBeingActivated: boolean) {
+    if (!isBeingActivated) {
+      // we only need activation events
       return;
     } else if (!this._allowAnim && ++this._linkActivationCount > 1) {
       this._allowAnim = true;
