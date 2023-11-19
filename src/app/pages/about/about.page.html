@@ -55,25 +55,33 @@
   </div>
 
   <!-- LINKS -->
-  <div class="flex flex-col items-center my-12">
-    <!-- EMAIL -->
-    <button role="link" class="link-container py-2 px-4" (click)="sendMail()">
-      <img src="../../../assets/imgs/about/email_logo.svg" class="w-[1.4em] inline-block me-1.5" />
-      <span class="link">E-mail</span>
+  <div class="flex flex-row justify-center flex-wrap gap-4 my-12">
+    <button role="link" class="logo-link" (click)="sendMail()">
+      <div class="logo">
+        <img src="/assets/imgs/about/email_logo.svg" />
+      </div>
+      E-mail
     </button>
 
-    <!-- TELEGRAM -->
-    <a class="link-container py-2 px-4" href="https://t.me/lorrowolf">
-      <img
-        src="../../../assets/imgs/about/telegram_logo.svg"
-        class="w-[1.4em] inline-block me-1.5"
-      />
-      <span class="link">Telegram</span>
+    <a href="https://t.me/lorrowolf" class="logo-link">
+      <div class="logo">
+        <img src="/assets/imgs/about/telegram_logo.svg" />
+      </div>
+      Telegram
     </a>
   </div>
 
+  <button *ngIf="!_showQrCodes" class="text-sm" (click)="_showQrCodes = true">
+    Scan the QR codes instead
+    <img
+      class="inline-block h-[1em] dark:invert -mt-[0.2em]"
+      src="/assets/imgs/icons/chevron-down.svg"
+    />
+  </button>
+
   <!-- QR Codes -->
   <div
+    *ngIf="_showQrCodes"
     class="flex flex-row flex-wrap justify-center items-center gap-6 mt-12"
     [class.qr-active]="_activeQr"
   >

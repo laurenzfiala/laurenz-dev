@@ -1,9 +1,10 @@
 <div class="flex flex-row items-center justify-center h-[70vh]" [class.allow-anim]="_allowAnim">
-  <nav>
+  <nav class="scrollbar-none">
     <a
       routerLink="/about"
       routerLinkActive
       [class.hint]="_hintLinkIndex === 0 && _hintActive"
+      [class.hint-direction-right]="_hintDirection === 'right'"
       [ngClass]="activeClass(0)"
       (isActiveChange)="activeChange(0, $event)"
       >laurenz</a
@@ -13,13 +14,13 @@
       routerLink="/"
       routerLinkActive
       [class.hint]="_hintLinkIndex === 1 && _hintActive"
+      [class.hint-direction-right]="_hintDirection === 'right'"
       [ngClass]="activeClass(1)"
       (isActiveChange)="activeChange(1, $event)"
       [routerLinkActiveOptions]="{ exact: true }"
       >dev</a
     >
-    <!--
-    ·
+    <!--·
     <a
       routerLink="/posts"
       routerLinkActive
