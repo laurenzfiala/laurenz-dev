@@ -7,15 +7,17 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { bug } from '../../utils/error.util';
+import { ComponentChanges } from '../../interfaces/component-changes.interface';
 
 export interface InputRange {
   from: string | Date;
-  to: string | Date;
+  to: 'ongoing' | string | Date;
 }
 
 interface DateRange {
   from: Date;
   to: Date;
+  toLabel?: string;
 }
 
 interface UIYear {
@@ -40,21 +42,36 @@ interface UIRangeWithinYear {
   styleUrls: ['./timeline.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TimelineComponent implements OnChanges {
+export class TimelineComponent implements OnInit, OnChanges {
   @Input({ required: true }) ranges!: InputRange[];
 
   protected _ranges: UIRange[] = [];
   protected _years: UIYear[] = [];
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['ranges']) {
+  ngOnInit() {
+    this.recalcState();
+  }
+
+  ngOnChanges(changes: ComponentChanges<TimelineComponent>) {
+    if (changes.ranges && !changes.ranges.firstChange) {
       this.recalcState();
     }
   }
 
   private recalcState() {
     const ranges = this.ranges.map((r) => {
-      return { from: new Date(r.from), to: new Date(r.to) } as DateRange;
+      if (r.to === 'ongoing') {
+        return {
+          from: new Date(r.from),
+          to: new Date(),
+          toLabel: 'Ongoing',
+        } satisfies DateRange;
+      }
+
+      return {
+        from: new Date(r.from),
+        to: new Date(r.to),
+      } satisfies DateRange;
     });
 
     const rangesStart =

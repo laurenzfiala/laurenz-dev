@@ -5,7 +5,7 @@
 }
 
 .heading-extra-margin {
-  @apply mb-6;
+  @apply mt-10 mb-6;
 }
 
 .sticky-heading-overlay {

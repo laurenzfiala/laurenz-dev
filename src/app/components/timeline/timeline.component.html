@@ -34,7 +34,9 @@
       </div>
       <div class="absolute top-[100%] left-0 right-0 flex flex-row flex-wrap pt-2 -m-0.5">
         <div class="flex flex-row items-center flex-grow justify-end whitespace-nowrap max-w-full">
-          <span class="text-xs">{{ range.range.to | date: "MMMM '''yy" }}</span>
+          <span class="text-xs">{{
+            range.range.toLabel ?? (range.range.to | date: "MMMM '''yy")
+          }}</span>
           <span class="text-primary ms-1 leading-4">•</span>
         </div>
       </div>
