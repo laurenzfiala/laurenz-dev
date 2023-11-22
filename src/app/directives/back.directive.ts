@@ -66,7 +66,9 @@ export class BackDirective implements OnInit {
 
     void (async () => {
       this._targetPageTitle = await this.resolveTitle(
-        previousRoute?.title ?? this.findParentRoute()?.data?.title ?? bug(),
+        (previousRoute?.data as RouteData | undefined)?.title ??
+          this.findParentRoute()?.data?.title ??
+          bug(),
       );
     })();
   }

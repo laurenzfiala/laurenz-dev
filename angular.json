@@ -41,7 +41,7 @@
     }
   },
   "projects": {
-    "laurenz-dev-reboot-new": {
+    "laurenz-dev": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -51,7 +51,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/laurenz-dev-reboot-new",
+            "outputPath": "dist/laurenz-dev",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -70,8 +70,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4kb",
+                  "maximumError": "6kb"
                 }
               ],
               "outputHashing": "all",
@@ -97,10 +97,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "laurenz-dev-reboot-new:build:production"
+              "browserTarget": "laurenz-dev:build:production"
             },
             "development": {
-              "browserTarget": "laurenz-dev-reboot-new:build:development"
+              "browserTarget": "laurenz-dev:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -108,7 +108,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "laurenz-dev-reboot-new:build"
+            "browserTarget": "laurenz-dev:build"
           }
         },
         "test": {

@@ -79,29 +79,31 @@ a:active {
 }
 
 a.hint:not(:active) {
-  animation:
-    -anim-link-hint 0.75s,
+  animation: -anim-link-hint 0.75s
+    /*,
     -anim-link-intro-to-left 0.75s 0.15s forwards,
-    -anim-link-outro-to-right 0.75s 1.15s forwards;
+    -anim-link-outro-to-right 0.75s 1.15s forwards*/;
+  /* multiple animations not working; see https://github.com/angular/angular/issues/53038 */
 }
 
 a.hint.hint-direction-right:not(:active) {
-  animation:
-    -anim-link-hint 0.75s,
+  animation: -anim-link-hint 0.75s
+    /*,
     -anim-link-intro-to-right 0.75s 0.15s forwards,
-    -anim-link-outro-to-left 0.75s 1.15s forwards;
+    -anim-link-outro-to-left 0.75s 1.15s forwards*/;
+  /* multiple animations not working; see https://github.com/angular/angular/issues/53038 */
 }
 
 a.hint:not(:active)::after {
-  animation:
-    -anim-link-intro-to-left 0.75s 0.15s forwards,
-    -anim-link-outro-to-right 0.75s 1.15s forwards;
+  /*animation: -anim-link-intro-to-left 0.75s 0.15s forwards,
+    -anim-link-outro-to-right 0.75s 1.15s forwards;*/
+  /* multiple animations not working; see https://github.com/angular/angular/issues/53038 */
 }
 
 a.hint.hint-direction-right:not(:active)::after {
-  animation:
-    -anim-link-intro-to-right 0.75s 0.15s forwards,
-    -anim-link-outro-to-left 0.75s 1.15s forwards;
+  /*animation: -anim-link-intro-to-right 0.75s 0.15s forwards,
+    -anim-link-outro-to-left 0.75s 1.15s forwards;*/
+  /* multiple animations not working; see https://github.com/angular/angular/issues/53038 */
 }
 
 a.active,
