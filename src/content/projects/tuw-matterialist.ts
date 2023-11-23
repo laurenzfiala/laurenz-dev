@@ -32,7 +32,7 @@ export default [
       A screenshot of a 1st person game. The level is contained in a light room. In the middle of the image
       is a projector standing on a metal floor. It is gray and blue.
       The player and projector are in a room surrounded by gray walls. The room has a metal floor.
-      To the right a ramp going upwards and outof the room can be seen.
+      To the right a ramp going upwards and out of the room can be seen.
       In the distance there are more gray walls.
       `,
     ),

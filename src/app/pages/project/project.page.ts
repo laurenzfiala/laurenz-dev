@@ -50,7 +50,9 @@ export class ProjectPage implements OnInit, OnChanges {
       this._content = module.content;
       this._environment = module.environment;
     } catch (err) {
-      this._error = new Error('Could not load content', { cause: err });
+      this._error = new Error('There is no content for this project yet, it will be added soon!', {
+        cause: err,
+      });
       console.error(err);
     } finally {
       this._cdRef.markForCheck();
