@@ -78,7 +78,7 @@ export default [
   `),
   paragraph(`
   One thing I urgently have to figure out is why the scroll position is not properly restored on page reload. I will
-  invest in a solution to this (a functioning back button that use the browser history was already part of this
+  invest in a solution to this (a functioning back button that uses the browser history was already part of this
   effort).
   `),
 ] satisfies Content;
