@@ -8,14 +8,15 @@
     </strong>
 
     <div class="flex flex-row gap-1">
-      <div
-        *ngFor="let tag of tags"
-        class="block capitalize rounded-full py-0.5 px-2 text-xs text-white bg-primary-400"
-      >
-        {{ tag }}
-      </div>
+      @for (tag of tags; track tag) {
+        <div class="block capitalize rounded-full py-0.5 px-2 text-xs text-white bg-primary-400">
+          {{ tag }}
+        </div>
+      }
     </div>
   </div>
 
-  <div *ngIf="subheading" class="subheading text-muted text-sm">{{ subheading }}</div>
+  @if (subheading) {
+    <div class="subheading text-muted text-sm">{{ subheading }}</div>
+  }
 </a>

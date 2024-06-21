@@ -8,12 +8,16 @@ import {
 } from '@angular/core';
 import { take, takeUntil, takeWhile, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NgClass } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, NgClass],
 })
 export class NavComponent implements AfterViewInit {
   private _cdRef = inject(ChangeDetectorRef);

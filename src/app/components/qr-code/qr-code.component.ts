@@ -5,6 +5,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   templateUrl: './qr-code.component.html',
   styleUrls: ['./qr-code.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class QrCodeComponent {
   @Input({ required: true }) active = false;

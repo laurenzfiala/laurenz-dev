@@ -16,6 +16,7 @@ import { bug } from '../../utils/error.util';
 import { ReplaySubject } from 'rxjs';
 import { ComponentChanges } from '../../interfaces/component-changes.interface';
 import { InteractionService } from '../../services/interaction.service';
+import { NgClass, AsyncPipe } from '@angular/common';
 
 /**
  * Shows the given media in a navigable full-viewport overlay.
@@ -26,6 +27,8 @@ import { InteractionService } from '../../services/interaction.service';
   styleUrls: ['./media-fullscreen.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   exportAs: 'mediaFullscreen',
+  standalone: true,
+  imports: [NgClass, AsyncPipe],
 })
 export class MediaFullscreenComponent implements OnChanges, OnDestroy {
   @Input() mediaId?: string;

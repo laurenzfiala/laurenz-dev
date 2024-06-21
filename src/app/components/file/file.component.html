@@ -1,8 +1,5 @@
-<a
-  *ngIf="content || src"
-  [href]="content?.src ?? src"
-  [download]="(content?.src ?? src)! | filename"
-  class="link"
->
-  {{ (content?.src ?? src)! | filename }}
-</a>
+@if (content || src) {
+  <a [href]="content?.src ?? src" [download]="(content?.src ?? src)! | filename" class="link">
+    {{ (content?.src ?? src)! | filename }}
+  </a>
+}

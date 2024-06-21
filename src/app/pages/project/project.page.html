@@ -14,8 +14,10 @@
   </div>
 </div>
 
-<app-content *ngIf="_content" [content]="_content"></app-content>
-
-<div *ngIf="_error" class="m-4">{{_error.message}}</div>
+@if (_content) {
+<app-content [content]="_content"></app-content>
+} @else if (_error) {
+<div class="m-4">{{_error.message}}</div>
+}
 
 <router-outlet></router-outlet>

@@ -1,9 +1,7 @@
 <a [routerLink]="link">
-  <img
-    *ngIf="thumbnailSrc"
-    [src]="thumbnailSrc"
-    class="aspect-square w-[4rem] md:w-[5rem] rounded-full me-2"
-  />
+  @if (thumbnailSrc) {
+    <img [src]="thumbnailSrc" class="aspect-square w-[4rem] md:w-[5rem] rounded-full me-2" />
+  }
 
   <div class="ms-2 overflow-hidden">
     <strong class="block ellipsis">{{ heading }}</strong>

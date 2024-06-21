@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { bug } from '../../utils/error.util';
 import { ComponentChanges } from '../../interfaces/component-changes.interface';
+import { NgStyle, DatePipe } from '@angular/common';
 
 export interface InputRange {
   from: string | Date;
@@ -41,6 +42,8 @@ interface UIRangeWithinYear {
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgStyle, DatePipe],
 })
 export class TimelineComponent implements OnInit, OnChanges {
   @Input({ required: true }) ranges!: InputRange[];

@@ -44,13 +44,11 @@
         the last message) or you request it. Note that I might keep anonymized copies of the
         communications for longer. My e-mail provider deletes any metadata logs after 14 days.
       </p>
-      <button
-        *ngIf="!_showMsgDataProtectionInfo"
-        class="link flex-shrink-0"
-        (click)="_showMsgDataProtectionInfo = true"
-      >
+      @if (!_showMsgDataProtectionInfo) {
+      <button class="link flex-shrink-0" (click)="_showMsgDataProtectionInfo = true">
         Read more
       </button>
+      }
     </div>
   </div>
 
@@ -71,17 +69,19 @@
     </a>
   </div>
 
-  <button *ngIf="!_showQrCodes" class="text-sm" (click)="_showQrCodes = true">
+  @if (!_showQrCodes) {
+  <button class="text-sm" (click)="_showQrCodes = true">
     Scan the QR codes instead
     <img
       class="inline-block h-[1em] dark:invert -mt-[0.2em]"
       src="/assets/imgs/icons/chevron-down.svg"
     />
   </button>
+  }
 
   <!-- QR Codes -->
+  @if (_showQrCodes) {
   <div
-    *ngIf="_showQrCodes"
     class="flex flex-row flex-wrap justify-center items-center gap-6 mt-12"
     [class.qr-active]="_activeQr"
   >
@@ -95,7 +95,6 @@
         (action)="_activeQr = 'email'"
       ></app-qr-code>
     </div>
-
     <!-- TELEGRAM -->
     <app-qr-code
       [active]="_activeQr === 'telegram'"
@@ -105,4 +104,5 @@
       (action)="_activeQr = 'telegram'"
     ></app-qr-code>
   </div>
+  }
 </section>
