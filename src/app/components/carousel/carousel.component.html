@@ -1,9 +1,7 @@
 <app-scroll class="img-carousel" style="--scrollbar-margin-block-start: -2.5rem">
   <div class="w-max px-[var(--carousel-padding)] flex flex-row gap-4 my-10">
-    <div
+    <button
       *ngFor="let media of media"
-      role="button"
-      tabindex="0"
       [routerLink]="['media', media.src | filename]"
       class="carousel-item"
       [class.is-video]="media.type === 'video'"
@@ -13,6 +11,6 @@
         class="h-[12rem] rounded-xl shadow-md shadow-black/30 cursor-pointer transition-all hover:shadow-lg hover:shadow-black/40"
         [alt]="media.type === 'image' ? media.alt : null"
       />
-    </div>
+    </button>
   </div>
 </app-scroll>
