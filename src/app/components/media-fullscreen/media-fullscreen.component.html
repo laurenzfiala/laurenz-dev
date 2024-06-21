@@ -3,34 +3,34 @@
   class="fixed z-50 top-0 right-0 bottom-0 left-0 bg-black/80 text-contrast transition-all grid"
   (click)="hide($event)"
 >
-  <div
-    *ngIf="_selectedMedia | async as selectedMedia"
-    class="p-4 flex flex-col justify-center items-center"
-    [class.opacity-0]="_isLoading"
-  >
-    <img
-      *ngIf="selectedMedia.type === 'image'"
-      #imageEl
-      [src]="selectedMedia.src"
-      [alt]="selectedMedia.alt"
-      class="constrain-w drop-shadow-2xl"
-      (click)="next()"
-      (load)="_isLoading = false; updateMediaConstraint()"
-    />
-    <video
-      *ngIf="selectedMedia.type === 'video'"
-      #videoEl
-      class="constrain-w drop-shadow-2xl"
-      (loadedmetadata)="_isLoading = false; updateMediaConstraint()"
-      (click)="next()"
-      loop
-      autoplay
-      [defaultMuted]="true"
-    >
-      <source [src]="selectedMedia.src" />
-      Your browser can't display this video.
-    </video>
-  </div>
+  @if (_selectedMedia | async; as selectedMedia) {
+    <div class="p-4 flex flex-col justify-center items-center" [class.opacity-0]="_isLoading">
+      @if (selectedMedia.type === 'image') {
+        <img
+          #imageEl
+          [src]="selectedMedia.src"
+          [alt]="selectedMedia.alt"
+          class="constrain-w drop-shadow-2xl"
+          (click)="next()"
+          (load)="_isLoading = false; updateMediaConstraint()"
+        />
+      }
+      @if (selectedMedia.type === 'video') {
+        <video
+          #videoEl
+          class="constrain-w drop-shadow-2xl"
+          (loadedmetadata)="_isLoading = false; updateMediaConstraint()"
+          (click)="next()"
+          loop
+          autoplay
+          [defaultMuted]="true"
+        >
+          <source [src]="selectedMedia.src" />
+          Your browser can't display this video.
+        </video>
+      }
+    </div>
+  }
   <button
     (click)="hide($event)"
     class="absolute top-0 right-0 opacity-70 hover:opacity-100 transition-opacity p-2"

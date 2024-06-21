@@ -2,6 +2,7 @@ import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angu
 
 @Directive({
   selector: '[clickA11y]',
+  standalone: true,
 })
 export class ClickA11yDirective {
   @Output() clickA11y = new EventEmitter<Event>();

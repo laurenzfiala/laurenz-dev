@@ -4,8 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-unfinished',
   templateUrl: './unfinished.component.html',
   styleUrls: ['./unfinished.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
-export class UnfinishedComponent {
-
-}
+export class UnfinishedComponent {}

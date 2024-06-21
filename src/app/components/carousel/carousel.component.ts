@@ -9,6 +9,10 @@ import {
 import { Media } from '../../interfaces/media.interface';
 import { MediaService } from '../../services/media.service';
 import { ComponentChanges } from '../../interfaces/component-changes.interface';
+import { FilenamePipe } from '../../pipes/filename.pipe';
+import { RouterLink } from '@angular/router';
+
+import { ScrollComponent } from '../scroll/scroll.component';
 
 /**
  * Shows the given media inside a horizontally-scrollable container.
@@ -25,6 +29,8 @@ import { ComponentChanges } from '../../interfaces/component-changes.interface';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ScrollComponent, RouterLink, FilenamePipe],
 })
 export class CarouselComponent implements OnInit, OnChanges {
   @Input({ required: true }) media!: Media[];

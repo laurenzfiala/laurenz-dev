@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { ResolveFn, Route as NgRoute, RouterModule } from '@angular/router';
+import { ResolveFn, Route as NgRoute } from '@angular/router';
 import { AboutPage } from './pages/about/about.page';
 import { DevPage } from './pages/dev/dev.page';
 import { PostsPage } from './pages/posts/posts.page';
@@ -46,7 +45,7 @@ export interface RouteData {
   title?: string | ResolveFn<string>;
 }
 
-const routes: Route[] = [
+export const Routes: Route[] = [
   {
     path: '',
     canActivateChild: [HistoryService.canActivateApplicationChild()],
@@ -114,14 +113,3 @@ const routes: Route[] = [
     ],
   },
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      bindToComponentInputs: true,
-      scrollPositionRestoration: 'enabled',
-    }),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

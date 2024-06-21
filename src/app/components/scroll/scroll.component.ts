@@ -21,6 +21,7 @@ import { InteractionService } from '../../services/interaction.service';
   templateUrl: './scroll.component.html',
   styleUrls: ['./scroll.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class ScrollComponent {
   @ViewChild('scrollContainer', { static: true })

@@ -1,9 +1,9 @@
 import { Directive, HostListener, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, ResolveFn, Router } from '@angular/router';
+import { ActivatedRoute, RedirectCommand, ResolveFn, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { HistoryService } from '../services/history.service';
 import { bug } from '../utils/error.util';
-import { Route, RouteData } from '../app-routing.module';
+import { Route, RouteData } from '../app.routes';
 import { firstValueFrom, Observable } from 'rxjs';
 
 /**
@@ -19,6 +19,7 @@ import { firstValueFrom, Observable } from 'rxjs';
     tabindex: '0',
   },
   exportAs: 'back',
+  standalone: true,
 })
 export class BackDirective implements OnInit {
   /**
@@ -65,11 +66,17 @@ export class BackDirective implements OnInit {
     }
 
     void (async () => {
-      this._targetPageTitle = await this.resolveTitle(
+      const targetPageTitle = await this.resolveTitle(
         (previousRoute?.data as RouteData | undefined)?.title ??
           this.findParentRoute()?.data?.title ??
           bug(),
       );
+
+      if (targetPageTitle instanceof RedirectCommand) {
+        bug('redirect command is not supported for back button titles');
+      }
+
+      this._targetPageTitle = targetPageTitle;
     })();
   }
 
@@ -94,7 +101,9 @@ export class BackDirective implements OnInit {
     );
   }
 
-  private async resolveTitle(title: string | ResolveFn<string>): Promise<string | undefined> {
+  private async resolveTitle(
+    title: string | ResolveFn<string | undefined>,
+  ): Promise<string | RedirectCommand | undefined> {
     const route = this._route.snapshot;
     const routerState = this._router.routerState.snapshot;
 

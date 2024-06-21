@@ -7,12 +7,15 @@ import {
   OnInit,
 } from '@angular/core';
 import { Content } from '../../interfaces/content.interface';
-import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
+import { ActivatedRouteSnapshot, ResolveFn, RouterOutlet } from '@angular/router';
 import { bug } from '../../utils/error.util';
 import { firstHeading } from '../../utils/content.utils';
 import { ComponentChanges } from '../../interfaces/component-changes.interface';
 import { Media } from '../../interfaces/media.interface';
 import { MediaService } from '../../services/media.service';
+import { ContentComponent } from '../../components/content/content.component';
+import { BackDirective } from '../../directives/back.directive';
+import { NgStyle } from '@angular/common';
 
 export interface ProjectPageEnvironment {
   topBg: Media;
@@ -24,6 +27,8 @@ export interface ProjectPageEnvironment {
   styleUrls: ['./project.page.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [MediaService],
+  standalone: true,
+  imports: [NgStyle, BackDirective, ContentComponent, RouterOutlet],
 })
 export class ProjectPage implements OnInit, OnChanges {
   @Input({ required: true }) id!: string;
@@ -62,8 +67,7 @@ export class ProjectPage implements OnInit, OnChanges {
   private static async load(
     id: string,
   ): Promise<{ content: Content; environment: ProjectPageEnvironment }> {
-    /* webpackPrefetch: true */
-    const module = await import(`../../../content/projects/${id}`);
+    const module = await import(`../../../content/projects/${id}.ts`);
 
     return {
       content: module.default,
