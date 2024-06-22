@@ -3,5 +3,5 @@
 }
 
 .constrain-h {
-  height: calc(100dvh - 2rem);
+  height: calc(100dvh - 7rem);
 }

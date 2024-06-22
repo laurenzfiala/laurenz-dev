@@ -6,6 +6,7 @@ import {
   Input,
   OnChanges,
   OnDestroy,
+  signal,
   ViewChild,
 } from '@angular/core';
 import { Media } from '../../interfaces/media.interface';
@@ -16,7 +17,7 @@ import { bug } from '../../utils/error.util';
 import { ReplaySubject } from 'rxjs';
 import { ComponentChanges } from '../../interfaces/component-changes.interface';
 import { InteractionService } from '../../services/interaction.service';
-import { NgClass, AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 
 /**
  * Shows the given media in a navigable full-viewport overlay.
@@ -39,6 +40,7 @@ export class MediaFullscreenComponent implements OnChanges, OnDestroy {
   protected _show = false;
   protected _isLoading = false;
   protected _preventClose?: Event;
+  protected _allMedia = signal<readonly Media[]>([]);
   protected _selectedMediaIndex: number = 0;
   protected _selectedMedia = new ReplaySubject<Media | null>(1);
 
@@ -101,6 +103,7 @@ export class MediaFullscreenComponent implements OnChanges, OnDestroy {
       return false;
     });
 
+    this._allMedia.set(mediaArray);
     this._selectedMediaIndex = selectedMediaIndex;
     this._selectedMedia.next(selectedMedia ?? bug());
     this._isLoading = true;
@@ -124,7 +127,8 @@ export class MediaFullscreenComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    const viewportAspect = window.innerWidth / window.innerHeight;
+    // '80' is 16 * 5 rem (which is the vertical offset of the image)
+    const viewportAspect = window.innerWidth / (window.innerHeight - 80 * window.devicePixelRatio);
     let mediaAspect;
     if (el instanceof HTMLImageElement) {
       mediaAspect = el.naturalWidth / el.naturalHeight;
