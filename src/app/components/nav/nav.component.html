@@ -1,23 +1,26 @@
-<div class="flex flex-row items-center justify-center h-[70vh]" [class.allow-anim]="_allowAnim">
+<div
+  class="wrapper flex flex-row items-center justify-center h-[70vh]"
+  [class.allow-anim]="_allowAnim"
+>
   <nav class="scrollbar-none">
     <a
-      routerLink="/about"
+      routerLink="/"
       routerLinkActive
       [class.hint]="_hintLinkIndex === 0 && _hintActive"
       [class.hint-direction-right]="_hintDirection === 'right'"
       [ngClass]="activeClass(0)"
+      [routerLinkActiveOptions]="{ exact: true }"
       (isActiveChange)="activeChange(0, $event)"
       >laurenz</a
     >
     ·
     <a
-      routerLink="/"
+      routerLink="/development"
       routerLinkActive
       [class.hint]="_hintLinkIndex === 1 && _hintActive"
       [class.hint-direction-right]="_hintDirection === 'right'"
       [ngClass]="activeClass(1)"
       (isActiveChange)="activeChange(1, $event)"
-      [routerLinkActiveOptions]="{ exact: true }"
       >dev</a
     >
     <!--·

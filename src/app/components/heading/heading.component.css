@@ -10,7 +10,7 @@
 
 .sticky-heading-overlay {
   background: linear-gradient(to bottom, theme('colors.bg.DEFAULT') 75%, transparent 100%);
-  margin-block-end: calc(var(--sticky-heading-height) * -2);
+  margin-block-end: calc(var(--sticky-heading-height) * -2 - 0.75rem);
 
   @apply relative z-20 -mx-6;
 }

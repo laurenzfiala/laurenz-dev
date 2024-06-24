@@ -1,4 +1,4 @@
-<a [routerLink]="link">
+<a [routerLink]="link" [tabindex]="disabled() ? -1 : 0" [class.--disabled]="disabled()">
   @if (thumbnailSrc) {
     <img [src]="thumbnailSrc" class="aspect-square w-[4rem] md:w-[5rem] rounded-full me-2" />
   }
@@ -6,10 +6,6 @@
   <div class="ms-2 overflow-hidden">
     <strong class="block ellipsis">{{ heading }}</strong>
     <div class="text-muted text-sm ellipsis">{{ subheading }}</div>
-  </div>
-
-  <div class="overlay-end">
-    <img src="/assets/imgs/icons/arrow-right.svg" class="opacity-40 h-[1.5rem] dark:invert" />
   </div>
 </a>
 <div class="text-muted text-sm mt-4">

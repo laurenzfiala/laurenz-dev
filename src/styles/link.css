@@ -4,10 +4,20 @@
 }
 
 .link {
-  @apply font-bold underline underline-offset-2 decoration-2 decoration-primary-400 transition-all;
+  background: linear-gradient(
+    35deg,
+    theme('textColor.DEFAULT') 33.3%,
+    theme('colors.secondary.DEFAULT') 66.6%,
+    theme('colors.primary.DEFAULT') 100%
+  );
+  background-size: 300% auto;
+  background-position-x: 0;
+  transition: background-position theme('transitionDuration.long');
+
+  @apply font-bold underline underline-offset-2 decoration-2 decoration-secondary-400 bg-clip-text text-transparent;
 }
 
 .link:hover,
 .link:focus-visible {
-  @apply text-primary-400;
+  background-position-x: 100%;
 }

@@ -4,6 +4,16 @@
   @apply text-3xl;
 }
 
+.wrapper {
+  background:
+    linear-gradient(to right, theme('colors.primary.DEFAULT'), theme('colors.secondary.DEFAULT'))
+      no-repeat,
+    linear-gradient(to bottom, rgb(0 0 0 / 5%), transparent) no-repeat;
+  background-size:
+    auto 4px,
+    auto 60vh;
+}
+
 nav {
   display: inline-flex;
   align-items: center;

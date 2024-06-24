@@ -51,18 +51,18 @@ export const Routes: Route[] = [
     canActivateChild: [HistoryService.canActivateApplicationChild()],
     children: [
       {
-        path: 'about',
+        path: '',
         component: AboutPage,
-        title: 'laurenz · dev › About',
+        title: 'laurenz · dev',
         data: {
           pageId: 'about',
           title: 'About',
         },
       },
       {
-        path: '',
+        path: 'development',
         component: DevPage,
-        title: 'laurenz · dev',
+        title: 'laurenz · dev › Development',
         data: {
           pageId: 'dev',
           title: 'All projects',
