@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, input, Input } from '@angular/core';
 
 import { RouterLink } from '@angular/router';
 
@@ -15,4 +15,5 @@ export class ProjectLinkComponent {
   @Input({ required: true }) link!: string;
   @Input({ required: true }) heading!: string;
   @Input({ required: true }) subheading!: string;
+  disabled = input(false, { transform: booleanAttribute });
 }

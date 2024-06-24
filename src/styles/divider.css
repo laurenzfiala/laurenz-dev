@@ -1,15 +1,15 @@
 .divider {
   display: inline-block;
-  width: 5rem;
+  width: theme('custom.divider.horizontalLength');
   height: theme('borderWidth.DEFAULT');
 
-  @apply bg-neutral-300 dark:bg-neutral-700 rounded my-7;
+  @apply bg-neutral-200 dark:bg-neutral-700 rounded my-7;
 }
 
 .divider-h {
   display: inline-block;
-  height: theme('custom.divider.length');
+  height: theme('custom.divider.verticalLength');
   width: theme('borderWidth.DEFAULT');
 
-  @apply bg-neutral-300 dark:bg-neutral-600 rounded my-7;
+  @apply bg-neutral-200 dark:bg-neutral-600 rounded my-7;
 }

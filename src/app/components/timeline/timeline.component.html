@@ -27,7 +27,7 @@
     @for (range of _ranges; track $index) {
       <div
         [ngStyle]="{ '--left': range.left, '--width': range.width }"
-        class="absolute top-0 left-[var(--left)] w-[var(--width)] h-12 bg-primary rounded shadow-lg shadow-neutral-400 dark:shadow-none"
+        class="absolute top-0 left-[var(--left)] w-[var(--width)] h-12 bg-primary rounded shadow-lg dark:shadow-transparent shadow-neutral-400 dark:shadow-none"
       >
         <div class="absolute bottom-[100%] left-0 right-0 flex flex-row flex-wrap pb-2 -m-0.5">
           <div class="flex flex-row items-center flex-grow whitespace-nowrap max-w-full">

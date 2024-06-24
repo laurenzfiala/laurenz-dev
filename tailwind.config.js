@@ -12,9 +12,14 @@ module.exports = {
       1: '1px',
       2: '3px',
     },
+    boxShadow: {
+      DEFAULT: '0 1.5px 0 0 rgba(0 0 0 / 0.15)',
+      lg: '0 7px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+    },
     custom: {
       divider: {
-        length: '5rem',
+        verticalLength: '3rem',
+        horizontalLength: '5rem',
       },
     },
     extend: {
@@ -56,6 +61,7 @@ module.exports = {
       },
       transitionDuration: {
         DEFAULT: '100ms',
+        long: '350ms',
       },
       textColor: {
         DEFAULT: 'var(--color-text)',
