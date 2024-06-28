@@ -1,6 +1,19 @@
 @font-face {
   font-family: 'Recursive';
-  src: url('../assets/fonts/Recursive-VariableFont.ttf');
+  font-weight: normal;
+  src: url('../assets/fonts/Recursive-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Recursive';
+  font-weight: 600;
+  src: url('../assets/fonts/Recursive-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Recursive';
+  font-weight: bold;
+  src: url('../assets/fonts/Recursive-Bold.ttf');
 }
 
 @font-face {
