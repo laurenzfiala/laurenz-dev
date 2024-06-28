@@ -15,7 +15,7 @@ export default [
   section(true),
   carousel(
     mediaImage(
-      '/assets/imgs/projects/tuw_matterialist.jpg',
+      '/assets/content/projects/tuw-matterialist/1.jpg',
       `
       A screenshot of a 1st person game. The level is a light room. To the left there is a
       projector standing on a metal floor.
