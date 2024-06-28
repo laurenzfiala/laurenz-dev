@@ -10,7 +10,7 @@
 
 .sticky-heading-overlay {
   background: linear-gradient(to bottom, theme('colors.bg.DEFAULT') 75%, transparent 100%);
-  margin-block-end: calc(var(--sticky-heading-height) * -2 - 0.75rem);
+  margin-block-end: calc(var(--sticky-heading-height) * -2);
 
   @apply relative z-20 -mx-6;
 }
@@ -18,9 +18,11 @@
 .sticky-heading {
   --shadow: 0 6px 12px -12px theme('colors.neutral.500');
 
+  height: var(--sticky-heading-height);
+
   box-shadow: var(--shadow);
 
-  @apply sticky top-0 z-10 text-lg bg px-6 py-2 -mx-6;
+  @apply sticky top-0 z-10 text-lg bg px-6 flex flex-row items-center justify-center -mx-6;
 }
 
 @media (prefers-color-scheme: dark) {

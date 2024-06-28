@@ -23,6 +23,12 @@ a > .overlay-end {
 @media only screen and (prefers-color-scheme: dark) {
   a {
     --bg: theme('colors.neutral.900');
+
+    &.--disabled {
+      --bg: theme('colors.transparent');
+
+      @apply pointer-events-none shadow-transparent border-2 border-neutral-800;
+    }
   }
 
   a:hover,
