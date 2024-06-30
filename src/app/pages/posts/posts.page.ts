@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { UnfinishedComponent } from '../../components/unfinished/unfinished.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -7,6 +8,6 @@ import { UnfinishedComponent } from '../../components/unfinished/unfinished.comp
   styleUrls: ['./posts.page.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [UnfinishedComponent],
+  imports: [UnfinishedComponent, RouterLink],
 })
 export class PostsPage {}

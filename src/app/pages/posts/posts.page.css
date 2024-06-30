@@ -1,0 +1,28 @@
+:host {
+  @apply text-start;
+}
+
+section:nth-child(n + 2) {
+  @apply mb-0;
+}
+
+.search {
+  --bg: theme('colors.neutral.200');
+
+  background:
+    url('/assets/imgs/icons/search.svg') no-repeat 0.75rem center,
+    var(--bg);
+  background-size: 1.5rem, auto;
+
+  @apply rounded p-2 ps-12 outline-none w-full mb-2 transition-all;
+
+  &:focus {
+    --bg: theme('colors.neutral.100');
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .search {
+    --bg: theme('colors.neutral.900');
+  }
+}

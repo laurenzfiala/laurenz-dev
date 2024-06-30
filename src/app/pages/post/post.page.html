@@ -1,0 +1,29 @@
+<div class="top-wrapper mb-4 pb-4" [ngStyle]="{ '--color': _environment()?.color ?? '255 0 0' }">
+  <div class="flex flex-row p-4">
+    <a
+      #back="back"
+      class="cursor-pointer flex-grow md:flex-grow-0 flex flex-row items-center p-2 transition-all opacity-70 hover:opacity-100"
+      appBack=".."
+    >
+      <img
+        src="/assets/imgs/icons/chevron-left-sm.svg"
+        class="h-[1.5rem] me-3 dark:invert -mb-[2px]"
+      />
+      <div class="back-label text-lg hidden md:block">{{ back.targetPageTitle }}</div>
+    </a>
+  </div>
+
+  <div class="centered">
+    <h1>
+      {{ _environment()?.heading ?? '' }}
+    </h1>
+
+    <small class="block mt-2">
+      {{ _environment()?.date | date: 'mediumDate' }}
+    </small>
+  </div>
+</div>
+
+@if (_content(); as content) {
+  <app-content [content]="content"></app-content>
+}

@@ -7,6 +7,12 @@
   );
 }
 
+.centered {
+  max-width: var(--paragraph-width);
+  padding-inline: var(--paragraph-padding-inline);
+  margin-inline: auto;
+}
+
 section,
 footer {
   position: relative;

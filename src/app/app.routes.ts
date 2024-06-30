@@ -6,6 +6,7 @@ import { CvPage } from './pages/cv/cv.page';
 import { ProjectPage } from './pages/project/project.page';
 import { MediaFullscreenComponent } from './components/media-fullscreen/media-fullscreen.component';
 import { HistoryService } from './services/history.service';
+import { PostPage } from './pages/post/post.page';
 
 export interface Route extends NgRoute {
   data?: RouteData;
@@ -105,6 +106,17 @@ export const Routes: Route[] = [
             },
           },
         ],
+      },
+      {
+        path: 'posts/:id',
+        component: PostPage,
+        title: PostPage.pageTitle('laurenz · dev › Posts › '),
+        data: {
+          pageId: 'post',
+          parentPageId: 'posts',
+          nav: false,
+          title: PostPage.pageTitle(),
+        }
       },
       {
         path: '**',

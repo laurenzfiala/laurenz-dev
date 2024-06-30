@@ -1,6 +1,6 @@
 <div
   class="bg-fade-top"
-  [ngStyle]="{'--bg-src': _environment ? ('url(\'' + _environment.topBg.src + '\')') : ''}"
+  [ngStyle]="{ '--bg-src': _environment ? 'url(\'' + _environment.topBg.src + '\')' : '' }"
 >
   <div class="flex flex-row">
     <a
@@ -8,16 +8,17 @@
       class="cursor-pointer flex-grow md:flex-grow-0 flex flex-row items-center p-2 transition-all opacity-70 hover:opacity-100"
       appBack=".."
     >
-      <img src="/assets/imgs/icons/chevron-left.svg" class="h-[2.5rem] me-3 dark:invert" />
+      <!-- TODO move to component -->
+      <img src="/assets/imgs/icons/chevron-left-sm.svg" class="h-[1.5rem] me-3 dark:invert" />
       <div class="back-label text-lg hidden md:block">{{ back.targetPageTitle }}</div>
     </a>
   </div>
 </div>
 
 @if (_content) {
-<app-content [content]="_content"></app-content>
+  <app-content [content]="_content"></app-content>
 } @else if (_error) {
-<div class="m-4">{{_error.message}}</div>
+  <div class="m-4">{{ _error.message }}</div>
 }
 
 <router-outlet></router-outlet>
