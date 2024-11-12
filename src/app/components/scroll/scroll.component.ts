@@ -3,8 +3,6 @@ import {
   Component,
   ElementRef,
   HostListener,
-  NgZone,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 import { InteractionService } from '../../services/interaction.service';
@@ -35,10 +33,7 @@ export class ScrollComponent {
 
   protected _scroll = false;
 
-  constructor(
-    private _interactionService: InteractionService,
-    private _zone: NgZone,
-  ) {}
+  constructor(private _interactionService: InteractionService) {}
 
   startScroll(event: MouseEvent) {
     this._scroll = true;
@@ -77,7 +72,7 @@ export class ScrollComponent {
     const scrollbarContainerWidth = this._scrollbarContainer.nativeElement.clientWidth;
     const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
     const position = clamp(
-      (event.screenX - deadzone - this.nativeScrollbar.getBoundingClientRect().x) /
+      (event.clientX - deadzone - this.nativeScrollbar.getBoundingClientRect().x) /
         (scrollbarContainerWidth - deadzone * 2),
       0,
       1,
