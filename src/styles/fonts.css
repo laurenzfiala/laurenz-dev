@@ -1,19 +1,25 @@
 @font-face {
-  font-family: 'Recursive';
+  font-family: 'Lexend';
   font-weight: normal;
-  src: url('../assets/fonts/Recursive-Regular.ttf');
+  src: url('../assets/fonts/Lexend-Regular.ttf');
 }
 
 @font-face {
-  font-family: 'Recursive';
+  font-family: 'Lexend';
+  font-weight: 500;
+  src: url('../assets/fonts/Lexend-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Lexend';
   font-weight: 600;
-  src: url('../assets/fonts/Recursive-SemiBold.ttf');
+  src: url('../assets/fonts/Lexend-SemiBold.ttf');
 }
 
 @font-face {
-  font-family: 'Recursive';
+  font-family: 'Lexend';
   font-weight: bold;
-  src: url('../assets/fonts/Recursive-Bold.ttf');
+  src: url('../assets/fonts/Lexend-Bold.ttf');
 }
 
 @font-face {
