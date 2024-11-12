@@ -23,7 +23,7 @@
 }
 
 .active .qr {
-  @apply blur-0 dark:invert-0;
+  @apply blur-0 dark:invert-0 dark:drop-shadow-none drop-shadow-lg drop-shadow-[0_6px_8px_rgba(0,0,0,0.3)];
 }
 
 .subtle .overlay {

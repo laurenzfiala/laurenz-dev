@@ -7,7 +7,7 @@ a {
 
   background-color: var(--bg);
 
-  @apply flex flex-row items-center text-start shadow hover:shadow-lg rounded-lg p-4 transition-all relative;
+  @apply flex flex-row items-center text-start p-4 relative;
 
   &.--disabled {
     @apply pointer-events-none shadow-transparent;

@@ -18,7 +18,7 @@ footer {
 }
 
 footer {
-  @apply mb-[4rem];
+  @apply mb-[3rem];
 }
 
 section p {
