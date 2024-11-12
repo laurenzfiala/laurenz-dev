@@ -1,0 +1,35 @@
+/*
+These backgrounds are applied to all pages.
+Backgrounds at the top can be found in nav.component.
+ */
+
+body {
+  background:
+    radial-gradient(
+        100% 200px at right bottom,
+        rgba(189, 116, 247, 0.3),
+        theme('colors.bg.DEFAULT')
+      )
+      no-repeat right bottom,
+    theme('colors.bg.DEFAULT');
+  background-size:
+    auto 200px,
+    auto;
+}
+
+@media screen(lg) {
+  body {
+    background:
+      url('/assets/imgs/bg/background-end.webp') no-repeat left bottom,
+      radial-gradient(
+          100% 250px at right bottom,
+          rgba(189, 116, 247, 0.3),
+          theme('colors.bg.DEFAULT')
+        )
+        no-repeat right bottom,
+      theme('colors.bg.DEFAULT');
+    background-size:
+      auto 350px,
+      auto;
+  }
+}

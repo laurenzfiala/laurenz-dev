@@ -8,8 +8,9 @@
 @import url('link.css') layer(global);
 @import url('body-interaction-toggles.css') layer(global);
 @import url('scrollbar.css') layer(global);
+@import url('background.css') layer(global);
 @import url('base.css') layer(global);
-@import url('logo-link.css') layer(global);
+@import url('btn-link.css') layer(global);
 
 @layer framework {
   @tailwind base;

@@ -5,13 +5,42 @@
 }
 
 .wrapper {
+  position: relative;
+  padding-block-start: 150px;
+
   background:
-    linear-gradient(to right, theme('colors.primary.DEFAULT'), theme('colors.secondary.DEFAULT'))
-      no-repeat,
-    linear-gradient(to bottom, rgb(0 0 0 / 5%), transparent) no-repeat;
+    url('/assets/imgs/bg/nav-background.webp') no-repeat left top,
+    radial-gradient(120% 120% at 90% -40%, rgba(189, 116, 247, 0.4), theme('colors.bg.DEFAULT'))
+      no-repeat;
   background-size:
-    auto 4px,
-    auto 60vh;
+    500px auto,
+    auto 50vh;
+
+  @apply flex flex-row items-center justify-center h-[50vh];
+}
+
+@media screen and (min-width: 450px) {
+  .wrapper {
+    padding-block-start: 75px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .wrapper {
+    padding-block-start: 100px;
+  }
+}
+
+@media screen(lg) {
+  .wrapper {
+    background:
+      url('/assets/imgs/bg/nav-background-lg.webp') no-repeat right -100px,
+      radial-gradient(120% 120% at 10% -40%, rgba(189, 116, 247, 0.4), theme('colors.bg.DEFAULT'))
+        no-repeat;
+    background-size:
+      auto 600px,
+      auto 50vh;
+  }
 }
 
 nav {
@@ -28,7 +57,6 @@ a {
   position: relative;
   color: transparent;
   font-weight: 700;
-  transition: font-weight 0.25s;
 
   background: linear-gradient(
     to right,
@@ -60,7 +88,7 @@ a::after {
   left: 50%;
   top: calc(50% + 0.75em);
   transform: translateX(-50%);
-  width: 1.5rem;
+  width: theme('custom.divider.horizontalLength');
   height: 3px;
   border-radius: 99px;
 
@@ -89,31 +117,30 @@ a:active {
 }
 
 a.hint:not(:active) {
-  animation: -anim-link-hint 0.75s
-    /*,
+  animation:
+    -anim-link-hint 0.75s,
     -anim-link-intro-to-left 0.75s 0.15s forwards,
-    -anim-link-outro-to-right 0.75s 1.15s forwards*/;
+    -anim-link-outro-to-right 0.75s 1.15s forwards;
   /* multiple animations not working; see https://github.com/angular/angular/issues/53038 */
 }
 
 a.hint.hint-direction-right:not(:active) {
-  animation: -anim-link-hint 0.75s
-    /*,
+  animation:
+    -anim-link-hint 0.75s,
     -anim-link-intro-to-right 0.75s 0.15s forwards,
-    -anim-link-outro-to-left 0.75s 1.15s forwards*/;
-  /* multiple animations not working; see https://github.com/angular/angular/issues/53038 */
+    -anim-link-outro-to-left 0.75s 1.15s forwards;
 }
 
 a.hint:not(:active)::after {
-  /*animation: -anim-link-intro-to-left 0.75s 0.15s forwards,
-    -anim-link-outro-to-right 0.75s 1.15s forwards;*/
-  /* multiple animations not working; see https://github.com/angular/angular/issues/53038 */
+  animation:
+    -anim-link-intro-to-left 0.75s 0.15s forwards,
+    -anim-link-outro-to-right 0.75s 1.15s forwards;
 }
 
 a.hint.hint-direction-right:not(:active)::after {
-  /*animation: -anim-link-intro-to-right 0.75s 0.15s forwards,
-    -anim-link-outro-to-left 0.75s 1.15s forwards;*/
-  /* multiple animations not working; see https://github.com/angular/angular/issues/53038 */
+  animation:
+    -anim-link-intro-to-right 0.75s 0.15s forwards,
+    -anim-link-outro-to-left 0.75s 1.15s forwards;
 }
 
 a.active,

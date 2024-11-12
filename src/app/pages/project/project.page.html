@@ -5,11 +5,11 @@
   <div class="flex flex-row">
     <a
       #back="back"
-      class="cursor-pointer flex-grow md:flex-grow-0 flex flex-row items-center p-2 transition-all opacity-70 hover:opacity-100"
+      class="cursor-pointer flex flex-row items-center px-4 py-2 opacity-70 hover:opacity-100 btn-link-bg--secondary btn-link-bg--inline"
       appBack=".."
     >
-      <img src="/assets/imgs/icons/chevron-left.svg" class="h-[2.5rem] me-3 dark:invert" />
-      <div class="back-label text-lg hidden md:block">{{ back.targetPageTitle }}</div>
+      <img src="/assets/imgs/icons/chevron-left-sm.svg" class="h-[0.6em] me-3 dark:invert" />
+      <div class="back-label font-medium text-lg">{{ back.targetPageTitle }}</div>
     </a>
   </div>
 </div>

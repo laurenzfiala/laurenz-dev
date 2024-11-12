@@ -1,0 +1,78 @@
+.btn-link-bg,
+.btn-link-bg--secondary,
+.btn-link,
+.btn-link--with-logo {
+  --bg-color: theme('colors.gray.100');
+  --active-color-1: theme('colors.gray.200');
+  --active-color-2: theme('colors.gray.300');
+
+  background: linear-gradient(
+    to right,
+    var(--bg-color) 33.3%,
+    var(--active-color-1) 66.6%,
+    var(--active-color-2) 100%
+  );
+  background-size: 300% 100%;
+  background-position-x: 0;
+
+  transition:
+    background-position theme('transitions.medium'),
+    transform theme('transitions.short'),
+    box-shadow theme('transitions.medium');
+
+  @apply shadow hover:shadow-lg hover:shadow-gray-400 shadow-gray-300 rounded-lg dark:hover:shadow-black dark:shadow-black select-none;
+
+  &:hover,
+  &:focus {
+    background-position: 100%;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.btn-link-bg--inline {
+  @apply shadow-transparent;
+}
+
+.btn-link-bg--secondary {
+  --bg-color: transparent;
+  --active-color-1: theme('colors.secondary.200');
+  --active-color-2: theme('colors.secondary.300');
+}
+
+.btn-link-bg-hover {
+  --bg-color: transparent;
+
+  @apply shadow-transparent;
+}
+
+.btn-link,
+.btn-link--with-logo {
+  @apply p-4 inline-flex flex-row justify-center items-center font-bold;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-link-bg,
+  .btn-link,
+  .btn-link--with-logo {
+    --bg-color: theme('colors.neutral.900');
+    --active-color-1: theme('colors.gray.800');
+    --active-color-2: theme('colors.gray.700');
+  }
+
+  .btn-link-bg--secondary {
+    --bg-color: transparent;
+    --active-color-1: theme('colors.secondary.700');
+    --active-color-2: theme('colors.secondary.800');
+  }
+}
+
+.btn-link--with-logo > .logo {
+  @apply h-[1.5rem] me-3;
+}
+
+.btn-link--with-logo > .logo > img {
+  @apply h-full;
+}
