@@ -8,6 +8,11 @@ AddOutputFilterByType DEFLATE application/rss+xml
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
 
+FileETag MTime Size
+<IfModule mod_headers.c>
+  Header set Cache-Control "private, max-age=14400, must-revalidate"
+</IfModule>
+
 <FilesMatch "\.(html|htm)$">
   FileETag None
   <IfModule mod_headers.c>
