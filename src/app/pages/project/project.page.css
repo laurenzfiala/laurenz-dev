@@ -1,21 +1,33 @@
-.bg-fade-top {
-  --bg-src: theme('colors.bg.DEFAULT');
+:host {
+  @apply text-start;
+}
 
-  background:
-    linear-gradient(
-      to bottom,
-      theme('colors.bg.DEFAULT / 30%') 0%,
-      theme('colors.bg.DEFAULT') 100%
-    ),
-    center / cover no-repeat var(--bg-src);
+.bg-fade-top {
+  background: radial-gradient(
+    farthest-side at top center,
+    rgba(var(--scoped-theme-color) / 50%),
+    transparent
+  );
 
   @apply h-[30svh] -mb-[20svh] p-4;
+
+  &.--with-image {
+    --bg-src: theme('colors.bg.DEFAULT');
+
+    background:
+      linear-gradient(
+        to bottom,
+        theme('colors.bg.DEFAULT / 30%') 0%,
+        theme('colors.bg.DEFAULT') 100%
+      ),
+      center / cover no-repeat var(--bg-src);
+  }
 }
 
 @media screen(md) {
-  .bg-fade-top {
+  .bg-fade-top.--with-image {
     background:
-      radial-gradient(farthest-corner at 50% -30%, transparent 0%, theme('colors.bg.DEFAULT') 70%),
+      radial-gradient(farthest-side at 50% -30%, transparent, theme('colors.bg.DEFAULT')),
       center / cover no-repeat var(--bg-src);
   }
 }

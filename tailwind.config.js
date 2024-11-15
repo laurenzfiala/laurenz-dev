@@ -14,7 +14,8 @@ module.exports = {
     },
     boxShadow: {
       DEFAULT: '0 2px 0 0 rgba(0 0 0 / 0.15)',
-      lg: '0 7px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+      md: '0 4px 6px -1px rgb(0 0 0 / 0.15), 0 2px 4px -2px rgb(0 0 0 / 0.15)',
+      lg: '0 7px 15px -3px rgb(0 0 0 / 0.15), 0 4px 6px -4px rgb(0 0 0 / 0.15)',
     },
     custom: {
       divider: {
@@ -67,6 +68,9 @@ module.exports = {
         DEFAULT: 'var(--color-text)',
         contrast: 'var(--color-text-contrast)',
         muted: 'var(--color-text-muted)',
+      },
+      fontSize: {
+        '3xl': '1.75rem',
       },
     },
   },

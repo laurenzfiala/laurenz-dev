@@ -18,7 +18,6 @@ export function heading(text: string): HeadingElement {
     type: 'heading',
     level: 1,
     text: text,
-    showDivider: false,
     showSticky: false,
   };
 }
@@ -28,7 +27,15 @@ export function subheading(text: string): HeadingElement {
     type: 'heading',
     level: 2,
     text: text,
-    showDivider: false,
+    showSticky: false,
+  };
+}
+
+export function subsubheading(text: string): HeadingElement {
+  return {
+    type: 'heading',
+    level: 3,
+    text: text,
     showSticky: false,
   };
 }

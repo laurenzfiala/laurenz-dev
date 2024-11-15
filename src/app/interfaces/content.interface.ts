@@ -7,9 +7,8 @@ interface Element {
 
 export interface HeadingElement extends Element {
   type: 'heading';
-  level: 1 | 2;
+  level: 1 | 2 | 3;
   text: string;
-  showDivider: boolean;
   showSticky: boolean;
 }
 

@@ -1,0 +1,11 @@
+section {
+  @apply text-start mb-0;
+}
+
+.divider {
+  @apply my-12;
+}
+
+h1 {
+  @apply mb-0;
+}

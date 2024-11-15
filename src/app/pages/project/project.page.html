@@ -1,24 +1,33 @@
 <div
-  class="bg-fade-top"
-  [ngStyle]="{ '--bg-src': _environment ? 'url(\'' + _environment.topBg.src + '\')' : '' }"
+  [ngStyle]="{
+    '--scoped-theme-color': _environment()?.color ?? '0 0 0',
+  }"
 >
-  <div class="flex flex-row">
-    <a
-      #back="back"
-      class="cursor-pointer flex-grow md:flex-grow-0 flex flex-row items-center p-2 transition-all opacity-70 hover:opacity-100"
-      appBack=".."
-    >
-      <!-- TODO move to component -->
-      <img src="/assets/imgs/icons/chevron-left-sm.svg" class="h-[1.5rem] me-3 dark:invert" />
-      <div class="back-label text-lg hidden md:block">{{ back.targetPageTitle }}</div>
-    </a>
+  <div
+    class="bg-fade-top"
+    [class.--with-image]="!!_environment()?.topBg"
+    [ngStyle]="{
+      '--bg-src': _environment() ? 'url(\'' + _environment()?.topBg?.src + '\')' : null,
+    }"
+  >
+    <div class="flex flex-row">
+      <a
+        #back="back"
+        class="cursor-pointer flex-grow md:flex-grow-0 flex flex-row items-center p-2 transition-all opacity-70 hover:opacity-100"
+        appBack=".."
+      >
+        <!-- TODO move to component -->
+        <img src="/assets/imgs/icons/chevron-left-sm.svg" class="h-[1.5rem] me-3 dark:invert" />
+        <div class="back-label text-lg hidden md:block">{{ back.targetPageTitle }}</div>
+      </a>
+    </div>
   </div>
+
+  @if (_content()) {
+    <app-content [content]="_content()!"></app-content>
+  } @else if (_error()) {
+    <div class="m-4">{{ _error()!.message }}</div>
+  }
+
+  <router-outlet></router-outlet>
 </div>
-
-@if (_content) {
-  <app-content [content]="_content"></app-content>
-} @else if (_error) {
-  <div class="m-4">{{ _error.message }}</div>
-}
-
-<router-outlet></router-outlet>

@@ -3,10 +3,9 @@
 }
 
 .top-wrapper {
-  background: radial-gradient(
-    farthest-corner at bottom center,
-    rgba(var(--color) / 50%),
-    transparent
-  );
-  border-block-end: solid rgb(var(--color)) 3px;
+  background: radial-gradient(farthest-side at top center, rgba(var(--color) / 50%), transparent);
+}
+
+.divider {
+  background-color: rgb(var(--color));
 }

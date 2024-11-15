@@ -4,6 +4,7 @@ import {
   mediaImage,
   paragraph,
   section,
+  subheading,
   timeline,
 } from '../../app/utils/content.utils';
 import { Content } from '../../app/interfaces/content.interface';
@@ -25,7 +26,7 @@ export default [
   `),
 
   section(),
-  heading(`Timeline`),
+  subheading(`Timeline`),
   timeline({ from: '2023-08-25', to: '2023-09-17' }),
   paragraph(`
   The project is currently on the backburner as long as this website is my priority.
@@ -36,5 +37,5 @@ export default [
 ] satisfies Content;
 
 export const environment = {
-  topBg: mediaImage('/assets/content/projects/ngx-visual-cd/bg.jpg', ''),
+  color: '80 209 129',
 } satisfies ProjectPageEnvironment;

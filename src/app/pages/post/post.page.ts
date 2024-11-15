@@ -16,9 +16,9 @@ import { BackDirective } from '../../directives/back.directive';
 import { DatePipe, NgStyle } from '@angular/common';
 
 export interface PostPageEnvironment {
-  color: string;
   heading: string;
   date: Date;
+  color: `${number} ${number} ${number}`;
 }
 
 @Component({
@@ -75,8 +75,8 @@ export class PostPage {
     return async (route: ActivatedRouteSnapshot) => {
       let title: string;
       try {
-        const content = (await this.load(route.paramMap.get('id') ?? bug())).content;
-        title = firstHeading(content)?.text ?? '';
+        const content = await this.load(route.paramMap.get('id') ?? bug());
+        title = content.environment.heading ?? '';
       } catch (e) {
         title = '(missing)';
       }

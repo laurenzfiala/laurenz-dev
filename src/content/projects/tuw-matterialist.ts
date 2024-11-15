@@ -6,6 +6,7 @@ import {
   mediaVideo,
   paragraph,
   section,
+  subheading,
   timeline,
 } from '../../app/utils/content.utils';
 import { Content } from '../../app/interfaces/content.interface';
@@ -71,7 +72,7 @@ export default [
   `),
 
   section(),
-  heading(`Timeline`),
+  subheading(`Timeline`),
   timeline({ from: '2020-03', to: '2020-06-30' }),
   paragraph(`
   Since the course only lasts from March to June, we had to do a typical end-of-semester crunch, which was really
@@ -84,7 +85,7 @@ export default [
   `),
 
   section(),
-  heading(`Gameplay`),
+  subheading(`Gameplay`),
   paragraph(`
   In a 3D space, the player can walk around, jump and pick up/put down »projectors«. These then cast particles
   (using a compute shader) against the surface you aimed at and modifies its properties. There are two types of
@@ -97,14 +98,14 @@ export default [
   file('/assets/content/projects/tuw-matterialist/MATTERialist.zip'),
 
   section(),
-  heading(`Technical features`),
+  subheading(`Technical features`),
   paragraph(`
   We implemented shadow maps, and a GPU particle system for the projectors. Also, animations and specular maps, but
   these were much smaller features. If you are interested in full submission document, you can find it at the bottom.
   `),
 
   section(),
-  heading(`Teamwork during lockdown`),
+  subheading(`Teamwork during lockdown`),
   paragraph(`
   Teamwork was pretty challenging, especially because the course started right before lockdown and I only just met my
   project partner. We had heaps of technical issues during communications on Discord, also some problems
@@ -112,11 +113,12 @@ export default [
   `),
 
   section(),
-  heading(`Downloads`),
+  subheading(`Downloads`),
   file('/assets/content/projects/tuw-matterialist/MATTERialist.zip'),
   file('/assets/content/projects/tuw-matterialist/MATTERialist.pdf'),
 ] satisfies Content;
 
 export const environment = {
   topBg: mediaImage('/assets/content/projects/tuw-matterialist/3.jpg', ''),
+  color: '47 84 93',
 } satisfies ProjectPageEnvironment;

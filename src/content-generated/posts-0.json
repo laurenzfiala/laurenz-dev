@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Hello World!",
+    "tags": ["Update"],
+    "text": "Finally, my first post! Now I just need to find something to write...",
+    "path": "hello-world"
+  },
+  {
+    "title": "About Angular",
+    "tags": ["Angular"],
+    "text": "Finally, my first post! Now I just need to find something to write...",
+    "path": "web-dev"
+  }
+]

@@ -1,13 +1,5 @@
-:host {
-  @apply text-start;
-}
-
-section:nth-child(n + 2) {
-  @apply mb-0;
-}
-
 .search {
-  --bg: theme('colors.neutral.200');
+  --bg: theme('colors.neutral.100');
 
   background:
     url('/assets/imgs/icons/search.svg') no-repeat 0.75rem center,
@@ -17,12 +9,16 @@ section:nth-child(n + 2) {
   @apply rounded p-2 ps-12 outline-none w-full mb-2 transition-all;
 
   &:focus {
-    --bg: theme('colors.neutral.100');
+    --bg: theme('colors.neutral.200');
   }
 }
 
 @media (prefers-color-scheme: dark) {
   .search {
     --bg: theme('colors.neutral.900');
+
+    &:focus {
+      --bg: theme('colors.neutral.800');
+    }
   }
 }

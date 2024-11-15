@@ -7,6 +7,7 @@ import {
   paragraph,
   section,
   subheading,
+  subsubheading,
   timeline,
 } from '../../app/utils/content.utils';
 import { Content } from '../../app/interfaces/content.interface';
@@ -21,7 +22,7 @@ export default [
   `),
 
   section(),
-  heading(`Timeline`),
+  subheading(`Timeline`),
   timeline({ from: '2023-09-18', to: 'ongoing' }),
   paragraph(`
   Started in September, I aim to check all planned features off quickly and to then iterate on them regularly, but
@@ -29,9 +30,9 @@ export default [
   `),
 
   section(),
-  heading(`Upcoming features`),
+  subheading(`Upcoming features`),
 
-  subheading(`More & better-looking project details`),
+  subsubheading(`More & better-looking project details`),
   paragraph(`
   Currently, not all previous projects have content associated with them. This will be a priority over the next few weeks.
   `),
@@ -40,7 +41,7 @@ export default [
   links inside text.
   `),
 
-  subheading(`Improved accessibility`),
+  subsubheading(`Improved accessibility`),
   paragraph(`
   There are a few spots with bigger issues, and a few others with minor ones.
   For example, the fullscreen image carousel has no navigation aids at all.
@@ -53,14 +54,14 @@ export default [
   probably read a few extra resources. I am really looking forward to it.
   `),
 
-  subheading(`Blog page`),
+  subsubheading(`Blog page`),
   paragraph(`
   This is a big new feature, coming up at the end of 2023. It's an additional page accessible via the main
   navigation menu, where you can find new 'blog'-style posts from me. I want to focus on things I am interested in
   and the posts will be pretty infrequent.
   `),
 
-  subheading(`Résumé / CV page`),
+  subsubheading(`Résumé / CV page`),
   paragraph(`
   The last big feature planned for the site is the CV page. Here you will find my CV (obviously 😁), but I want to
   try to make a good-looking and understandable visualization. Possibly similar to the timeline above.
@@ -70,7 +71,7 @@ export default [
   quite challenging. We'll see..
   `),
 
-  subheading(`Technical improvements`),
+  subsubheading(`Technical improvements`),
   paragraph(`
   After dipping my toes in other frameworks for three years, before deciding to just finish the Website in Angular
   with a less experimental design, I will instead use the time to improve my SEO skills, try Angular SSR and a more
@@ -84,5 +85,5 @@ export default [
 ] satisfies Content;
 
 export const environment = {
-  topBg: mediaImage('/assets/content/projects/laurenz-dev/bg.jpg', ''),
+  color: '177 81 251',
 } satisfies ProjectPageEnvironment;

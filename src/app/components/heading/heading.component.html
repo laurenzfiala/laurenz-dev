@@ -1,16 +1,21 @@
 <div [class.sticky-heading-overlay]="content?.showSticky ?? showSticky">
   @if ((content?.level ?? level) === 1) {
-    <h1 [class.heading-extra-margin]="!(content?.showDivider ?? showDivider)">
-      <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
-    </h1>
+    <div class="text-center">
+      <h1 class="mb-0 mt-0">
+        <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+      </h1>
+      <hr class="divider" />
+    </div>
   }
   @if ((content?.level ?? level) === 2) {
-    <h2 [class.heading-extra-margin]="!(content?.showDivider ?? showDivider)">
+    <h2>
       <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
     </h2>
   }
-  @if (content?.showDivider ?? showDivider) {
-    <div class="divider"></div>
+  @if ((content?.level ?? level) === 3) {
+    <h3>
+      <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+    </h3>
   }
 </div>
 
@@ -21,6 +26,11 @@
     </h1>
   }
   @if ((content?.level ?? level) === 2) {
+    <h2 class="sticky-heading" aria-hidden="true">
+      <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+    </h2>
+  }
+  @if ((content?.level ?? level) === 3) {
     <h2 class="sticky-heading" aria-hidden="true">
       <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
     </h2>

@@ -45,7 +45,7 @@ export default [
 ] satisfies Content;
 
 export const environment = {
-  color: '212 130 23',
+  color: '176 81 251',
   heading: 'Web Development',
   date: new Date('2024-07-02'),
 } satisfies PostPageEnvironment;

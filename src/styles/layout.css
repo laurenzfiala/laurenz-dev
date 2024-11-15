@@ -20,7 +20,7 @@ footer {
   padding-inline: var(--paragraph-padding-inline);
   margin-inline: auto;
 
-  @apply mb-[8rem];
+  @apply mb-[4rem];
 }
 
 footer {

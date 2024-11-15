@@ -1,4 +1,4 @@
-<div class="top-wrapper mb-4 pb-4" [ngStyle]="{ '--color': _environment()?.color ?? '255 0 0' }">
+<div class="top-wrapper mb-4 pb-4" [ngStyle]="{ '--color': _environment()?.color ?? '0 0 0' }">
   <div class="flex flex-row p-4">
     <a
       #back="back"
@@ -13,14 +13,16 @@
     </a>
   </div>
 
-  <div class="centered">
-    <h1>
+  <div class="text-center">
+    <h1 class="my-0">
       {{ _environment()?.heading ?? '' }}
     </h1>
 
     <small class="block mt-2">
       {{ _environment()?.date | date: 'mediumDate' }}
     </small>
+
+    <hr class="divider" />
   </div>
 </div>
 

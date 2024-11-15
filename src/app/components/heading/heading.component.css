@@ -4,10 +4,6 @@
   --sticky-heading-height: 2.5rem;
 }
 
-.heading-extra-margin {
-  @apply mt-10 mb-6;
-}
-
 .sticky-heading-overlay {
   background: linear-gradient(to bottom, theme('colors.bg.DEFAULT') 75%, transparent 100%);
   margin-block-end: calc(var(--sticky-heading-height) * -2);
@@ -22,7 +18,7 @@
 
   box-shadow: var(--shadow);
 
-  @apply sticky top-0 z-10 text-lg bg px-6 flex flex-row items-center justify-center -mx-6;
+  @apply sticky top-0 z-10 text-lg bg px-6 flex flex-row items-center justify-center -mx-6 my-0;
 }
 
 @media (prefers-color-scheme: dark) {
