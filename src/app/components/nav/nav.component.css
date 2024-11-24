@@ -10,13 +10,13 @@
 
   background:
     url('/assets/imgs/bg/nav-background.webp') no-repeat left top,
-    radial-gradient(120% 120% at 90% -40%, rgba(189, 116, 247, 0.4), theme('colors.bg.DEFAULT'))
+    radial-gradient(120% 120% at 90% -20%, rgba(189, 116, 247, 0.4), theme('colors.bg.DEFAULT'))
       no-repeat;
   background-size:
     500px auto,
-    auto 50vh;
+    auto 100%;
 
-  @apply flex flex-row items-center justify-center h-[50vh];
+  @apply flex flex-row items-center justify-center min-h-[450px] h-[70vh] md:h-[50vh];
 }
 
 @media screen and (min-width: 450px) {
@@ -34,11 +34,11 @@
 @media screen(lg) {
   .wrapper {
     background:
-      url('/assets/imgs/bg/nav-background-lg.webp') no-repeat right -100px,
+      url('/assets/imgs/bg/nav-background-lg.webp') no-repeat right top,
       radial-gradient(120% 120% at 10% -40%, rgba(189, 116, 247, 0.4), theme('colors.bg.DEFAULT'))
         no-repeat;
     background-size:
-      auto 600px,
+      auto min(600px, 50vh),
       auto 50vh;
   }
 }
