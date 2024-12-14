@@ -1,0 +1,9 @@
+table td,
+table th {
+  padding-inline-end: 1em;
+  width: 1fr;
+}
+
+table {
+  table-layout: fixed;
+}

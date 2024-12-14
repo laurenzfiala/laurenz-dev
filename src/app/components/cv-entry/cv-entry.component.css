@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+
+.ellipsis {
+  @apply overflow-hidden text-ellipsis;
+}

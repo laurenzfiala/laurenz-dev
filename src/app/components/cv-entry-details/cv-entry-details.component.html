@@ -1,0 +1,10 @@
+<div class="text-start mb-8 -mt-2 mx-8 lg:mt-4">
+  <h1>{{ _environment()?.workRole ?? '' }}</h1>
+  <div class="text-muted">{{ _environment()?.at ?? '' }}</div>
+</div>
+
+@if (_content(); as content) {
+  <app-content [content]="content"></app-content>
+} @else if (_error()) {
+  <div class="m-4">{{ _error()!.message }}</div>
+}

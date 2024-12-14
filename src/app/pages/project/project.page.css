@@ -25,5 +25,5 @@
 }
 
 app-content ::ng-deep section:first-child {
-  @apply mb-6;
+  @apply mb-0;
 }

@@ -43,7 +43,7 @@
       class="h-full opacity-50 hover:opacity-100 active:scale-[80%] transition-all flex-shrink-0 px-4"
       (click)="previous()"
     >
-      <img src="/assets/imgs/icons/chevron-left.svg" class="h-[0.9rem] invert" />
+      <img src="/assets/imgs/icons/chevron-left.svg" class="h-[0.6rem] invert" />
     </button>
 
     <!-- LOCATION INDICATOR -->
@@ -62,15 +62,14 @@
       class="h-full opacity-50 hover:opacity-100 active:scale-[80%] transition-all flex-shrink-0 px-4"
       (click)="next()"
     >
-      <img src="/assets/imgs/icons/chevron-right.svg" class="h-[0.9rem] invert" />
+      <img src="/assets/imgs/icons/chevron-right.svg" class="h-[0.6rem] invert" />
     </button>
   </div>
 
   <!-- CLOSE BUTTON -->
   <button
     (click)="hide($event)"
-    class="absolute top-0 right-0 opacity-70 hover:opacity-100 transition-opacity p-2"
-    style="filter: drop-shadow(0 2px 3px rgb(0 0 0 / 1))"
+    class="close absolute top-0 right-0 opacity-70 hover:opacity-100 transition-opacity p-2"
   >
     <img class="w-[2.5rem] invert" src="/assets/imgs/icons/close.svg" aria-label="Close" />
   </button>

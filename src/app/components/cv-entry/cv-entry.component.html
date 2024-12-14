@@ -1,0 +1,35 @@
+<div class="flex flex-col px-1" [class.opacity-50]="muted()">
+  @if (link(); as link) {
+    <button
+      class="flex flex-row justify-between gap-4 btn-link-bg btn-link-bg-hover -mx-4 px-4 py-3 transition-all"
+      (click)="navigate()"
+    >
+      <ng-container [ngTemplateOutlet]="temp" />
+
+      <img
+        src="/assets/imgs/icons/arrow-right-sm.svg"
+        class="h-[1rem] aspect-square dark:invert flex-shrink-0 self-center -rotate-45"
+      />
+    </button>
+  } @else {
+    <ng-container [ngTemplateOutlet]="temp" />
+  }
+
+  <app-timeline
+    style="--timeline-bg: rgba(0, 0, 0, 0.5)"
+    class="mt-2"
+    mode="thin"
+    [ranges]="ranges()"
+  />
+</div>
+
+<div class="text-muted text-sm mt-4">
+  <ng-content></ng-content>
+</div>
+
+<ng-template #temp>
+  <div class="text-start overflow-hidden">
+    <strong class="block ellipsis test">{{ workRole() }}</strong>
+    <div class="text-muted text-sm ellipsis">{{ at() }}</div>
+  </div>
+</ng-template>

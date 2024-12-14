@@ -1,1 +1,86 @@
-<app-unfinished class="mb-[20rem]"></app-unfinished>
+<section appTimelineGroup class="flex flex-col gap-16">
+  <app-cv-entry
+    link="care-development"
+    workRole="Senior Angular Frontend Developer"
+    at="Care Development GmbH, Vienna"
+    [ranges]="[{from: '2022-10-01', to: 'ongoing'}]"
+  />
+
+  <div class="text-sm text-muted">✨ 10-year career anniversary (2013 - 2023)</div>
+
+  <app-cv-entry
+    link="plus"
+    workRole="Full-Stack Software Engineer"
+    at="Freelance work for University of Salzburg (PLUS)"
+    [ranges]="[{from: '2017-12-01', to: '2023-05-31'}]"
+  />
+
+  <app-cv-entry
+    link="universal-music"
+    workRole="Software Engineer"
+    at="Universal Music GmbH, Salzburg"
+    [ranges]="[{from: '2017-12-01', to: '2018-07-30'}]"
+  />
+
+  <app-cv-entry
+    workRole="Civil Service (mandatory in Austria)"
+    at="SOS Children's Villages – Clearing House, Salzburg"
+    [ranges]="[{from: '2017-03-01', to: '2017-11-30'}]"
+  />
+
+  <app-cv-entry
+    link="sony-dadc"
+    workRole="Apprenticeship: IT - Software Engineering"
+    at="Sony DADC Austria GmbH, Salzburg"
+    [ranges]="[{from: '2013-08-01', to: '2017-01-31'}]"
+  />
+</section>
+
+<section appTimelineGroup [max]="_now">
+  <app-heading text="Education and Vocational Training"></app-heading>
+
+  <div class="flex flex-col gap-16">
+    <app-cv-entry
+      workRole="Bachelor's Degree – Media Informatics and Visual Computing (paused)"
+      at="Technical University Vienna (TU Wien), Vienna"
+      [ranges]="[{from: '2018-10-01', to: '2022-06-30'}]"
+    />
+
+    <app-cv-entry
+      workRole="Berufsreifeprüfung (A-Levels)"
+      at="WIFI Salzburg"
+      [ranges]="[{from: '2014-10-01', to: '2018-03-12'}]"
+    />
+
+    <app-cv-entry
+      workRole="Vocational school – Information Technology"
+      at="Landesberufsschule 4, Salzburg"
+      [ranges]="[{from: '2013-08-01', to: '2017-01-31'}]"
+    />
+
+    <app-cv-entry
+      workRole="Gymnasium with focus on Information- and Communication Technology"
+      at="Bundesoberstufenrealgymnasium, Salzburg"
+      [ranges]="[{from: '2011-09', to: '2013-07'}]"
+    />
+  </div>
+</section>
+
+<section>
+  <app-heading text="Language Skills"></app-heading>
+
+  <h2>German</h2>
+  <div class="mb-16">Mother tongue</div>
+
+  <h2>English</h2>
+
+  Listening – <strong>C2</strong><br />
+  Reading – <strong>C1</strong><br />
+  Coherent speaking – <strong>C1</strong><br />
+  Participating in conversations – <strong>B2</strong><br />
+  Writing – <strong>C1</strong>
+</section>
+
+<app-overlay #overlay="overlay" [outlet]="outlet">
+  <router-outlet #outlet="outlet" />
+</app-overlay>
