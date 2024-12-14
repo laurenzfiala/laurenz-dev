@@ -10,7 +10,6 @@ export interface HeadingElement extends Element {
   level: 1 | 2;
   text: string;
   showDivider: boolean;
-  showSticky: boolean;
 }
 
 export interface ParagraphElement extends Element {

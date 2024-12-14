@@ -6,38 +6,26 @@
     "@schematics/angular:component": {
       "style": "css",
       "skipTests": true,
-      "changeDetection": "OnPush",
-      "path": "src/app/components"
+      "changeDetection": "OnPush"
     },
     "@schematics/angular:class": {
-      "skipTests": true,
-      "path": "src/app/classes"
+      "skipTests": true
     },
     "@schematics/angular:directive": {
-      "skipTests": true,
-      "path": "src/app/directives"
+      "skipTests": true
     },
     "@schematics/angular:guard": {
       "skipTests": true,
-      "functional": true,
-      "path": "src/app/guards"
+      "functional": true
     },
     "@schematics/angular:module": {
       "skipTests": true
     },
     "@schematics/angular:pipe": {
-      "skipTests": true,
-      "path": "src/app/pipes"
+      "skipTests": true
     },
     "@schematics/angular:service": {
-      "skipTests": true,
-      "path": "src/app/services"
-    },
-    "@schematics/angular:interface": {
-      "path": "src/app/interfaces"
-    },
-    "@schematics/angular:interceptor": {
-      "path": "src/app/interceptors"
+      "skipTests": true
     }
   },
   "projects": {

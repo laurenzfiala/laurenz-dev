@@ -14,6 +14,5 @@ export class HeadingComponent {
   @Input() level: 1 | 2 = 1;
   @Input() text?: string;
   @Input() showDivider = true;
-  @Input() showSticky = false;
   @Input() content?: HeadingElement;
 }

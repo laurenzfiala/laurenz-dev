@@ -1,9 +1,6 @@
 import {
-  carousel,
-  file,
   heading,
   mediaImage,
-  mediaVideo,
   paragraph,
   section,
   subheading,
