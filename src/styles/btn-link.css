@@ -37,7 +37,6 @@
 }
 
 .btn-link-bg--secondary {
-  --bg-color: transparent;
   --active-color-1: theme('colors.secondary.200');
   --active-color-2: theme('colors.secondary.300');
 }
@@ -66,6 +65,10 @@
     --bg-color: transparent;
     --active-color-1: theme('colors.secondary.700');
     --active-color-2: theme('colors.secondary.800');
+  }
+
+  .btn-link-bg-hover {
+    --bg-color: transparent;
   }
 }
 

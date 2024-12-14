@@ -1,31 +1,16 @@
-<div [class.sticky-heading-overlay]="content?.showSticky ?? showSticky">
-  @if ((content?.level ?? level) === 1) {
-    <h1 [class.heading-extra-margin]="!(content?.showDivider ?? showDivider)">
-      <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
-    </h1>
-  }
-  @if ((content?.level ?? level) === 2) {
-    <h2 [class.heading-extra-margin]="!(content?.showDivider ?? showDivider)">
-      <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
-    </h2>
-  }
-  @if (content?.showDivider ?? showDivider) {
-    <div class="divider"></div>
-  }
-</div>
+@if ((content?.level ?? level) === 1) {
+  <h1 [class.heading-extra-margin]="!(content?.showDivider ?? showDivider)">
+    <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+  </h1>
+}
+@if ((content?.level ?? level) === 2) {
+  <h2 [class.heading-extra-margin]="!(content?.showDivider ?? showDivider)">
+    <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+  </h2>
+}
 
-@if (content?.showSticky ?? showSticky) {
-  @if ((content?.level ?? level) === 1) {
-    <h1 class="sticky-heading" aria-hidden="true">
-      <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
-    </h1>
-  }
-  @if ((content?.level ?? level) === 2) {
-    <h2 class="sticky-heading" aria-hidden="true">
-      <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
-    </h2>
-  }
-  <div class="post-sticky-filler"></div>
+@if (content?.showDivider ?? showDivider) {
+  <div class="divider"></div>
 }
 
 <ng-template #contentTemplate>

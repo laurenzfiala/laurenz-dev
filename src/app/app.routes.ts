@@ -6,6 +6,8 @@ import { CvPage } from './pages/cv/cv.page';
 import { ProjectPage } from './pages/project/project.page';
 import { MediaFullscreenComponent } from './components/media-fullscreen/media-fullscreen.component';
 import { HistoryService } from './services/history.service';
+import { CvEntryDetailsComponent } from './components/cv-entry-details/cv-entry-details.component';
+import { RouteScrollConfig } from './services/scroll.service';
 
 export interface Route extends NgRoute {
   data?: RouteData;
@@ -43,6 +45,15 @@ export interface RouteData {
    * possible title, to be used by e.g. back.directive.
    */
   title?: string | ResolveFn<string>;
+
+  /**
+   * By default, we scroll to the top when a navigation occurs.
+   * You can choose to skip scrolling on route activation and/or
+   * deactivation.
+   * When the current route and the new route both have conflicting
+   * configs, the deactivated route config takes precedence.
+   */
+  scrollOn?: RouteScrollConfig;
 }
 
 export const Routes: Route[] = [
@@ -85,6 +96,16 @@ export const Routes: Route[] = [
           pageId: 'cv',
           title: 'CV',
         },
+        children: [
+          {
+            path: ':id',
+            component: CvEntryDetailsComponent,
+            title: CvEntryDetailsComponent.pageTitle('laurenz · dev › CV › '),
+            data: {
+              scrollOn: 'never',
+            },
+          },
+        ],
       },
       {
         path: 'projects/:id',

@@ -1,37 +1,12 @@
 :host {
   display: contents;
-
-  --sticky-heading-height: 2.5rem;
 }
 
 .heading-extra-margin {
   @apply mt-10 mb-6;
 }
 
-.sticky-heading-overlay {
-  background: linear-gradient(to bottom, theme('colors.bg.DEFAULT') 75%, transparent 100%);
-  margin-block-end: calc(var(--sticky-heading-height) * -2);
-
-  @apply relative z-20 -mx-6;
-}
-
-.sticky-heading {
-  --shadow: 0 6px 12px -12px theme('colors.neutral.500');
-
-  height: var(--sticky-heading-height);
-
-  box-shadow: var(--shadow);
-
-  @apply sticky top-0 z-10 text-lg bg px-6 flex flex-row items-center justify-center -mx-6;
-}
-
-@media (prefers-color-scheme: dark) {
-  .sticky-heading {
-    --shadow: 0 6px 6px -6px theme('colors.black');
-  }
-}
-
-.post-sticky-filler {
-  /* negative margin doesn't work on sticky heading, so we offset like so */
-  height: var(--sticky-heading-height);
+h1,
+h2 {
+  @apply flex items-end justify-center;
 }
