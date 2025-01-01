@@ -1,23 +1,17 @@
-.link-container:hover .link,
-.link-container:focus-visible .link {
-  @apply text-primary-400;
-}
-
 .link {
-  background: linear-gradient(
-    35deg,
-    theme('textColor.DEFAULT') 33.3%,
-    theme('colors.secondary.DEFAULT') 66.6%,
-    theme('colors.primary.DEFAULT') 100%
-  );
-  background-size: 300% auto;
-  background-position-x: 0;
-  transition: background-position theme('transitionDuration.long');
+  @apply font-bold underline decoration-neutral-300 dark:decoration-neutral-600  decoration-2 underline-offset-2 transition-colors;
 
-  @apply font-bold underline underline-offset-2 decoration-2 decoration-secondary-400 bg-clip-text text-transparent;
+  &:hover,
+  &:focus {
+    @apply decoration-secondary-400;
+  }
 }
 
-.link:hover,
-.link:focus-visible {
-  background-position-x: 100%;
+.btn-link-bg-hover {
+  &:hover,
+  &:focus {
+    .link {
+      @apply decoration-transparent;
+    }
+  }
 }

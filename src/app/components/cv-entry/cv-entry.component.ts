@@ -2,15 +2,14 @@ import {
   booleanAttribute,
   ChangeDetectionStrategy,
   Component,
+  computed,
   ElementRef,
-  inject,
   input,
 } from '@angular/core';
 import { InputRange, TimelineComponent } from '../timeline/timeline.component';
 import { NgTemplateOutlet } from '@angular/common';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { bug } from '../../utils/error.util';
-import { OverlayHints } from '../../ui-overlay';
+import { RouterLink } from '@angular/router';
+import { navigated, scrolled } from '../../ui-signals';
 
 @Component({
   selector: 'app-cv-entry',
@@ -28,18 +27,15 @@ export class CvEntryComponent {
   readonly disabled = input(false, { transform: booleanAttribute });
   readonly muted = input(false, { transform: booleanAttribute });
 
-  constructor(
-    private _router: Router,
-    private _route: ActivatedRoute,
-    private _elRef: ElementRef,
-  ) {}
-
-  protected navigate() {
-    const link = this.link() ?? bug('expected link');
-    const info = {
+  private _scrolled = scrolled();
+  private _navigated = navigated();
+  protected _overlayHints = computed(() => {
+    this._scrolled();
+    this._navigated();
+    return {
       overlayOffset: (this._elRef.nativeElement as HTMLElement).getBoundingClientRect().top,
-    } as OverlayHints;
+    };
+  });
 
-    void this._router.navigate([link], { relativeTo: this._route, info });
-  }
+  constructor(private _elRef: ElementRef) {}
 }

@@ -1,17 +1,10 @@
-import { Inject, inject, Injectable, Renderer2 } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  ActivationEnd,
-  CanActivateChildFn,
-  EventType,
-  NavigationEnd,
-  NavigationStart,
-  Router,
-} from '@angular/router';
-import { filter, ReplaySubject, take, timer } from 'rxjs';
+import { effect, Inject, Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, ActivationEnd, NavigationStart, Router } from '@angular/router';
+import { take, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import { RouteData } from '../app.routes';
+import { resized } from '../ui-signals/resized';
 
 export type RouteScrollConfig = 'always' | 'never' | 'activation' | 'deactivation';
 
@@ -92,7 +85,11 @@ export class ScrollService {
       }
     });
 
-    // TODO renderer.listen(_document.documentElement, 'resize', () => this._scrollLocations.clear());
+    const _resized = resized();
+    effect(() => {
+      _resized();
+      this._previousScrollOffsets.clear();
+    });
   }
 
   private doScroll(url: string) {

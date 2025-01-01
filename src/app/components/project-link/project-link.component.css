@@ -3,10 +3,6 @@
 }
 
 a {
-  --bg: theme('colors.neutral.100');
-
-  background-color: var(--bg);
-
   @apply flex flex-row items-center text-start p-4 relative;
 
   &.--disabled {

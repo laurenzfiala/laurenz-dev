@@ -1,13 +1,20 @@
 import {
+  ApplicationRef,
   ChangeDetectionStrategy,
   Component,
+  computed,
+  DestroyRef,
+  effect,
   ElementRef,
+  EmbeddedViewRef,
   HostListener,
-  Input,
-  OnChanges,
-  OnDestroy,
+  inject,
+  input,
   signal,
-  ViewChild,
+  TemplateRef,
+  untracked,
+  viewChild,
+  ViewContainerRef,
 } from '@angular/core';
 import { Media } from '../../interfaces/media.interface';
 import { MediaService } from '../../services/media.service';
@@ -15,9 +22,11 @@ import { FilenamePipe } from '../../pipes/filename.pipe';
 import { ActivatedRoute, Router } from '@angular/router';
 import { bug } from '../../utils/error.util';
 import { ReplaySubject } from 'rxjs';
-import { ComponentChanges } from '../../interfaces/component-changes.interface';
-import { InteractionService } from '../../services/interaction.service';
 import { AsyncPipe, NgClass } from '@angular/common';
+import { CdkTrapFocus } from '@angular/cdk/a11y';
+import { OverlayService } from '../../ui-overlay';
+import { routePath } from '../../util-routes';
+import { AppComponent } from '../../app.component';
 
 /**
  * Shows the given media in a navigable full-viewport overlay.
@@ -29,50 +38,72 @@ import { AsyncPipe, NgClass } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   exportAs: 'mediaFullscreen',
   standalone: true,
-  imports: [NgClass, AsyncPipe],
+  imports: [NgClass, AsyncPipe, CdkTrapFocus],
+  host: {
+    '(window:keydown.escape)': 'hide($event)',
+    '(window:keydown.arrowLeft)': 'previous()',
+    '(window:keydown.arrowRight)': 'next()',
+  },
 })
-export class MediaFullscreenComponent implements OnChanges, OnDestroy {
-  @Input() mediaId?: string;
+export class MediaFullscreenComponent {
+  readonly mediaId = input<string>();
 
-  @ViewChild('imageEl') protected _imageEl?: ElementRef<HTMLImageElement>;
-  @ViewChild('videoEl') protected _videoEl?: ElementRef<HTMLVideoElement>;
+  protected readonly _template = viewChild<TemplateRef<unknown>>('template');
+  protected readonly _imageEl = viewChild<ElementRef<HTMLImageElement>>('imageEl');
+  protected readonly _videoEl = viewChild<ElementRef<HTMLVideoElement>>('videoEl');
 
-  protected _show = false;
+  protected readonly _show = signal(false);
   protected _isLoading = false;
   protected _preventClose?: Event;
-  protected _allMedia = signal<readonly Media[]>([]);
+  protected readonly _allMedia = signal<readonly Media[]>([]);
   protected _selectedMediaIndex: number = 0;
   protected _selectedMedia = new ReplaySubject<Media | null>(1);
 
+  private readonly _overlayServiceRef = inject(OverlayService).register();
+  private readonly _rootViewContainerRef = inject(AppComponent).viewContainerRef;
+
   constructor(
     private _mediaService: MediaService,
-    private _interactionService: InteractionService,
     private _router: Router,
     private _route: ActivatedRoute,
-  ) {}
+    destroyRef: DestroyRef,
+  ) {
+    effect(() => {
+      const mediaId = this.mediaId() ?? bug('expected media id');
+      untracked(() => void this.show(mediaId));
+    });
+    effect(() => {
+      this._imageEl();
+      this._videoEl();
+      untracked(() => void this.updateMediaConstraint());
+    });
+    effect(
+      (onCleanup) => {
+        const template = this._template() ?? bug('expected template');
+        const insertedView = this._rootViewContainerRef.createEmbeddedView(template);
 
-  ngOnChanges(changes: ComponentChanges<MediaFullscreenComponent>) {
-    if (changes.mediaId && changes.mediaId.firstChange) {
-      void this.show(this.mediaId ?? bug('expected media id'));
-    }
+        onCleanup(() => insertedView.destroy());
+      },
+      { allowSignalWrites: true },
+    );
+
+    destroyRef.onDestroy(() => this._overlayServiceRef.destroy());
   }
 
-  ngOnDestroy() {
-    this.hide();
-  }
-
-  @HostListener('window:keydown.escape', ['$event'])
   hide(event?: Event) {
-    if (event && event === this._preventClose) {
+    if (!this._show() || !this._overlayServiceRef.isPrimary()) {
+      return;
+    } else if (event && event === this._preventClose) {
       return;
     }
 
-    this._interactionService.allowScroll();
-    this._show = false;
+    this._show.set(false);
+    this._overlayServiceRef.closed();
 
-    void this._router.navigateByUrl(
-      this._route.snapshot.parent?.url.join('/') ?? bug('no parent route'),
-    );
+    const parentRoute = this._route.snapshot.parent ?? bug('no parent route');
+    const targetPath = routePath(parentRoute);
+
+    void this._router.navigateByUrl(targetPath);
   }
 
   async show(mediaIdOrMedia: string | Media) {
@@ -90,8 +121,10 @@ export class MediaFullscreenComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    this._interactionService.preventScroll();
-    this._show = true;
+    if (!this._show()) {
+      this._show.set(true);
+      this._overlayServiceRef.opened();
+    }
 
     const mediaArray = await this.media;
     let selectedMediaIndex = 0;
@@ -109,12 +142,10 @@ export class MediaFullscreenComponent implements OnChanges, OnDestroy {
     this._isLoading = true;
   }
 
-  @HostListener('window:keydown.arrowRight')
   async next() {
     void this.seek(1);
   }
 
-  @HostListener('window:keydown.arrowLeft')
   async previous() {
     void this.seek(-1);
   }
@@ -122,7 +153,7 @@ export class MediaFullscreenComponent implements OnChanges, OnDestroy {
   // TODO use animation frame
   @HostListener('window:resize')
   protected updateMediaConstraint() {
-    const el = this._imageEl?.nativeElement ?? this._videoEl?.nativeElement;
+    const el = this._imageEl()?.nativeElement ?? this._videoEl()?.nativeElement;
     if (!el) {
       return;
     }
@@ -143,9 +174,7 @@ export class MediaFullscreenComponent implements OnChanges, OnDestroy {
     }
   }
 
-  private async seek(offset: number) {
-    this._preventClose = event;
-
+  protected async seek(offset: number) {
     const media = await this.media;
     this._selectedMediaIndex += offset;
     if (this._selectedMediaIndex >= media.length) {
@@ -158,10 +187,10 @@ export class MediaFullscreenComponent implements OnChanges, OnDestroy {
 
     const selectedMedia = media.at(this._selectedMediaIndex) ?? bug();
 
-    this.mediaId = new FilenamePipe().transform(selectedMedia.src);
+    const mediaId = new FilenamePipe().transform(selectedMedia.src);
     this._selectedMedia.next(selectedMedia);
 
-    void this._router.navigate(['..', this.mediaId], {
+    void this._router.navigate(['..', mediaId], {
       replaceUrl: true,
       relativeTo: this._route,
     });

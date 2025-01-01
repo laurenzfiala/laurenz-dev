@@ -8,6 +8,7 @@ import { MediaFullscreenComponent } from './components/media-fullscreen/media-fu
 import { HistoryService } from './services/history.service';
 import { CvEntryDetailsComponent } from './components/cv-entry-details/cv-entry-details.component';
 import { RouteScrollConfig } from './services/scroll.service';
+import { MediaService } from './services/media.service';
 
 export interface Route extends NgRoute {
   data?: RouteData;
@@ -78,6 +79,28 @@ export const Routes: Route[] = [
           pageId: 'dev',
           title: 'All projects',
         },
+        children: [
+          {
+            path: ':id',
+            component: ProjectPage,
+            title: ProjectPage.pageTitle('laurenz · dev › Development › '),
+            data: {
+              pageId: 'project',
+              parentPageId: 'dev',
+              scrollOn: 'never',
+              title: ProjectPage.pageTitle(),
+            },
+            children: [
+              {
+                path: 'media/:mediaId',
+                component: MediaFullscreenComponent,
+                data: {
+                  scrollOn: 'never',
+                },
+              },
+            ],
+          },
+        ],
       },
       {
         path: 'posts',
@@ -103,26 +126,6 @@ export const Routes: Route[] = [
             title: CvEntryDetailsComponent.pageTitle('laurenz · dev › CV › '),
             data: {
               scrollOn: 'never',
-            },
-          },
-        ],
-      },
-      {
-        path: 'projects/:id',
-        component: ProjectPage,
-        title: ProjectPage.pageTitle('laurenz · dev › Projects › '),
-        data: {
-          pageId: 'project',
-          parentPageId: 'dev',
-          nav: false,
-          title: ProjectPage.pageTitle(),
-        },
-        children: [
-          {
-            path: 'media/:mediaId',
-            component: MediaFullscreenComponent,
-            data: {
-              nav: false,
             },
           },
         ],
