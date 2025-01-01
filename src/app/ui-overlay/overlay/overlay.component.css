@@ -57,7 +57,7 @@
 
   animation: 0.3s -anim-overlay;
 
-  @apply bg rounded-xl shadow-lg;
+  @apply bg rounded-xl shadow-lg overflow-hidden;
 }
 
 @keyframes -anim-overlay {

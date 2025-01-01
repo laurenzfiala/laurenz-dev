@@ -1,4 +1,6 @@
 <div
+  cdkTrapFocus
+  cdkTrapFocusAutoCapture
   [ngClass]="{ 'opacity-0 pointer-events-none': !_show, 'opacity-100 backdrop-blur-xl': _show }"
   class="fixed z-50 top-0 right-0 bottom-0 left-0 bg-black/80 text-contrast transition-all grid"
   (click)="hide($event)"
@@ -14,7 +16,7 @@
           [src]="selectedMedia.src"
           [alt]="selectedMedia.alt"
           class="constrain-w drop-shadow-2xl"
-          (click)="next()"
+          (click)="next(); _preventClose = $event"
           (load)="_isLoading = false; updateMediaConstraint()"
         />
       }
@@ -23,7 +25,7 @@
           #videoEl
           class="constrain-w drop-shadow-2xl"
           (loadedmetadata)="_isLoading = false; updateMediaConstraint()"
-          (click)="next()"
+          (click)="next(); _preventClose = $event"
           loop
           autoplay
           [defaultMuted]="true"
@@ -37,7 +39,10 @@
 
   <!-- NAVIGATION BAR -->
   <!-- TODO move to separate component -->
-  <div class="absolute bottom-2 left-4 right-4 flex items-center justify-center h-[2rem]">
+  <div
+    class="absolute bottom-2 left-4 right-4 flex items-center justify-center h-[2rem]"
+    (click)="_preventClose = $event"
+  >
     <!-- PREVIOUS BUTTON -->
     <button
       class="h-full opacity-50 hover:opacity-100 active:scale-[80%] transition-all flex-shrink-0 px-4"

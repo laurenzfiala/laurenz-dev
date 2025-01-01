@@ -14,7 +14,6 @@ import { ComponentChanges } from '../../interfaces/component-changes.interface';
 import { Media } from '../../interfaces/media.interface';
 import { MediaService } from '../../services/media.service';
 import { ContentComponent } from '../../components/content/content.component';
-import { BackDirective } from '../../directives/back.directive';
 import { NgStyle } from '@angular/common';
 
 export interface ProjectPageEnvironment {
@@ -28,7 +27,7 @@ export interface ProjectPageEnvironment {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [MediaService],
   standalone: true,
-  imports: [NgStyle, BackDirective, ContentComponent, RouterOutlet],
+  imports: [NgStyle, ContentComponent, RouterOutlet],
 })
 export class ProjectPage implements OnInit, OnChanges {
   @Input({ required: true }) id!: string;

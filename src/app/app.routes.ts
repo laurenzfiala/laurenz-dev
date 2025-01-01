@@ -78,6 +78,28 @@ export const Routes: Route[] = [
           pageId: 'dev',
           title: 'All projects',
         },
+        children: [
+          {
+            path: ':id',
+            component: ProjectPage,
+            title: ProjectPage.pageTitle('laurenz · dev › Development › '),
+            data: {
+              pageId: 'project',
+              parentPageId: 'dev',
+              scrollOn: 'never',
+              title: ProjectPage.pageTitle(),
+            },
+            children: [
+              {
+                path: 'media/:mediaId',
+                component: MediaFullscreenComponent,
+                data: {
+                  scrollOn: 'never',
+                },
+              },
+            ],
+          },
+        ],
       },
       {
         path: 'posts',
@@ -103,26 +125,6 @@ export const Routes: Route[] = [
             title: CvEntryDetailsComponent.pageTitle('laurenz · dev › CV › '),
             data: {
               scrollOn: 'never',
-            },
-          },
-        ],
-      },
-      {
-        path: 'projects/:id',
-        component: ProjectPage,
-        title: ProjectPage.pageTitle('laurenz · dev › Projects › '),
-        data: {
-          pageId: 'project',
-          parentPageId: 'dev',
-          nav: false,
-          title: ProjectPage.pageTitle(),
-        },
-        children: [
-          {
-            path: 'media/:mediaId',
-            component: MediaFullscreenComponent,
-            data: {
-              nav: false,
             },
           },
         ],

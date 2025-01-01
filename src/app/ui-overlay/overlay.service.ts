@@ -9,8 +9,9 @@ let nextId = 0;
  */
 @Injectable({ providedIn: 'root' })
 export class OverlayService {
-  private readonly _openOverlayId = signal<number | null>(null);
-  private readonly _anyOverlayOpen = computed(() => this._openOverlayId() !== null);
+  private readonly _openOverlayIds = signal<readonly number[]>([]);
+  private readonly _primaryOpenOverlayId = computed(() => this._openOverlayIds().at(-1));
+  private readonly _anyOverlayOpen = computed(() => this._openOverlayIds().length > 0);
 
   constructor(interactionService: InteractionService) {
     effect(() => {
@@ -33,6 +34,7 @@ export class OverlayService {
       opened: () => this.opened(id),
       closed: () => this.closed(id),
       destroy: () => this.closed(id),
+      isPrimary: computed(() => this._primaryOpenOverlayId() === id),
     };
   }
 
@@ -41,10 +43,13 @@ export class OverlayService {
    * @param overlayId overlay id
    */
   private opened(overlayId: number) {
-    if (this._anyOverlayOpen() && this._openOverlayId() !== overlayId) {
-      throw new Error('Another overlay is already open');
+    const givenOverlayAlreadyOpen =
+      this._openOverlayIds().find((id) => id === overlayId) !== undefined;
+    if (this._anyOverlayOpen() && givenOverlayAlreadyOpen) {
+      throw new Error('The overlay is already open');
     }
-    this._openOverlayId.set(overlayId);
+
+    this._openOverlayIds.update((ids) => [...ids, overlayId]);
   }
 
   /**
@@ -52,10 +57,7 @@ export class OverlayService {
    * @param overlayId overlay id
    */
   private closed(overlayId: number) {
-    if (this._anyOverlayOpen() && this._openOverlayId() !== overlayId) {
-      throw new Error('Another overlay is already open');
-    }
-    this._openOverlayId.set(null);
+    this._openOverlayIds.update((ids) => ids.filter((id) => id !== overlayId));
   }
 
   /**

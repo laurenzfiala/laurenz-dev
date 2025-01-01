@@ -104,10 +104,10 @@ export class OverlayComponent implements OnDestroy {
   /**
    * Close the overlay by navigating to the router outlet's
    * parent route.
-   * @param triggerEvent
+   * @param triggerEvent event that triggered this close action
    */
   close(triggerEvent?: Event) {
-    if (!this._open()) {
+    if (!this._open() || !this._overlayServiceRef.isPrimary()) {
       return;
     } else if (triggerEvent !== undefined && this._preventClose === triggerEvent) {
       return;
