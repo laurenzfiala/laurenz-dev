@@ -1,5 +1,23 @@
+:host {
+  --paragraph-align-x: 2rem;
+
+  display: block;
+
+  @apply lg:-mx-6;
+}
+
+@media screen(lg) {
+  :host {
+    --paragraph-align-x: 3rem;
+    --paragraph-padding-inline: 3rem;
+  }
+}
+
 .bg-fade-top {
   --bg-src: theme('colors.bg.DEFAULT');
+
+  height: 20svh;
+  margin-block-end: calc(-20svh + 5rem);
 
   background:
     linear-gradient(
@@ -9,7 +27,7 @@
     ),
     center / cover no-repeat var(--bg-src);
 
-  @apply h-[30svh] -mb-[20svh] p-4;
+  @apply p-4;
 }
 
 @media screen(md) {

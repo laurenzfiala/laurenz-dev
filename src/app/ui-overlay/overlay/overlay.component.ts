@@ -6,6 +6,7 @@ import { filter } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { OverlayHints } from '../hints';
 import { Overlay, WriteableOverlay } from '../overlay.provider';
+import { routePath } from '../../util-routes';
 
 /**
  * Overlay component wrapping a {@link RouterOutlet}.
@@ -38,6 +39,7 @@ import { Overlay, WriteableOverlay } from '../overlay.provider';
   host: {
     '(document:keydown.esc)': 'close($event)',
     '[style.--overlay-offset]': '_overlayOffset',
+    '[class.disable-scroll]': '!_isPrimaryOverlay()',
   },
 })
 export class OverlayComponent implements OnDestroy {
@@ -52,6 +54,7 @@ export class OverlayComponent implements OnDestroy {
 
   private readonly _overlayServiceRef = inject(OverlayService).register();
   private readonly _overlay = inject(Overlay, { self: true }) as WriteableOverlay;
+  protected readonly _isPrimaryOverlay = this._overlayServiceRef.isPrimary;
 
   constructor(private _router: Router) {
     this._overlay.setCloseHandler(() => this.close());
@@ -104,17 +107,17 @@ export class OverlayComponent implements OnDestroy {
   /**
    * Close the overlay by navigating to the router outlet's
    * parent route.
-   * @param triggerEvent
+   * @param triggerEvent event that triggered this close action
    */
   close(triggerEvent?: Event) {
-    if (!this._open()) {
+    if (!this._open() || !this._overlayServiceRef.isPrimary()) {
       return;
     } else if (triggerEvent !== undefined && this._preventClose === triggerEvent) {
       return;
     }
 
     void this._router.navigateByUrl(
-      `/${this.outlet().activatedRoute.parent?.snapshot.url.toString()}`,
+      routePath(this.outlet().activatedRoute.parent ?? this._router.routerState.root),
     );
   }
 

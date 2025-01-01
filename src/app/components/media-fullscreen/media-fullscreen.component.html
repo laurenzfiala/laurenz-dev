@@ -1,76 +1,86 @@
-<div
-  [ngClass]="{ 'opacity-0 pointer-events-none': !_show, 'opacity-100 backdrop-blur-xl': _show }"
-  class="fixed z-50 top-0 right-0 bottom-0 left-0 bg-black/80 text-contrast transition-all grid"
-  (click)="hide($event)"
->
-  @if (_selectedMedia | async; as selectedMedia) {
-    <div
-      class="flex flex-col justify-center items-center px-4 pt-4 pb-2"
-      [class.opacity-0]="_isLoading"
-    >
-      @if (selectedMedia.type === 'image') {
-        <img
-          #imageEl
-          [src]="selectedMedia.src"
-          [alt]="selectedMedia.alt"
-          class="constrain-w drop-shadow-2xl"
-          (click)="next()"
-          (load)="_isLoading = false; updateMediaConstraint()"
-        />
-      }
-      @if (selectedMedia.type === 'video') {
-        <video
-          #videoEl
-          class="constrain-w drop-shadow-2xl"
-          (loadedmetadata)="_isLoading = false; updateMediaConstraint()"
-          (click)="next()"
-          loop
-          autoplay
-          [defaultMuted]="true"
-        >
-          <source [src]="selectedMedia.src" />
-          Your browser can't display this video.
-        </video>
-      }
-    </div>
-  }
-
-  <!-- NAVIGATION BAR -->
-  <!-- TODO move to separate component -->
-  <div class="absolute bottom-2 left-4 right-4 flex items-center justify-center h-[2rem]">
-    <!-- PREVIOUS BUTTON -->
-    <button
-      class="h-full opacity-50 hover:opacity-100 active:scale-[80%] transition-all flex-shrink-0 px-4"
-      (click)="previous()"
-    >
-      <img src="/assets/imgs/icons/chevron-left.svg" class="h-[0.6rem] invert" />
-    </button>
-
-    <!-- LOCATION INDICATOR -->
-    @for (media of _allMedia(); track index; let index = $index) {
-      <div class="w-[2rem] h-[3px] px-1 flex-shrink">
-        @if (index === _selectedMediaIndex) {
-          <div class="rounded-full w-full h-full bg-white/50"></div>
-        } @else {
-          <div class="rounded-full w-full h-full bg-white/20"></div>
+<ng-template #template>
+  <div
+    cdkTrapFocus
+    cdkTrapFocusAutoCapture
+    [ngClass]="{
+      'opacity-0 pointer-events-none': !_show(),
+      'opacity-100 backdrop-blur-xl': _show(),
+    }"
+    class="fixed z-50 top-0 right-0 bottom-0 left-0 bg-black/80 text-contrast transition-all grid"
+    (click)="hide($event)"
+  >
+    @if (_selectedMedia | async; as selectedMedia) {
+      <div
+        class="flex flex-col justify-center items-center px-4 pt-4 pb-2"
+        [class.opacity-0]="_isLoading"
+      >
+        @if (selectedMedia.type === 'image') {
+          <img
+            #imageEl
+            [src]="selectedMedia.src"
+            [alt]="selectedMedia.alt"
+            class="constrain-w drop-shadow-2xl"
+            (click)="next(); _preventClose = $event"
+            (load)="_isLoading = false; updateMediaConstraint()"
+          />
+        }
+        @if (selectedMedia.type === 'video') {
+          <video
+            #videoEl
+            class="constrain-w drop-shadow-2xl"
+            (loadedmetadata)="_isLoading = false; updateMediaConstraint()"
+            (click)="next(); _preventClose = $event"
+            loop
+            autoplay
+            [defaultMuted]="true"
+          >
+            <source [src]="selectedMedia.src" />
+            Your browser can't display this video.
+          </video>
         }
       </div>
     }
 
-    <!-- NEXT BUTTON -->
-    <button
-      class="h-full opacity-50 hover:opacity-100 active:scale-[80%] transition-all flex-shrink-0 px-4"
-      (click)="next()"
+    <!-- NAVIGATION BAR -->
+    <!-- TODO move to separate component -->
+    <div
+      class="absolute bottom-2 left-4 right-4 flex items-center justify-center h-[2rem]"
+      (click)="_preventClose = $event"
     >
-      <img src="/assets/imgs/icons/chevron-right.svg" class="h-[0.6rem] invert" />
+      <!-- PREVIOUS BUTTON -->
+      <button
+        class="h-full opacity-50 hover:opacity-100 active:scale-[80%] transition-all flex-shrink-0 px-4"
+        (click)="previous()"
+      >
+        <img src="/assets/imgs/icons/chevron-left.svg" class="h-[0.6rem] invert" />
+      </button>
+
+      <!-- LOCATION INDICATOR -->
+      @for (media of _allMedia(); track index; let index = $index) {
+        <div class="w-[2rem] h-[3px] px-1 flex-shrink">
+          @if (index === _selectedMediaIndex) {
+            <div class="rounded-full w-full h-full bg-white/50"></div>
+          } @else {
+            <div class="rounded-full w-full h-full bg-white/20"></div>
+          }
+        </div>
+      }
+
+      <!-- NEXT BUTTON -->
+      <button
+        class="h-full opacity-50 hover:opacity-100 active:scale-[80%] transition-all flex-shrink-0 px-4"
+        (click)="next()"
+      >
+        <img src="/assets/imgs/icons/chevron-right.svg" class="h-[0.6rem] invert" />
+      </button>
+    </div>
+
+    <!-- CLOSE BUTTON -->
+    <button
+      (click)="hide($event)"
+      class="close absolute top-0 right-0 opacity-70 hover:opacity-100 transition-opacity p-2"
+    >
+      <img class="w-[2.5rem] invert" src="/assets/imgs/icons/close.svg" aria-label="Close" />
     </button>
   </div>
-
-  <!-- CLOSE BUTTON -->
-  <button
-    (click)="hide($event)"
-    class="close absolute top-0 right-0 opacity-70 hover:opacity-100 transition-opacity p-2"
-  >
-    <img class="w-[2.5rem] invert" src="/assets/imgs/icons/close.svg" aria-label="Close" />
-  </button>
-</div>
+</ng-template>

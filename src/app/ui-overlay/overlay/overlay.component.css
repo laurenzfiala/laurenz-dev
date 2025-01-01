@@ -10,7 +10,12 @@
   backdrop-filter: blur(10px) brightness(90%);
   animation: 0.6s -anim-background-light;
 
-  @apply px-2 pb-32;
+  @apply px-2 pb-32 transition-all;
+
+  :host.disable-scroll & {
+    overflow-y: clip;
+    position: static;
+  }
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -53,11 +58,11 @@
   max-width: var(--paragraph-width);
   min-height: 50vh;
   margin-inline: auto;
-  margin-block-start: max(theme('space.16'), var(--overlay-offset, 25vh)) !important;
+  margin-block-start: min(max(theme('space.16'), var(--overlay-offset, 25vh)), 60dvh) !important;
 
   animation: 0.3s -anim-overlay;
 
-  @apply bg rounded-xl shadow-lg;
+  @apply bg rounded-xl shadow-lg overflow-hidden;
 }
 
 @keyframes -anim-overlay {

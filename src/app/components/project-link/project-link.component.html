@@ -1,18 +1,37 @@
-<a
-  [routerLink]="link"
-  [tabindex]="disabled() ? -1 : 0"
-  [class.--disabled]="disabled()"
-  class="btn-link-bg"
->
-  @if (thumbnailSrc) {
-    <img [src]="thumbnailSrc" class="aspect-square w-[4rem] md:w-[5rem] rounded-full me-2" />
+<div class="flex flex-col px-1">
+  @if (link(); as link) {
+    <a
+      [routerLink]="link"
+      [info]="_overlayHints()"
+      class="btn-link-bg btn-link-bg-hover -mx-4 px-4 py-3 transition-all"
+    >
+      <ng-container [ngTemplateOutlet]="workInfo" />
+    </a>
+  } @else {
+    <div class="py-3">
+      <ng-container [ngTemplateOutlet]="workInfo" />
+    </div>
   }
+</div>
 
-  <div class="ms-2 overflow-hidden">
-    <strong class="block ellipsis">{{ heading }}</strong>
-    <div class="text-muted text-sm ellipsis">{{ subheading }}</div>
-  </div>
-</a>
 <div class="text-muted text-sm mt-4">
   <ng-content></ng-content>
 </div>
+
+<ng-template #workInfo>
+  <div class="flex flex-row flex-grow items-center text-start gap-4">
+    @if (thumbnailSrc(); as thumbnailSrc) {
+      <img
+        [src]="thumbnailSrc"
+        class="aspect-square w-[2.5rem] md:w-[3rem] flex-shrink-0 rounded-full me-2"
+      />
+    } @else {
+      <div class="w-[2.5rem] md:w-[3rem] flex-shrink-0 me-2"></div>
+    }
+
+    <div class="ms-2 overflow-hidden flex-grow">
+      <strong class="ellipsis" [class.link]="link()">{{ heading() }}</strong>
+      <div class="text-muted text-sm ellipsis">{{ subheading() }}</div>
+    </div>
+  </div>
+</ng-template>

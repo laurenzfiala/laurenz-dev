@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewContainerRef } from '@angular/core';
 import { map } from 'rxjs';
 import { RouteData } from './app.routes';
 import { HistoryService } from './services/history.service';
@@ -16,7 +16,10 @@ import { AsyncPipe } from '@angular/common';
   imports: [NavComponent, RouterOutlet, FooterComponent, AsyncPipe],
 })
 export class AppComponent {
-  constructor(private _backService: HistoryService) {}
+  constructor(
+    private _backService: HistoryService,
+    public readonly viewContainerRef: ViewContainerRef,
+  ) {}
 
   get showNav$() {
     return this._backService.route$.pipe(

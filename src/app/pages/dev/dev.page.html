@@ -23,138 +23,64 @@
 </section>-->
 
 <section>
-  <app-heading text="Current Projects"></app-heading>
+  <app-heading text="Projects"></app-heading>
 
   <app-project-link
-    link="/projects/laurenz-dev"
+    link="laurenz-dev"
     heading="laurenz.dev"
     subheading="My personal website and blog"
     thumbnailSrc="/assets/imgs/projects/laurenz_dev.webp"
-    class="mb-8"
-  >
-    <p>
-      The current website is under construction and is being actively iterated on. New stuff to come
-      are blog functionality, the CV page, project details and galleries, improved usability &amp;
-      accessibility and dark mode support.
-    </p>
-  </app-project-link>
-</section>
+    current
+  />
 
-<section class="projects-previous">
-  <app-heading text="Previous Projects"></app-heading>
-
-  <h2>2023</h2>
+  <div class="mb-12"></div>
 
   <app-project-link
-    link="/projects/ngx-visual-cd"
+    link="ngx-visual-cd"
     heading="ngx-visual-cd"
     subheading="Visual learning tool for Angular change detection"
     thumbnailSrc="/assets/imgs/projects/ngx-visual-cd.svg"
-    class="mb-[3rem]"
-  >
-    <p>
-      This tool helps understanding how Angular change detection works by providing a visual
-      interface that shows when certain parts of the app are evaluated.
-    </p>
-  </app-project-link>
+  />
 
   <app-project-link
-    link="/projects/cool-trees-and-sensors"
+    link="cool-trees-and-sensors"
     heading="Cool Trees & Sensors"
     subheading="Freelance software project"
     thumbnailSrc="/assets/imgs/projects/cool_trees_and_sensors.svg"
-    disabled
   ></app-project-link>
 
-  <div class="divider-h"></div>
-
-  <h2>2022</h2>
-
   <app-project-link
-    link="/projects/tuw-mental-health-checker"
+    link="tuw-mental-health-checker"
     heading="MentalHealthChecker"
     subheading="University project"
     thumbnailSrc="/assets/imgs/projects/tuw_mental_health_checker.svg"
-    disabled
-  >
-    <p>
-      Group project with 5 other team members completed as part of a TU Wien course on Software
-      Engineering and Project Management (SEPM).
-    </p>
-    <p>
-      It provides a questionnaire that is based on the medical reference work "DSM-5" and aims to
-      enable users to check themselves for indications of common mental disorders, as well as
-      continuous monitoring of mental state.
-    </p>
-  </app-project-link>
+  />
 
-  <div class="divider-h"></div>
-
-  <h2>2021</h2>
+  <app-project-link link="tuw-viral-load" heading="Viral Load" subheading="University project" />
 
   <app-project-link
-    link="/projects/tuw-viral-load"
-    heading="Viral Load"
-    subheading="University project"
-    disabled
-  >
-    <p>
-      Android game development project in a team of two, completed as part of a TU Wien course on
-      multimedia.
-    </p>
-  </app-project-link>
-
-  <div class="divider-h"></div>
-
-  <h2>2020</h2>
-
-  <app-project-link
-    link="/projects/tuw-matterialist"
+    link="tuw-matterialist"
     heading="Matterialist"
     subheading="University project"
     thumbnailSrc="/assets/imgs/projects/tuw_matterialist.jpg"
-    class="mb-[3rem]"
-  >
-    <p>
-      OpenGL game development project in a team of two, completed as part of a TU Wien course on
-      computer graphics.
-    </p>
-  </app-project-link>
+  />
 
   <app-project-link
-    link="/projects/tobiaskropp-at"
+    link="tobiaskropp-at"
     heading="tobiaskropp.at"
     subheading="Freelance website project"
     thumbnailSrc="/assets/imgs/projects/tobiaskropp-at.svg"
-    disabled
-  ></app-project-link>
-
-  <div class="divider-h"></div>
-
-  <h2>2019</h2>
+  />
 
   <app-project-link
-    link="/projects/urban-trees"
     heading="Urban Trees as Climate Messengers"
     subheading="Freelance software project"
     thumbnailSrc="/assets/imgs/projects/urban_trees.jpg"
-    disabled
-  ></app-project-link>
+  />
 
-  <div class="divider-h"></div>
-
-  <h2>2018</h2>
-
-  <div class="text-muted text-sm">No projects</div>
-
-  <div class="divider-h"></div>
-
-  <h2>2017</h2>
-
-  <app-project-link
-    link="/projects/onetime"
-    heading="OneTime"
-    subheading="Android app project"
-    disabled
-  ></app-project-link>
+  <app-project-link heading="OneTime" subheading="Android app project" />
 </section>
+
+<app-overlay #overlay="overlay" [outlet]="outlet">
+  <router-outlet #outlet="outlet" />
+</app-overlay>
