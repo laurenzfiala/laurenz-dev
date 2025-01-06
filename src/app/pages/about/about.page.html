@@ -2,12 +2,9 @@
   <app-heading text="Hi 👋"></app-heading>
 
   <p class="mb-p">
-    I'm Laurenz, a software engineer and usability-aficionado. This space is intended as a place
-    where I can show my current and past creations and document the process too.
-  </p>
-  <p class="mb-p">
-    The site is still under development, but you can already check out some of my past creations on
-    the <a routerLink="/development" class="link">development</a> page.
+    I'm Laurenz Fiala, a software and usability engineer. This space is intended as a place to show
+    my projects, education and work experience. In the future I want to share some of my insights
+    and hobbies here too.
   </p>
 </section>
 
@@ -22,19 +19,16 @@
   <app-heading text="Contact"></app-heading>
 
   <p class="mb-p">
-    Feel free to send me a message via e-mail or telegram! I am glad to hear any web-related or
-    technical news. Corrections and discussions are also welcome. 😄 If you're looking to hire, I am
-    also happy to consider your request. I am, however, not looking for advertisers or other
-    commercial communications.
+    Feel free to send me a message via e-mail or telegram! I am glad to talk about anything UX or
+    tech related. 😄 If you're looking to hire, I am also happy to hear from you.
   </p>
 
   <div class="text-muted text-sm text-start">
     <strong>Data privacy:</strong>
     <div class="flex flex-row">
       <p [class.line-clamp-1]="!_showMsgDataProtectionInfo">
-        I will delete all data as soon as the correspondence is concluded, (maximum of 30 days after
-        the last message) or you request it. Note that I might keep anonymized copies of the
-        communications for longer. My e-mail provider deletes any metadata logs after 14 days.
+        I will delete all messages after 30 days. Note that I might keep anonymized copies of the
+        messages for longer. My e-mail provider deletes any metadata logs after 14 days.
       </p>
       @if (!_showMsgDataProtectionInfo) {
       <button class="link flex-shrink-0" (click)="_showMsgDataProtectionInfo = true">
@@ -62,8 +56,8 @@
   </div>
 
   @if (!_showQrCodes) {
-  <button class="text-sm" (click)="_showQrCodes = true">
-    Scan the QR codes instead
+  <button class="link-container text-sm" (click)="_showQrCodes = true">
+    <span class="link">Scan the QR codes instead</span>
     <img
       class="inline-block h-[0.35em] dark:invert ms-1 -mt-[0.2em]"
       src="/assets/imgs/icons/chevron-down-sm.svg"

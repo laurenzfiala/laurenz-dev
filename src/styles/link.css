@@ -1,3 +1,12 @@
+.link-container {
+  &:hover,
+  &:focus {
+    .link {
+      @apply decoration-secondary-400;
+    }
+  }
+}
+
 .link {
   @apply font-bold underline decoration-neutral-300 dark:decoration-neutral-600  decoration-2 underline-offset-2 transition-colors;
 
