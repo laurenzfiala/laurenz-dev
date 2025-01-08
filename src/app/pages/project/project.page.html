@@ -1,12 +1,12 @@
 <div
   class="bg-fade-top -mt-8"
-  [ngStyle]="{'--bg-src': _environment ? ('url(\'' + _environment.topBg.src + '\')') : ''}"
+  [ngStyle]="{ '--bg-src': _environment ? 'url(\'' + _environment.topBg.src + '\')' : '' }"
 ></div>
 
 @if (_content) {
-<app-content [content]="_content"></app-content>
+  <app-content [content]="_content"></app-content>
 } @else if (_error) {
-<div class="m-4">{{_error.message}}</div>
+  <div class="m-4">{{ _error.message }}</div>
 }
 
 <router-outlet></router-outlet>

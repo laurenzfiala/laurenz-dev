@@ -4,32 +4,32 @@ Backgrounds at the top can be found in nav.component.
  */
 
 body {
-  background:
-    radial-gradient(
-        100% 200px at right bottom,
-        rgba(189, 116, 247, 0.3),
-        theme('colors.bg.DEFAULT')
-      )
-      no-repeat right bottom,
-    theme('colors.bg.DEFAULT');
-  background-size:
-    auto 200px,
-    auto;
+  position: relative;
 }
 
-@media screen(lg) {
-  body {
-    background:
-      url('/assets/imgs/bg/background-end.webp') no-repeat left bottom,
-      radial-gradient(
-          100% 250px at right bottom,
-          rgba(189, 116, 247, 0.3),
-          theme('colors.bg.DEFAULT')
-        )
-        no-repeat right bottom,
-      theme('colors.bg.DEFAULT');
-    background-size:
-      auto 350px,
-      auto;
+.global-background-footer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background: radial-gradient(
+    ellipse farthest-side at bottom,
+    theme('colors.primary.500'),
+    theme('colors.primary.300 / 0%')
+  );
+  background-size: min(150%, 1000px) 10rem;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  mask-image: url('/assets/imgs/bg/pattern-mask.webp');
+  mask-repeat: repeat;
+  mask-size: 30px;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+  .global-background {
+    --highlight-color: theme('colors.primary.950 / 50%');
+    --color: theme('colors.primary.950 / 0%');
   }
 }

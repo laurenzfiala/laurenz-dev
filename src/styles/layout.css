@@ -7,18 +7,14 @@
   );
 }
 
-section,
-footer {
+.section,
+section {
   position: relative;
   max-width: var(--paragraph-width);
   padding-inline: var(--paragraph-padding-inline);
   margin-inline: auto;
 
   @apply mb-[4rem];
-}
-
-footer {
-  @apply mb-[3rem] mt-[3rem];
 }
 
 section p {

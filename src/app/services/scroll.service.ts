@@ -4,7 +4,7 @@ import { take, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import { RouteData } from '../app.routes';
-import { resized } from '../ui-signals/resized';
+import { windowResized } from '../ui-signals';
 
 export type RouteScrollConfig = 'always' | 'never' | 'activation' | 'deactivation';
 
@@ -85,9 +85,9 @@ export class ScrollService {
       }
     });
 
-    const _resized = resized();
+    const _windowResized = windowResized();
     effect(() => {
-      _resized();
+      _windowResized();
       this._previousScrollOffsets.clear();
     });
   }

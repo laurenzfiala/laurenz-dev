@@ -77,7 +77,7 @@
 }
 
 .close {
-  @apply flex items-center justify-center m-4 float-end h-[48px] aspect-square dark:invert active:scale-90 transition-all;
+  @apply relative z-10 flex items-center justify-center m-4 float-end h-[48px] aspect-square dark:invert active:scale-90 transition-all;
 
   > img {
     height: 100%;

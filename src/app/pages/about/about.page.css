@@ -1,0 +1,27 @@
+.picture-wrapper {
+  position: relative;
+
+  @apply pb-16;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    height: 70%;
+    width: 120%;
+    z-index: -1;
+
+    transform: translateX(-50%);
+    background: radial-gradient(
+      ellipse farthest-side at center,
+      theme('colors.primary.500'),
+      theme('colors.primary.500 / 0%')
+    );
+    background-repeat: no-repeat;
+    mask-image: url('/assets/imgs/bg/pattern-mask.webp');
+    mask-repeat: repeat;
+    mask-size: 30px;
+  }
+}

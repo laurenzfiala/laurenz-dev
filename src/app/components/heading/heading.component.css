@@ -5,8 +5,3 @@
 .heading-extra-margin {
   @apply mt-10 mb-6;
 }
-
-h1,
-h2 {
-  @apply flex items-end justify-center;
-}
