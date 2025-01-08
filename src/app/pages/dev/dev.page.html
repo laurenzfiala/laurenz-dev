@@ -1,29 +1,26 @@
 <section>
-  <a href="https://github.com/laurenzfiala" class="btn-link--with-logo">
-    <div class="logo">
+  <app-heading text="GitHub" />
+
+  <a
+    href="https://github.com/laurenzfiala"
+    class="btn-link-bg btn-link-bg-hover link-container flex items-center gap-6 px-4 py-3 -mx-4"
+  >
+    <div class="w-[2.5rem] md:w-[3rem] aspect-square">
       <img src="/assets/imgs/3rdparty/github/github-mark.svg" class="dark:hidden" />
       <img src="/assets/imgs/3rdparty/github/github-mark-white.svg" class="hidden dark:block" />
     </div>
-    GitHub
+    <div class="flex items-center gap-2">
+      <span class="link">GitHub</span>
+      <img
+        src="/assets/imgs/icons/arrow-right-sm.svg"
+        class="dark:invert inline-block h-[0.8em] -rotate-45"
+      />
+    </div>
   </a>
 </section>
 
-<!--<section>
-  <app-heading text="Applications"></app-heading>
-
-  <p class="text-center text-muted text-sm">Nothing here yet</p>
-
-  <div class="flex flex-row flex-wrap gap-4 justify-center">
-    <app-application-link
-      heading="ngx-visual-cd"
-      subheading="Visual learning tool for Angular change detection"
-      tags="preview"
-    ></app-application-link>
-  </div>
-</section>-->
-
 <section>
-  <app-heading text="Projects"></app-heading>
+  <app-heading text="Projects" />
 
   <app-project-link
     link="laurenz-dev"

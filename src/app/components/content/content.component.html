@@ -3,7 +3,7 @@
     <section [ngClass]="{ 'px-0 max-w-none': section.section.wide }">
       @for (element of section.content; track $index) {
         @if (element.type === 'heading') {
-          <app-heading [content]="element"></app-heading>
+          <app-heading [content]="element" />
         } @else if (element.type === 'paragraph') {
           <p>{{ element.text }}</p>
         } @else if (element.type === 'file') {

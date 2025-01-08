@@ -19,7 +19,7 @@ module.exports = {
     custom: {
       divider: {
         verticalLength: '3rem',
-        horizontalLength: '26px',
+        horizontalLength: '38px',
       },
     },
     extend: {

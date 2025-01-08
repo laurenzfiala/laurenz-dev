@@ -1,170 +1,91 @@
 :host {
   display: contents;
-
-  @apply text-3xl;
 }
 
 .wrapper {
-  position: relative;
-  padding-block-start: 150px;
+  padding-inline: theme('space.4');
+  margin-inline: calc(var(--paragraph-align-x) - theme('space.4'));
+  backdrop-filter: blur(20px);
 
-  background:
-    url('/assets/imgs/bg/nav-background.webp') no-repeat left top,
-    radial-gradient(120% 120% at 90% -20%, rgba(189, 116, 247, 0.4), theme('colors.bg.DEFAULT'))
-      no-repeat;
-  background-size:
-    500px auto,
-    auto 100%;
-
-  @apply flex flex-row items-center justify-center min-h-[450px] h-[70vh] md:h-[50vh];
-}
-
-@media screen and (min-width: 450px) {
-  .wrapper {
-    padding-block-start: 75px;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .wrapper {
-    padding-block-start: 100px;
-  }
-}
-
-@media screen(lg) {
-  .wrapper {
-    background:
-      url('/assets/imgs/bg/nav-background-lg.webp') no-repeat right top,
-      radial-gradient(120% 120% at 10% -40%, rgba(189, 116, 247, 0.4), theme('colors.bg.DEFAULT'))
-        no-repeat;
-    background-size:
-      auto min(600px, 50vh),
-      auto 50vh;
-  }
+  @apply grid py-4 mb-8 rounded-lg;
 }
 
 nav {
-  display: inline-flex;
-  align-items: center;
-  font-family: 'Lexend', sans-serif;
+  display: flex;
 
+  font-family: 'Recursive', sans-serif;
+  font-size: 1.2rem;
   overflow-x: auto;
 
-  @apply px-6 mx-auto h-full;
+  @apply gap-2;
 }
 
-a {
+.nav-link {
   position: relative;
-  color: transparent;
-  font-weight: 500;
+  font-family: 'Lexend', sans-serif;
 
   background: linear-gradient(
     to right,
-    theme('textColor.DEFAULT') 20%,
-    theme('colors.secondary.DEFAULT') 40%,
-    theme('colors.primary.DEFAULT') 60%,
-    theme('textColor.DEFAULT') 80%
+    rgba(0, 15, 70, 0.1) 0%,
+    rgba(0, 15, 70, 0.2) 25%,
+    theme('colors.primary.DEFAULT') 37.5%,
+    theme('colors.secondary.DEFAULT') 62.5%,
+    rgba(0, 15, 70, 0.1) 75%,
+    rgba(0, 15, 70, 0.2) 100%
   );
-  background-size: 500% 100%;
-  background-clip: text;
-  background-position-x: 0;
+  background-size: 400% auto;
+  background-position: bottom left;
 
+  transition: transform theme('transitions.short');
   animation-duration: theme('transitions.medium');
   animation-timing-function: ease-in-out;
 
-  transition:
-    transform theme('transitions.short'),
-    opacity theme('transitions.short');
+  @apply px-4 py-1 rounded-lg flex items-center justify-center;
 
-  @apply px-3 py-8;
-}
-
-a::after {
-  --bg: theme('colors.neutral.300');
-
-  content: '';
-
-  position: absolute;
-  left: 50%;
-  top: calc(50% + 0.75em);
-  transform: translateX(-50%);
-  width: theme('custom.divider.horizontalLength');
-  height: 3px;
-  border-radius: 99px;
-
-  background: linear-gradient(
-    to right,
-    var(--bg) 20%,
-    theme('colors.secondary.DEFAULT') 40%,
-    theme('colors.primary.DEFAULT') 60%,
-    var(--bg) 80%
-  );
-  background-size: 500% 100%;
-  background-position-x: 0;
-
-  animation-duration: theme('transitions.medium');
-  animation-timing-function: ease-in-out;
-}
-
-@media (prefers-color-scheme: dark) {
-  a::after {
-    --bg: theme('colors.neutral.700');
+  &.nav-link--logo {
+    mask-image: url('/assets/imgs/logo_square_mask.webp');
+    mask-size: cover;
   }
 }
 
-a:active {
+@media only screen and (prefers-color-scheme: dark) {
+  .nav-link {
+    background: linear-gradient(
+      to right,
+      rgba(241, 245, 249, 0.15) 0%,
+      rgba(241, 245, 249, 0.25) 25%,
+      theme('colors.primary.DEFAULT') 37.5%,
+      theme('colors.secondary.DEFAULT') 62.5%,
+      rgba(241, 245, 249, 0.15) 75%,
+      rgba(241, 245, 249, 0.25) 100%
+    );
+    background-size: 400% auto;
+  }
+}
+
+.nav-link:active {
   transform: scale(0.95);
 }
 
-a.hint:not(:active) {
-  animation:
-    -anim-link-hint 0.75s,
-    -anim-link-intro-to-left 0.75s 0.15s forwards,
-    -anim-link-outro-to-right 0.75s 1.15s forwards;
-  /* multiple animations not working; see https://github.com/angular/angular/issues/53038 */
-}
-
-a.hint.hint-direction-right:not(:active) {
-  animation:
-    -anim-link-hint 0.75s,
-    -anim-link-intro-to-right 0.75s 0.15s forwards,
-    -anim-link-outro-to-left 0.75s 1.15s forwards;
-}
-
-a.hint:not(:active)::after {
-  animation:
-    -anim-link-intro-to-left 0.75s 0.15s forwards,
-    -anim-link-outro-to-right 0.75s 1.15s forwards;
-}
-
-a.hint.hint-direction-right:not(:active)::after {
-  animation:
-    -anim-link-intro-to-right 0.75s 0.15s forwards,
-    -anim-link-outro-to-left 0.75s 1.15s forwards;
-}
-
-a.active,
-a.active::after {
+.nav-link.active {
+  color: var(--color-text-contrast);
+  border-radius: theme('borderRadius.lg');
   background-position-x: 50%;
 }
 
-a.intro-left,
-a.intro-left::after {
+.nav-link.intro-left {
   animation-name: -anim-link-intro-to-left;
 }
 
-a.intro-right,
-a.intro-right::after {
+.nav-link.intro-right {
   animation-name: -anim-link-intro-to-right;
 }
 
-a.outro-left,
-a.outro-left::after {
+.nav-link.outro-left {
   animation-name: -anim-link-outro-to-left;
 }
 
-a.outro-right,
-a.outro-right::after {
+.nav-link.outro-right {
   animation-name: -anim-link-outro-to-right;
 }
 
@@ -201,17 +122,5 @@ a.outro-right::after {
   }
   100% {
     background-position-x: 0;
-  }
-}
-
-@keyframes -anim-link-hint {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  10% {
-    transform: scale(0.8);
-    opacity: 0.4;
   }
 }

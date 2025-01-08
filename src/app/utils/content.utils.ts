@@ -18,7 +18,7 @@ export function heading(text: string): HeadingElement {
     type: 'heading',
     level: 1,
     text: text,
-    showDivider: false,
+    showDivider: true,
   };
 }
 

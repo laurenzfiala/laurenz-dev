@@ -1,5 +1,19 @@
 {
   "endOfLine": "lf",
   "singleQuote": true,
-  "printWidth": 100
+  "printWidth": 100,
+  "overrides": [
+    {
+      "files": ["src/index.html"],
+      "options": {
+        "parser": "html"
+      }
+    },
+    {
+      "files": ["src/app/**/*.page.html"],
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
 }
