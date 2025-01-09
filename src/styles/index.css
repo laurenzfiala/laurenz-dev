@@ -6,6 +6,7 @@
 @import url('divider.css') layer(global);
 @import url('layout.css') layer(global);
 @import url('link.css') layer(global);
+@import url('outline.css') layer(global);
 @import url('body-interaction-toggles.css') layer(global);
 @import url('scrollbar.css') layer(global);
 @import url('background.css') layer(global);

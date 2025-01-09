@@ -3,7 +3,7 @@
     <a
       routerLink="/"
       routerLinkActive
-      class="nav-link nav-link--logo h-[3rem] aspect-square"
+      class="nav-link nav-link--logo with-outline h-[3rem] aspect-square"
       [ngClass]="activeClass(0)"
       [routerLinkActiveOptions]="{ exact: true }"
       (isActiveChange)="activeChange(0, $event)"
@@ -11,7 +11,7 @@
     <a
       routerLink="/development"
       routerLinkActive
-      class="nav-link"
+      class="nav-link with-outline"
       [ngClass]="activeClass(1)"
       (isActiveChange)="activeChange(1, $event)"
       >dev</a
@@ -20,7 +20,7 @@
     <a
       routerLink="/posts"
       routerLinkActive
-      class="nav-link"
+      class="nav-link with-outline"
       [ngClass]="activeClass(2)"
       (isActiveChange)="activeChange(2, $event)"
       >posts</a
@@ -29,7 +29,7 @@
     <a
       routerLink="/cv"
       routerLinkActive
-      class="nav-link"
+      class="nav-link with-outline"
       [ngClass]="activeClass(3)"
       (isActiveChange)="activeChange(3, $event)"
       >cv</a

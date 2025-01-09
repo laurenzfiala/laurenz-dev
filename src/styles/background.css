@@ -17,7 +17,7 @@ body {
   background: radial-gradient(
     ellipse farthest-side at bottom,
     theme('colors.primary.500'),
-    theme('colors.primary.300 / 0%')
+    theme('colors.primary.500 / 0%')
   );
   background-size: min(150%, 1000px) 10rem;
   background-position: bottom center;
@@ -25,11 +25,4 @@ body {
   mask-image: url('/assets/imgs/bg/pattern-mask.webp');
   mask-repeat: repeat;
   mask-size: 30px;
-}
-
-@media only screen and (prefers-color-scheme: dark) {
-  .global-background {
-    --highlight-color: theme('colors.primary.950 / 50%');
-    --color: theme('colors.primary.950 / 0%');
-  }
 }
