@@ -3,7 +3,7 @@
     @for (media of media; track $index) {
       <button
         [routerLink]="['media', media.src | filename]"
-        class="carousel-item"
+        class="carousel-item rounded-xl with-outline"
         [class.is-video]="media.type === 'video'"
       >
         <img

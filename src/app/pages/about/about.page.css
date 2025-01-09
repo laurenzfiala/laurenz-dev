@@ -24,4 +24,17 @@
     mask-repeat: repeat;
     mask-size: 30px;
   }
+
+  img {
+    mask-image: radial-gradient(
+        ellipse 180% 180% at -20% 40%,
+        white,
+        rgb(255 255 255 / 95%),
+        transparent
+      ),
+      url('/assets/imgs/bg/pattern-mask-inverse.webp');
+    mask-repeat: no-repeat, repeat;
+    mask-size: auto, 30px;
+    mask-position: 50% 52.5%;
+  }
 }
