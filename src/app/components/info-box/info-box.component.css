@@ -1,0 +1,22 @@
+.wrapper {
+  position: relative;
+
+  @apply mt-8 px-6 pt-5 pb-4 flex flex-col gap-2 bg-primary/20 rounded-lg;
+
+  &::before {
+    content: 'i';
+
+    position: absolute;
+    top: -16px;
+    left: calc(theme('borderRadius.lg') + 5px);
+    height: 32px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Lexend', sans-serif;
+
+    @apply rounded-full bg-primary text-contrast font-bold;
+  }
+}

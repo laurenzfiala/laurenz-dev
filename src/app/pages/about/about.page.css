@@ -38,3 +38,24 @@
     mask-position: 50% 52.5%;
   }
 }
+
+.logo {
+  mask-image: url('/assets/imgs/about/email_logo.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  background: var(--color-text);
+
+  @apply h-[1.35rem] aspect-square;
+
+  &.logo--email {
+    mask-image: url('/assets/imgs/about/email_logo.svg');
+  }
+
+  &.logo--telegram {
+    mask-image: url('/assets/imgs/about/telegram_logo.svg');
+  }
+
+  &.logo--qr {
+    mask-image: url('/assets/imgs/icons/qr.svg');
+  }
+}

@@ -28,69 +28,56 @@
     tech related. 😄 If you're looking to hire, I am also happy to hear from you.
   </p>
 
-  <div class="text-muted text-sm text-start">
-    <strong>Data privacy:</strong>
-    <div class="flex flex-row">
-      <p [class.line-clamp-1]="!_showMsgDataProtectionInfo">
-        I will delete all messages after 30 days. Note that I might keep anonymized copies of the
-        messages for longer. My e-mail provider deletes any metadata logs after 14 days.
-      </p>
-      @if (!_showMsgDataProtectionInfo) {
-        <button class="link flex-shrink-0" (click)="_showMsgDataProtectionInfo = true">
-          Read more
-        </button>
-      }
-    </div>
-  </div>
+  <app-info-box>
+    I will delete your messages after 30 days. I might keep anonymized copies for longer. My e-mail
+    provider deletes any metadata logs after 14 days.
+  </app-info-box>
 
   <!-- LINKS -->
-  <div class="flex flex-row flex-wrap gap-4 my-12">
-    <button role="link" class="btn-link--with-logo" (click)="sendMail()">
-      <div class="logo">
-        <img src="/assets/imgs/about/email_logo.svg" />
-      </div>
+  <div class="flex flex-col flex-wrap items-start gap-4 my-12">
+    <a class="link flex flex-row items-center gap-4" href="#" (click)="sendMail()">
+      <div class="logo logo--email"></div>
       E-mail
-    </button>
+    </a>
 
-    <a href="https://t.me/laurenzfiala" class="btn-link--with-logo">
-      <div class="logo">
-        <img src="/assets/imgs/about/telegram_logo.svg" />
-      </div>
+    <a href="https://t.me/laurenzfiala" class="link flex flex-row items-center gap-4">
+      <div class="logo logo--telegram"></div>
       Telegram
     </a>
-  </div>
 
-  @if (!_showQrCodes) {
-    <button class="link-container text-sm" (click)="_showQrCodes = true">
-      <span class="link">Scan the QR codes instead</span>
-      <img
-        class="inline-block h-[0.35em] dark:invert ms-1 -mt-[0.2em]"
-        src="/assets/imgs/icons/chevron-down-sm.svg"
-      />
-    </button>
-  }
+    @if (!_showQrCodes) {
+      <button class="link-container flex flex-row items-center gap-4" (click)="_showQrCodes = true">
+        <div class="logo logo--qr"></div>
+        <span class="link">Scan QR codes instead</span>
+      </button>
+    }
 
-  <!-- QR Codes -->
-  @if (_showQrCodes) {
-    <div class="flex flex-row flex-wrap items-center gap-6 mt-12" [class.qr-active]="_activeQr">
-      <div>
-        <!-- EMAIL -->
+    <!-- QR Codes -->
+    @if (_showQrCodes) {
+      <div
+        class="flex flex-row justify-center self-stretch flex-wrap items-center gap-6 mt-4"
+        [class.qr-active]="_activeQr"
+      >
+        <div>
+          <!-- EMAIL -->
+          <app-qr-code
+            [active]="_activeQr === 'email'"
+            [subtle]="!!_activeQr"
+            overlayUrl="/assets/imgs/about/email_logo.svg"
+            qrUrl="/assets/imgs/about/qr_email.svg"
+            (action)="_activeQr = 'email'"
+          ></app-qr-code>
+        </div>
+
+        <!-- TELEGRAM -->
         <app-qr-code
-          [active]="_activeQr === 'email'"
+          [active]="_activeQr === 'telegram'"
           [subtle]="!!_activeQr"
-          overlayUrl="../../../assets/imgs/about/email_logo.svg"
-          qrUrl="../../../assets/imgs/about/qr_email.svg"
-          (action)="_activeQr = 'email'"
+          overlayUrl="/assets/imgs/about/telegram_logo.svg"
+          qrUrl="/assets/imgs/about/qr_telegram.svg"
+          (action)="_activeQr = 'telegram'"
         ></app-qr-code>
       </div>
-      <!-- TELEGRAM -->
-      <app-qr-code
-        [active]="_activeQr === 'telegram'"
-        [subtle]="!!_activeQr"
-        overlayUrl="../../../assets/imgs/about/telegram_logo.svg"
-        qrUrl="../../../assets/imgs/about/qr_telegram.svg"
-        (action)="_activeQr = 'telegram'"
-      ></app-qr-code>
-    </div>
-  }
+    }
+  </div>
 </section>
