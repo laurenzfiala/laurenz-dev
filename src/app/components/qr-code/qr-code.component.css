@@ -11,7 +11,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @apply w-[3rem] absolute z-10 transition-all shadow-lg shadow-neutral-700 rounded-full;
+  @apply w-[2rem] absolute z-10 transition-all invert dark:invert-0;
 }
 
 .qr {

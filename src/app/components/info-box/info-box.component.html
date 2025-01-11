@@ -1,0 +1,8 @@
+<div class="wrapper">
+  @if (heading(); as heading) {
+    <strong class="block">{{ heading }}</strong>
+  }
+  <small class="block text-sm leading-snug text-justify">
+    <ng-content />
+  </small>
+</div>
