@@ -12,7 +12,6 @@ import { AsyncPipe } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NavComponent, RouterOutlet, FooterComponent, AsyncPipe],
 })
 export class AppComponent {

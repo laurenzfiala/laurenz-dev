@@ -13,7 +13,6 @@ import { NgClass } from '@angular/common';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NgClass, HeadingComponent, FileComponent, TimelineComponent, CarouselComponent],
 })
 export class ContentComponent implements OnChanges {

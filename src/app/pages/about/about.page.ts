@@ -10,7 +10,6 @@ import { InfoBoxComponent } from '../../components/info-box/info-box.component';
   templateUrl: './about.page.html',
   styleUrls: ['./about.page.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [HeadingComponent, RouterLink, QrCodeComponent, InfoBoxComponent],
 })
 export class AboutPage {

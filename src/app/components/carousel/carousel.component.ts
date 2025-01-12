@@ -29,7 +29,6 @@ import { ScrollComponent } from '../scroll/scroll.component';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ScrollComponent, RouterLink, FilenamePipe],
 })
 export class CarouselComponent implements OnInit, OnChanges {

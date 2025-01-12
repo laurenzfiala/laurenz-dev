@@ -21,7 +21,6 @@ export interface CvEntryDetailsEnvironment {
 
 @Component({
   selector: 'app-cv-entry-details',
-  standalone: true,
   imports: [ContentComponent],
   templateUrl: './cv-entry-details.component.html',
   styleUrl: './cv-entry-details.component.css',

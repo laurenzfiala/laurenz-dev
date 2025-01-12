@@ -7,7 +7,6 @@ import { NgTemplateOutlet } from '@angular/common';
   templateUrl: './heading.component.html',
   styleUrls: ['./heading.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NgTemplateOutlet],
 })
 export class HeadingComponent {

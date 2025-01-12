@@ -37,7 +37,6 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./media-fullscreen.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   exportAs: 'mediaFullscreen',
-  standalone: true,
   imports: [NgClass, AsyncPipe, CdkTrapFocus],
   host: {
     '(window:keydown.escape)': 'hide($event)',

@@ -13,7 +13,6 @@ import { navigated, scrolled } from '../../ui-signals';
 
 @Component({
   selector: 'app-cv-entry',
-  standalone: true,
   imports: [TimelineComponent, NgTemplateOutlet, RouterLink],
   templateUrl: './cv-entry.component.html',
   styleUrl: './cv-entry.component.css',

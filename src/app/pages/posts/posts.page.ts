@@ -6,7 +6,6 @@ import { UnfinishedComponent } from '../../components/unfinished/unfinished.comp
   templateUrl: './posts.page.html',
   styleUrls: ['./posts.page.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [UnfinishedComponent],
 })
 export class PostsPage {}
