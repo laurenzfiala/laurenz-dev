@@ -1,28 +1,28 @@
 @font-face {
   font-family: 'Lexend';
   font-weight: normal;
-  src: url('../assets/fonts/Lexend-Regular.ttf');
+  src: url('/fonts/Lexend-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Lexend';
   font-weight: 500;
-  src: url('../assets/fonts/Lexend-Medium.ttf');
+  src: url('/fonts/Lexend-Medium.ttf');
 }
 
 @font-face {
   font-family: 'Lexend';
   font-weight: 600;
-  src: url('../assets/fonts/Lexend-SemiBold.ttf');
+  src: url('/fonts/Lexend-SemiBold.ttf');
 }
 
 @font-face {
   font-family: 'Lexend';
   font-weight: bold;
-  src: url('../assets/fonts/Lexend-Bold.ttf');
+  src: url('/fonts/Lexend-Bold.ttf');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('../assets/fonts/OpenSans-VariableFont.ttf');
+  src: url('/fonts/OpenSans-VariableFont.ttf');
 }

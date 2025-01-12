@@ -50,5 +50,5 @@ export default [
 ] satisfies Content;
 
 export const environment = {
-  topBg: mediaImage('/assets/content/projects/laurenz-dev/bg.jpg', ''),
+  topBg: mediaImage('/content/projects/laurenz-dev/bg.jpg', ''),
 } satisfies ProjectPageEnvironment;

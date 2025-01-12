@@ -13,7 +13,7 @@
 <section class="text-center">
   <div class="inline-block picture-wrapper">
     <img
-      src="../../../assets/imgs/about/portrait.jpg"
+      src="/imgs/about/portrait.jpg"
       class="inline-block w-[17rem] max-w-[80svw] aspect-square rounded-full"
     />
   </div>
@@ -63,8 +63,8 @@
           <app-qr-code
             [active]="_activeQr === 'email'"
             [subtle]="!!_activeQr"
-            overlayUrl="/assets/imgs/about/email_logo.svg"
-            qrUrl="/assets/imgs/about/qr_email.svg"
+            overlayUrl="/imgs/about/email_logo.svg"
+            qrUrl="/imgs/about/qr_email.svg"
             (action)="_activeQr = 'email'"
           ></app-qr-code>
         </div>
@@ -73,8 +73,8 @@
         <app-qr-code
           [active]="_activeQr === 'telegram'"
           [subtle]="!!_activeQr"
-          overlayUrl="/assets/imgs/about/telegram_logo.svg"
-          qrUrl="/assets/imgs/about/qr_telegram.svg"
+          overlayUrl="/imgs/about/telegram_logo.svg"
+          qrUrl="/imgs/about/qr_telegram.svg"
           (action)="_activeQr = 'telegram'"
         ></app-qr-code>
       </div>

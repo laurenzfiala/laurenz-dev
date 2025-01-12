@@ -15,7 +15,7 @@ export default [
   section(true),
   carousel(
     mediaImage(
-      '/assets/content/projects/tuw-matterialist/1.jpg',
+      '/content/projects/tuw-matterialist/1.jpg',
       `
       A screenshot of a 1st person game. The level is a light room. To the left there is a
       projector standing on a metal floor.
@@ -27,7 +27,7 @@ export default [
       `,
     ),
     mediaImage(
-      '/assets/content/projects/tuw-matterialist/2.jpg',
+      '/content/projects/tuw-matterialist/2.jpg',
       `
       A screenshot of a 1st person game. The level is contained in a light room. In the middle of the image
       is a projector standing on a metal floor. It is gray and blue.
@@ -37,7 +37,7 @@ export default [
       `,
     ),
     mediaImage(
-      '/assets/content/projects/tuw-matterialist/3.jpg',
+      '/content/projects/tuw-matterialist/3.jpg',
       `
       A screenshot of a 1st person game. The level is contained in a light room.
       On the right side, off-screen, there is a blue projector projecting ice onto the floor in
@@ -48,7 +48,7 @@ export default [
       `,
     ),
     mediaImage(
-      '/assets/content/projects/tuw-matterialist/4.jpg',
+      '/content/projects/tuw-matterialist/4.jpg',
       `
       A screenshot of a 1st person game. The level is contained in a light room.
       On the left a pink projector standing on the gray floor emits upwards, to the right,
@@ -58,8 +58,8 @@ export default [
       `,
     ),
     mediaVideo(
-      '/assets/content/projects/tuw-matterialist/video.jpg',
-      '/assets/content/projects/tuw-matterialist/video.m4v',
+      '/content/projects/tuw-matterialist/video.jpg',
+      '/content/projects/tuw-matterialist/video.m4v',
     ),
   ),
 
@@ -94,7 +94,7 @@ export default [
   paragraph(`
   You can play it now! Download and extract all files, then run ECG_Solution.exe.
   `),
-  file('/assets/content/projects/tuw-matterialist/MATTERialist.zip'),
+  file('/content/projects/tuw-matterialist/MATTERialist.zip'),
 
   section(),
   heading(`Technical features`),
@@ -113,10 +113,10 @@ export default [
 
   section(),
   heading(`Downloads`),
-  file('/assets/content/projects/tuw-matterialist/MATTERialist.zip'),
-  file('/assets/content/projects/tuw-matterialist/MATTERialist.pdf'),
+  file('/content/projects/tuw-matterialist/MATTERialist.zip'),
+  file('/content/projects/tuw-matterialist/MATTERialist.pdf'),
 ] satisfies Content;
 
 export const environment = {
-  topBg: mediaImage('/assets/content/projects/tuw-matterialist/3.jpg', ''),
+  topBg: mediaImage('/content/projects/tuw-matterialist/3.jpg', ''),
 } satisfies ProjectPageEnvironment;

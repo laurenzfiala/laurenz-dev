@@ -15,20 +15,20 @@ export default [
   section(true),
   carousel(
     mediaImage(
-      '/assets/content/projects/tuw-viral-load/1.webp',
+      '/content/projects/tuw-viral-load/1.webp',
       `
       Top-down view of a pixel-art corridor with the player character looking through pillars at a security
       guard.
       `,
     ),
     mediaImage(
-      '/assets/content/projects/tuw-viral-load/2.webp',
+      '/content/projects/tuw-viral-load/2.webp',
       `
       A top-down view of a room where the player character is chased by a security guard.
       `,
     ),
     mediaImage(
-      '/assets/content/projects/tuw-viral-load/3.webp',
+      '/content/projects/tuw-viral-load/3.webp',
       `
       The game-over screen that says 'You got caught! 2 lives left'.
       `,
@@ -57,5 +57,5 @@ export default [
 ] satisfies Content;
 
 export const environment = {
-  topBg: mediaImage('/assets/content/projects/tuw-viral-load/bg.webp', ''),
+  topBg: mediaImage('/content/projects/tuw-viral-load/bg.webp', ''),
 } satisfies ProjectPageEnvironment;
