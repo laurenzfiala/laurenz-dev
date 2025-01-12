@@ -1,12 +1,4 @@
-import {
-  DestroyRef,
-  ElementRef,
-  inject,
-  Renderer2,
-  Signal,
-  signal,
-  WritableSignal,
-} from '@angular/core';
+import { inject, Signal, signal, WritableSignal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 let resizedS: WritableSignal<number> | null;
@@ -28,7 +20,6 @@ let resizedS: WritableSignal<number> | null;
  *   });
  * }
  * ```
- * @param observeElement element to observe; if omitted, `body` is observed
  */
 export const windowResized = () => {
   if (!resizedS) {

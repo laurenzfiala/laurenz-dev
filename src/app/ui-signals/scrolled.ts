@@ -1,4 +1,4 @@
-import { DestroyRef, ElementRef, inject, Renderer2, signal } from '@angular/core';
+import { DestroyRef, ElementRef, inject, Renderer2, signal, type Signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 /**

@@ -1,0 +1,17 @@
+<app-scroll class="img-carousel" style="--scrollbar-margin-block-start: -2.5rem">
+  <div class="w-max px-[var(--carousel-padding)] flex flex-row gap-4 mb-10">
+    @for (media of media(); track $index) {
+      <button
+        [routerLink]="['media', media.src | filename]"
+        class="carousel-item rounded-xl with-outline"
+        [class.is-video]="media.type === 'video'"
+      >
+        <img
+          [src]="media.type === 'image' ? media.src : media.thumbnailSrc"
+          class="h-[12rem] rounded-xl shadow-md shadow-black/30 cursor-pointer transition-all hover:shadow-lg hover:shadow-black/40"
+          [alt]="media.type === 'image' ? media.alt : null"
+        />
+      </button>
+    }
+  </div>
+</app-scroll>

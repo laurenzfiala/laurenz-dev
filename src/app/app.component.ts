@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, ViewContainerRef } from '@angular/core';
 import { map } from 'rxjs';
-import { RouteData } from './app.routes';
-import { HistoryService } from './services/history.service';
-import { FooterComponent } from './components/footer/footer.component';
+import { HistoryService } from './util-back';
+import { FooterComponent } from './ui-footer';
 import { RouterOutlet } from '@angular/router';
-import { NavComponent } from './components/nav/nav.component';
+import { NavComponent } from './ui-nav';
 import { AsyncPipe } from '@angular/common';
+import { RouteData } from './util-router';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,6 @@
-import { heading, paragraph, section, subheading, timeline } from '../../app/utils/content.utils';
-import { Content } from '../../app/interfaces/content.interface';
-import { CvEntryDetailsEnvironment } from '../../app/components/cv-entry-details/cv-entry-details.component';
+import { paragraph, section, timeline } from '../../app/feature-content';
+import { Content } from '../../app/feature-content';
+import { CvEntryDetailsEnvironment } from '../../app/feature-cv/cv-entry-details/cv-entry-details.component';
 
 export default [
   section(),

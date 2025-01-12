@@ -2,14 +2,12 @@ import {
   carousel,
   heading,
   mediaImage,
-  mediaVideo,
   paragraph,
   section,
-  subheading,
   timeline,
-} from '../../app/utils/content.utils';
-import { Content } from '../../app/interfaces/content.interface';
-import { ProjectPageEnvironment } from '../../app/pages/project/project.page';
+} from '../../app/feature-content';
+import { Content } from '../../app/feature-content';
+import { ProjectPageEnvironment } from '../../app/feature-dev/project/project.page';
 
 export default [
   section(true),
