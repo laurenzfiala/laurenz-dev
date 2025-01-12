@@ -11,7 +11,7 @@ import {
   withPreloading,
 } from '@angular/router';
 import { Routes } from './app.routes';
-import { ScrollService } from './services/scroll.service';
+import { ScrollService } from './util-interaction';
 
 export const appConfig: ApplicationConfig = {
   providers: [

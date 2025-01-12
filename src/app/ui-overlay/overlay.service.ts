@@ -1,5 +1,5 @@
 import { computed, effect, Injectable, signal } from '@angular/core';
-import { InteractionService } from '../services/interaction.service';
+import { InteractionService } from '../util-interaction';
 
 let nextId = 0;
 

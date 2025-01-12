@@ -1,0 +1,21 @@
+@if (_contentSections(); as contentSections) {
+  @for (section of contentSections; track $index) {
+    <section [ngClass]="{ 'px-0 max-w-none': section.section.wide }">
+      @for (element of section.content; track $index) {
+        @if (element.type === 'heading') {
+          <app-heading [content]="element" />
+        } @else if (element.type === 'paragraph') {
+          <p>{{ element.text }}</p>
+        } @else if (element.type === 'file') {
+          <app-file [content]="element" />
+        } @else if (element.type === 'timeline') {
+          <app-timeline class="my-10" [ranges]="element.ranges" />
+        } @else if (element.type === 'carousel') {
+          <div style="--carousel-padding: var(--paragraph-align-x)">
+            <app-carousel [media]="element.media" />
+          </div>
+        }
+      }
+    </section>
+  }
+}
