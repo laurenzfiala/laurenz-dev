@@ -26,7 +26,7 @@
       theme('colors.bg.DEFAULT') 100%
     ),
     center / cover no-repeat var(--bg-src);
-  mask-image: url('/assets/imgs/bg/pattern-mask.webp');
+  mask-image: url('/imgs/bg/pattern-mask.webp');
   mask-repeat: repeat;
   mask-size: 30px;
 

@@ -12,8 +12,8 @@ import { ProjectPageEnvironment } from '../../app/pages/project/project.page';
 export default [
   section(true),
   carousel(
-    mediaImage('/assets/content/projects/ngx-visual-cd/1.jpg', ``),
-    mediaImage('/assets/content/projects/ngx-visual-cd/2.jpg', ``),
+    mediaImage('/content/projects/ngx-visual-cd/1.jpg', ``),
+    mediaImage('/content/projects/ngx-visual-cd/2.jpg', ``),
   ),
 
   section(),
@@ -36,5 +36,5 @@ export default [
 ] satisfies Content;
 
 export const environment = {
-  topBg: mediaImage('/assets/content/projects/ngx-visual-cd/bg.jpg', ''),
+  topBg: mediaImage('/content/projects/ngx-visual-cd/bg.jpg', ''),
 } satisfies ProjectPageEnvironment;

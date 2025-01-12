@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "postbuild": "node .scripts/postbuild.node.js",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "watch": "ng build --watch --configuration development"
   },
   "private": true,
   "dependencies": {

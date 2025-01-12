@@ -27,5 +27,5 @@ export default [
 ] satisfies Content;
 
 export const environment = {
-  topBg: mediaImage('/assets/content/projects/tuw-mental-health-checker/bg.webp', ''),
+  topBg: mediaImage('/content/projects/tuw-mental-health-checker/bg.webp', ''),
 } satisfies ProjectPageEnvironment;

@@ -36,5 +36,5 @@ export default [
 ] satisfies Content;
 
 export const environment = {
-  topBg: mediaImage('/assets/content/projects/cool-trees-and-sensors/bg.webp', ''),
+  topBg: mediaImage('/content/projects/cool-trees-and-sensors/bg.webp', ''),
 } satisfies ProjectPageEnvironment;

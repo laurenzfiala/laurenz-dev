@@ -49,7 +49,7 @@ nav {
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.92);
   }
 
   &.nav-link--logo {
@@ -58,7 +58,7 @@ nav {
     &::after {
       content: '';
 
-      mask-image: url('/assets/imgs/logo_square_mask.webp');
+      mask-image: url('/imgs/logo_square_mask.webp');
       mask-size: cover;
 
       @apply absolute inset-0 rounded-lg;
