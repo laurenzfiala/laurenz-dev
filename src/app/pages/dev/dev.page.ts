@@ -9,7 +9,6 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './dev.page.html',
   styleUrls: ['./dev.page.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [HeadingComponent, ProjectLinkComponent, OverlayComponent, RouterOutlet],
 })
 export class DevPage {}

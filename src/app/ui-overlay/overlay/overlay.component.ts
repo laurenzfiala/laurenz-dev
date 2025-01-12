@@ -27,7 +27,6 @@ import { routePath } from '../../util-routes';
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
   styleUrl: './overlay.component.css',
-  standalone: true,
   exportAs: 'overlay',
   imports: [CdkTrapFocus],
   providers: [

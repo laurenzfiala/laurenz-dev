@@ -65,7 +65,6 @@ const rangeInput = (ranges: InputRange[]): DateRange[] => {
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NgStyle, DatePipe],
   host: {
     '[class]': "'timeline--' + mode()",

@@ -9,7 +9,6 @@ import { OverlayComponent } from '../../ui-overlay';
   selector: 'app-cv',
   templateUrl: './cv.page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [
     CvEntryComponent,
     HeadingComponent,

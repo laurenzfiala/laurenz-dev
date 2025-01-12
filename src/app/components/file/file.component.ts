@@ -7,7 +7,6 @@ import { FilenamePipe } from '../../pipes/filename.pipe';
   templateUrl: './file.component.html',
   styleUrls: ['./file.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [FilenamePipe],
 })
 export class FileComponent {

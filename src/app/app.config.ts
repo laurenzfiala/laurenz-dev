@@ -1,14 +1,13 @@
 import {
-  APP_INITIALIZER,
   ApplicationConfig,
   inject,
+  provideAppInitializer,
   provideZoneChangeDetection,
 } from '@angular/core';
 import {
   PreloadAllModules,
   provideRouter,
   withComponentInputBinding,
-  withInMemoryScrolling,
   withPreloading,
 } from '@angular/router';
 import { Routes } from './app.routes';
@@ -18,11 +17,8 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(Routes, withPreloading(PreloadAllModules), withComponentInputBinding()),
-    {
-      provide: APP_INITIALIZER,
-      useFactory: () => () => undefined,
-      multi: true,
-      deps: [ScrollService],
-    },
+    provideAppInitializer(() => {
+      inject(ScrollService);
+    }),
   ],
 };

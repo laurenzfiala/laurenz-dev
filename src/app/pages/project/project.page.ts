@@ -26,7 +26,6 @@ export interface ProjectPageEnvironment {
   styleUrls: ['./project.page.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [MediaService],
-  standalone: true,
   imports: [NgStyle, ContentComponent, RouterOutlet],
 })
 export class ProjectPage implements OnInit, OnChanges {

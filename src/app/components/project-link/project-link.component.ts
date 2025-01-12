@@ -18,7 +18,6 @@ import { NgTemplateOutlet } from '@angular/common';
   templateUrl: './project-link.component.html',
   styleUrls: ['./project-link.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [RouterLink, NgTemplateOutlet],
 })
 export class ProjectLinkComponent {
