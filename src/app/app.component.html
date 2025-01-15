@@ -1,11 +1,16 @@
-@if (showNav$ | async) {
-  <app-nav />
-}
+<div class="overflow-hidden">
+  @if (showNav$ | async) {
+    <app-nav />
+  }
 
-<div class="grow flex flex-col h-full">
-  <router-outlet />
+  <div
+    appSwipeNavigation="/,/development,/cv"
+    class="swipe-container grow flex flex-col h-full relative"
+  >
+    <router-outlet />
 
-  <div class="flex-grow"></div>
+    <div class="flex-grow"></div>
 
-  <app-footer />
+    <app-footer />
+  </div>
 </div>

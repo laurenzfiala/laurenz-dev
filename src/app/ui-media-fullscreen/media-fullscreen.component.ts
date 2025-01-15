@@ -72,15 +72,12 @@ export class MediaFullscreenComponent {
       this._videoEl();
       untracked(() => void this.updateMediaConstraint());
     });
-    effect(
-      (onCleanup) => {
-        const template = this._template() ?? bug('expected template');
-        const insertedView = this._rootViewContainerRef.createEmbeddedView(template);
+    effect((onCleanup) => {
+      const template = this._template() ?? bug('expected template');
+      const insertedView = this._rootViewContainerRef.createEmbeddedView(template);
 
-        onCleanup(() => insertedView.destroy());
-      },
-      { allowSignalWrites: true },
-    );
+      onCleanup(() => insertedView.destroy());
+    });
 
     destroyRef.onDestroy(() => this._overlayServiceRef.destroy());
   }

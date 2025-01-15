@@ -6,17 +6,18 @@ import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './ui-nav';
 import { AsyncPipe } from '@angular/common';
 import { RouteData } from './util-router';
+import { SwipeNavigateDirective } from './util-swipe';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NavComponent, RouterOutlet, FooterComponent, AsyncPipe],
+  imports: [NavComponent, RouterOutlet, FooterComponent, AsyncPipe, SwipeNavigateDirective],
 })
 export class AppComponent {
   constructor(
-    private _backService: HistoryService,
+    private readonly _backService: HistoryService,
     public readonly viewContainerRef: ViewContainerRef,
   ) {}
 

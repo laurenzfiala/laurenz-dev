@@ -1,3 +1,37 @@
 :host {
   @apply grow flex flex-col justify-stretch min-h-full;
 }
+
+.swipe-container {
+  transition: opacity 0.1s;
+
+  &.swipe-left {
+    animation: -anim-swipe-left 0.35s;
+  }
+
+  &.swipe-right {
+    animation: -anim-swipe-right 0.35s;
+  }
+}
+
+@keyframes -anim-swipe-left {
+  from {
+    transform: translateX(-40vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes -anim-swipe-right {
+  from {
+    transform: translateX(40vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}

@@ -14,24 +14,18 @@ export class TimelineGroupDirective {
   readonly max = input(undefined, { transform: dateInput });
 
   constructor(timelineService: TimelineService) {
-    effect(
-      () => {
-        const min = this.min();
-        if (min) {
-          timelineService.min.set(min);
-        }
-      },
-      { allowSignalWrites: true },
-    );
+    effect(() => {
+      const min = this.min();
+      if (min) {
+        timelineService.min.set(min);
+      }
+    });
 
-    effect(
-      () => {
-        const max = this.max();
-        if (max) {
-          timelineService.max.set(max);
-        }
-      },
-      { allowSignalWrites: true },
-    );
+    effect(() => {
+      const max = this.max();
+      if (max) {
+        timelineService.max.set(max);
+      }
+    });
   }
 }
