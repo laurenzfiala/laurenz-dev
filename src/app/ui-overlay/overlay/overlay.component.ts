@@ -58,22 +58,19 @@ export class OverlayComponent implements OnDestroy {
   constructor(private _router: Router) {
     this._overlay.setCloseHandler(() => this.close());
 
-    effect(
-      (onCleanup) => {
-        const outlet = this.outlet();
+    effect((onCleanup) => {
+      const outlet = this.outlet();
 
-        this._open.set(outlet.isActivated);
+      this._open.set(outlet.isActivated);
 
-        const activateSub = outlet.activateEvents.subscribe(() => this._open.set(true));
-        const deactivateSub = outlet.deactivateEvents.subscribe(() => this._open.set(false));
+      const activateSub = outlet.activateEvents.subscribe(() => this._open.set(true));
+      const deactivateSub = outlet.deactivateEvents.subscribe(() => this._open.set(false));
 
-        onCleanup(() => {
-          activateSub.unsubscribe();
-          deactivateSub.unsubscribe();
-        });
-      },
-      { allowSignalWrites: true },
-    );
+      onCleanup(() => {
+        activateSub.unsubscribe();
+        deactivateSub.unsubscribe();
+      });
+    });
 
     effect(() => {
       const open = this._open();
