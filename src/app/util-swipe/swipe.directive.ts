@@ -57,9 +57,9 @@ interface TouchDistance {
 @Directive({
   selector: '[appSwipe]',
   host: {
-    '(touchstart)': 'touchstart($event)',
-    '(touchmove)': 'touchmove($event)',
-    '(touchend)': 'touchend()',
+    '(touchstart.passive)': 'touchstart($event)',
+    '(touchmove.passive)': 'touchmove($event)',
+    '(touchend.passive)': 'touchend()',
   },
 })
 export class SwipeDirective {

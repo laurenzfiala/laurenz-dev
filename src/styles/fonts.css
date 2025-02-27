@@ -2,27 +2,32 @@
   font-family: 'Lexend';
   font-weight: normal;
   src: url('/fonts/Lexend-Regular.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Lexend';
   font-weight: 500;
   src: url('/fonts/Lexend-Medium.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Lexend';
   font-weight: 600;
   src: url('/fonts/Lexend-SemiBold.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Lexend';
   font-weight: bold;
   src: url('/fonts/Lexend-Bold.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Open Sans';
   src: url('/fonts/OpenSans-VariableFont.ttf');
+  font-display: swap;
 }
