@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const indexHtml = fs.readFileSync('dist/laurenz-dev/browser/index.html').toString();
 const htAccess = fs.readFileSync('dist/laurenz-dev/browser/.htaccess').toString();
