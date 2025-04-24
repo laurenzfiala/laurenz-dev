@@ -1,14 +1,23 @@
 :host {
   --height: 3rem;
+  --range-min-width: 1.5rem;
 
   display: block;
 
   &.timeline--thin {
     --height: 12px;
+    --range-min-width: 12px;
   }
 }
 
 .timeline-range {
+  position: absolute;
+  top: 0;
+  left: min(var(--left, 0), calc(100% - var(--range-min-width)));
+  min-width: var(--range-min-width);
+  width: var(--width);
+  height: var(--height);
+
   background: linear-gradient(
     to right,
     theme('colors.primary.DEFAULT'),
