@@ -6,11 +6,15 @@
 }
 
 .wrapper {
+  position: sticky;
+  top: theme('space.2');
+  z-index: 20;
+
   padding-inline: theme('space.4');
   margin-inline: calc(var(--paragraph-align-x) - theme('space.6'));
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
 
-  @apply grid py-4 mb-8 rounded-lg;
+  @apply grid py-3 mb-8 rounded-lg;
 }
 
 nav {
