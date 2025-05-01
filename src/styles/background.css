@@ -7,6 +7,71 @@ body {
   position: relative;
 }
 
+.global-background,
+.global-background--sliding {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+
+  mask-image: url('/imgs/bg/pattern-mask.webp');
+  mask-repeat: repeat;
+  mask-size: 30px;
+}
+
+.global-background {
+  background-image: radial-gradient(
+    100% 200px at top center,
+    theme('colors.gray.400'),
+    theme('colors.gray.400 / 0%')
+  );
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+  .global-background {
+    background-image: radial-gradient(
+      100% 200px at top center,
+      theme('colors.gray.600'),
+      theme('colors.gray.600 / 0%')
+    );
+  }
+}
+
+.global-background--sliding {
+  background-image: radial-gradient(
+    350px 200px at top center,
+    theme('colors.primary.DEFAULT'),
+    theme('colors.primary.DEFAULT / 0%')
+  );
+  background-size: 200% 150%;
+  background-repeat: no-repeat;
+
+  animation: --anim-background-slide 12s infinite linear;
+}
+
+@keyframes --anim-background-slide {
+  from {
+    background-position: 100% -200px;
+  }
+  12% {
+    background-position: 80% -30px;
+  }
+  15% {
+    background-position: 75% 0;
+  }
+  45% {
+    background-position: 25% 0;
+  }
+  48% {
+    background-position: 20% -30px;
+  }
+  60%,
+  to {
+    background-position: 0 -200px;
+  }
+}
+
 .global-background-footer {
   position: absolute;
   top: 0;
