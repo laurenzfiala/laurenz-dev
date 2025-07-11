@@ -1,5 +1,5 @@
-import { DestroyRef, ElementRef, inject, Signal, signal } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { DestroyRef, ElementRef, inject, Signal, signal, DOCUMENT } from '@angular/core';
+
 
 /**
  * Call this to receive a {@link Signal} that changes whenever the given

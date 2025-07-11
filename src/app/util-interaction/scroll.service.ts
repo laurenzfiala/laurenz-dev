@@ -1,8 +1,8 @@
-import { effect, Inject, Injectable } from '@angular/core';
+import { effect, Inject, Injectable, DOCUMENT } from '@angular/core';
 import { ActivatedRouteSnapshot, ActivationEnd, NavigationStart, Router } from '@angular/router';
 import { take, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { DOCUMENT } from '@angular/common';
+
 import { windowResized } from '../ui-signals';
 import { RouteData } from '../util-router';
 
