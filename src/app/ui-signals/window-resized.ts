@@ -1,5 +1,5 @@
-import { inject, Signal, signal, WritableSignal } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { inject, Signal, signal, WritableSignal, DOCUMENT } from '@angular/core';
+
 
 let resizedS: WritableSignal<number> | null;
 

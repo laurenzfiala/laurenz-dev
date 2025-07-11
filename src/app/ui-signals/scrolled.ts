@@ -1,5 +1,5 @@
-import { DestroyRef, ElementRef, inject, Renderer2, signal, type Signal } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { DestroyRef, ElementRef, inject, Renderer2, signal, type Signal, DOCUMENT } from '@angular/core';
+
 
 /**
  * Call this to receive a {@link Signal} that changes after the given
