@@ -1,4 +1,4 @@
-import { Directive, effect, input, Self, untracked, ViewContainerRef } from '@angular/core';
+import { Directive, effect, input, Self, ViewContainerRef } from '@angular/core';
 import { SwipeDirective, SwipeEvent } from './swipe.directive';
 import { OverlayService } from '../ui-overlay';
 import { NavigationEnd, Router } from '@angular/router';

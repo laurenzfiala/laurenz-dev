@@ -1,4 +1,4 @@
-import { effect, Inject, Injectable, DOCUMENT } from '@angular/core';
+import { DOCUMENT, effect, Inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, ActivationEnd, NavigationStart, Router } from '@angular/router';
 import { take, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';

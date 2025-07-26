@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewContainerRef } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { map } from 'rxjs';
 import { HistoryService } from './util-back';
 import { FooterComponent } from './ui-footer';
@@ -12,7 +12,6 @@ import { SwipeNavigateDirective } from './util-swipe';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NavComponent, RouterOutlet, FooterComponent, AsyncPipe, SwipeNavigateDirective],
 })
 export class AppComponent {

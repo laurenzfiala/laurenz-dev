@@ -1,7 +1,5 @@
-import { ChangeDetectionStrategy, Component, effect, input } from '@angular/core';
-import { Media } from '../ui-media-fullscreen';
-import { MediaService } from '../ui-media-fullscreen';
-import { FilenamePipe } from '../ui-media-fullscreen';
+import { Component, effect, input } from '@angular/core';
+import { FilenamePipe, Media, MediaService } from '../ui-media-fullscreen';
 import { RouterLink } from '@angular/router';
 
 import { ScrollComponent } from '../ui-scroll';
@@ -20,7 +18,6 @@ import { ScrollComponent } from '../ui-scroll';
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ScrollComponent, RouterLink, FilenamePipe],
 })
 export class CarouselComponent {

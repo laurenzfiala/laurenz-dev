@@ -1,13 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  effect,
-  input,
-  Optional,
-  signal,
-  untracked,
-} from '@angular/core';
+import { Component, computed, effect, input, Optional, signal, untracked } from '@angular/core';
 import { DatePipe, NgStyle } from '@angular/common';
 import { TimelineService } from './timeline.service';
 import { bug } from '../util-error';
@@ -63,7 +54,6 @@ const rangeInput = (ranges: InputRange[]): DateRange[] => {
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgStyle, DatePipe],
   host: {
     '[class]': "'timeline--' + mode()",

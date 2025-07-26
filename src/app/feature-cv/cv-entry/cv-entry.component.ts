@@ -1,11 +1,4 @@
-import {
-  booleanAttribute,
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  ElementRef,
-  input,
-} from '@angular/core';
+import { booleanAttribute, Component, computed, ElementRef, input } from '@angular/core';
 import { InputRange, TimelineComponent } from '../../ui-timeline';
 import { NgTemplateOutlet } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -16,7 +9,6 @@ import { navigated, scrolled } from '../../ui-signals';
   imports: [TimelineComponent, NgTemplateOutlet, RouterLink],
   templateUrl: './cv-entry.component.html',
   styleUrl: './cv-entry.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CvEntryComponent {
   readonly link = input<string>();

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -6,7 +6,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, RouterLinkActive, NgClass],
 })
 export class NavComponent {

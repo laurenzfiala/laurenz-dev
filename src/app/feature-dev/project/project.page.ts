@@ -1,14 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  effect,
-  input,
-  untracked,
-} from '@angular/core';
-import { Content, ContentComponent } from '../../feature-content';
+import { ChangeDetectorRef, Component, effect, input, untracked } from '@angular/core';
+import { Content, ContentComponent, firstHeading } from '../../feature-content';
 import { ActivatedRouteSnapshot, ResolveFn, RouterOutlet } from '@angular/router';
-import { firstHeading } from '../../feature-content';
 import { Media, MediaService } from '../../ui-media-fullscreen';
 import { NgStyle } from '@angular/common';
 import { bug } from '../../util-error';
@@ -21,7 +13,6 @@ export interface ProjectPageEnvironment {
   selector: 'app-project',
   templateUrl: './project.page.html',
   styleUrls: ['./project.page.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [MediaService],
   imports: [NgStyle, ContentComponent, RouterOutlet],
 })

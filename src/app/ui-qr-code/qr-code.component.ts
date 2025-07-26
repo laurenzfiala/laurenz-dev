@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-qr-code',
   templateUrl: './qr-code.component.html',
   styleUrls: ['./qr-code.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
 export class QrCodeComponent {

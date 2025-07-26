@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  HostListener,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { InteractionService } from '../util-interaction';
 
 /**
@@ -18,7 +12,6 @@ import { InteractionService } from '../util-interaction';
   selector: 'app-scroll',
   templateUrl: './scroll.component.html',
   styleUrls: ['./scroll.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
 export class ScrollComponent {

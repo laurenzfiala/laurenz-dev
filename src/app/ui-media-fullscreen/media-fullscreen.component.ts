@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   DestroyRef,
   effect,
@@ -31,7 +30,6 @@ import { bug } from '../util-error';
   selector: 'app-media-fullscreen',
   templateUrl: './media-fullscreen.component.html',
   styleUrls: ['./media-fullscreen.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   exportAs: 'mediaFullscreen',
   imports: [NgClass, AsyncPipe, CdkTrapFocus],
   host: {

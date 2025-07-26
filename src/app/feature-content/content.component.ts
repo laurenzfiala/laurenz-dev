@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { Content } from './content.interface';
 import { CarouselComponent } from '../ui-carousel';
 import { TimelineComponent } from '../ui-timeline';
@@ -11,7 +11,6 @@ import { splitSections } from './content.utils';
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgClass, HeadingComponent, FileComponent, TimelineComponent, CarouselComponent],
 })
 export class ContentComponent {
