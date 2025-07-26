@@ -62,7 +62,7 @@ export class ProjectPage {
       try {
         const content = (await this.load(route.paramMap.get('id') ?? bug())).content;
         title = firstHeading(content)?.text ?? '';
-      } catch (e) {
+      } catch {
         title = '(missing)';
       }
 

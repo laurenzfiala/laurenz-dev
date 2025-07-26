@@ -1,12 +1,13 @@
 <ng-template #template>
+  <!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus,@angular-eslint/template/click-events-have-key-events -->
   <div
     cdkTrapFocus
     cdkTrapFocusAutoCapture
+    class="fixed z-50 top-0 right-0 bottom-0 left-0 bg-black/80 text-contrast transition-all grid"
     [ngClass]="{
       'opacity-0 pointer-events-none': !_show(),
       'opacity-100 backdrop-blur-xl': _show(),
     }"
-    class="fixed z-50 top-0 right-0 bottom-0 left-0 bg-black/80 text-contrast transition-all grid"
     (click)="hide($event)"
   >
     @if (_selectedMedia | async; as selectedMedia) {
@@ -15,11 +16,12 @@
         [class.opacity-0]="_isLoading"
       >
         @if (selectedMedia.type === 'image') {
+          <!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus,@angular-eslint/template/click-events-have-key-events -->
           <img
             #imageEl
+            class="constrain-w drop-shadow-2xl"
             [src]="selectedMedia.src"
             [alt]="selectedMedia.alt"
-            class="constrain-w drop-shadow-2xl"
             (click)="next(); _preventClose = $event"
             (load)="_isLoading = false; updateMediaConstraint()"
           />
@@ -28,11 +30,11 @@
           <video
             #videoEl
             class="constrain-w drop-shadow-2xl"
-            (loadedmetadata)="_isLoading = false; updateMediaConstraint()"
-            (click)="next(); _preventClose = $event"
             loop
             autoplay
             [defaultMuted]="true"
+            (loadedmetadata)="_isLoading = false; updateMediaConstraint()"
+            (click)="next(); _preventClose = $event"
           >
             <source [src]="selectedMedia.src" />
             Your browser can't display this video.
@@ -43,6 +45,7 @@
 
     <!-- NAVIGATION BAR -->
     <!-- TODO move to separate component -->
+    <!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus,@angular-eslint/template/click-events-have-key-events -->
     <div
       class="absolute bottom-2 left-4 right-4 flex items-center justify-center h-[2rem]"
       (click)="_preventClose = $event"
@@ -53,7 +56,11 @@
         title="Previous"
         (click)="previous()"
       >
-        <img src="/imgs/icons/chevron-left.svg" class="h-[0.6rem] invert" />
+        <img
+          alt="Arrow pointing left"
+          src="/imgs/icons/chevron-left.svg"
+          class="h-[0.6rem] invert"
+        />
       </button>
 
       <!-- LOCATION INDICATOR -->
@@ -73,7 +80,11 @@
         title="Next"
         (click)="next()"
       >
-        <img src="/imgs/icons/chevron-right.svg" class="h-[0.6rem] invert" />
+        <img
+          alt="Arrow pointing right"
+          src="/imgs/icons/chevron-right.svg"
+          class="h-[0.6rem] invert"
+        />
       </button>
     </div>
 
@@ -83,7 +94,7 @@
       title="Close"
       (click)="hide($event)"
     >
-      <img class="w-[2.5rem] invert" src="/imgs/icons/close.svg" />
+      <img class="w-[2.5rem] invert" alt="Close gallery" src="/imgs/icons/close.svg" />
     </button>
   </div>
 </ng-template>

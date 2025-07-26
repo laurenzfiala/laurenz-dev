@@ -16,8 +16,8 @@
           <!-- LABEL OVERLAY -->
           @for (range of year.ranges; track $index) {
             <div
-              [ngStyle]="{ '--start': range.start, '--end': range.end }"
               class="timeline-year-overlay-label absolute z-10 left-0 top-0 h-12 right-0 flex flex-row items-center justify-center text-contrast label-overlay opacity-60"
+              [ngStyle]="{ '--start': range.start, '--end': range.end }"
             >
               {{ year.label }}
             </div>
@@ -31,8 +31,8 @@
   <div class="absolute z-1 overflow-visible top-0 right-0 bottom-0 left-0">
     @for (range of _ranges(); track $index) {
       <div
-        [ngStyle]="{ '--left': range.left, '--width': range.width }"
         class="timeline-range rounded shadow-lg dark:shadow-transparent shadow-neutral-400 dark:shadow-none"
+        [ngStyle]="{ '--left': range.left, '--width': range.width }"
       >
         <div class="absolute bottom-[100%] left-0 right-0 flex flex-row flex-wrap pb-2 -m-0.5">
           <div class="flex flex-row items-center flex-grow whitespace-nowrap max-w-full">

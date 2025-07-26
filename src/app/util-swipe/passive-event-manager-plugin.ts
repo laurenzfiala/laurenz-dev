@@ -36,7 +36,7 @@ export class PassiveEventManagerPlugin extends EventManagerPlugin {
     element: HTMLElement,
     eventName: string,
     handler: (event: Event) => void,
-  ): Function {
+  ): () => void {
     // striping the passive modifier from the event name;
     const nonModifiedEventName = eventName.replace(/\.passive$/, '');
 

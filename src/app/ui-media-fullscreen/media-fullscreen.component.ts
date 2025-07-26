@@ -49,7 +49,7 @@ export class MediaFullscreenComponent {
   protected _isLoading = false;
   protected _preventClose?: Event;
   protected readonly _allMedia = signal<readonly Media[]>([]);
-  protected _selectedMediaIndex: number = 0;
+  protected _selectedMediaIndex = 0;
   protected _selectedMedia = new ReplaySubject<Media | null>(1);
 
   private readonly _overlayServiceRef = inject(OverlayService).register();

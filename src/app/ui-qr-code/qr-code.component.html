@@ -1,9 +1,10 @@
 <button
   class="qr-activator"
+  title="Click to show QR code"
   [class.active]="active"
   [class.subtle]="subtle"
   (click)="action.emit()"
 >
-  <img [src]="overlayUrl" class="overlay" />
-  <img [src]="qrUrl" class="qr" />
+  <img class="overlay" alt="Blurred QR code" [src]="overlayUrl" />
+  <img class="qr" alt="QR code" [src]="qrUrl" />
 </button>
