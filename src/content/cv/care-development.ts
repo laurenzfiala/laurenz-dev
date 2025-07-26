@@ -10,7 +10,7 @@ export default [
   `),
 
   section(),
-  timeline({ from: '2022-10-01', to: 'ongoing' }),
+  timeline({ from: '2022-10-01', to: '2025-02-28' }),
 
   section(),
   paragraph(`
