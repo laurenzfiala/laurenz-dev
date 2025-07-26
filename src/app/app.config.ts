@@ -2,7 +2,7 @@ import {
   ApplicationConfig,
   inject,
   provideAppInitializer,
-  provideZoneChangeDetection,
+  provideZonelessChangeDetection,
 } from '@angular/core';
 import {
   PreloadAllModules,
@@ -16,7 +16,7 @@ import { provideSwipe } from './util-swipe';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideZonelessChangeDetection(),
     provideRouter(Routes, withPreloading(PreloadAllModules), withComponentInputBinding()),
     provideAppInitializer(() => {
       inject(ScrollService);
