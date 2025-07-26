@@ -116,7 +116,7 @@ function eventFromList(touches: Touch[], ended: boolean): SwipeEvent | null {
   const lastTouch = touches.at(-1)!;
   const swipeAxis: SwipeAxis | null = axis(firstTouch, lastTouch);
 
-  for (let touch of touches) {
+  for (const touch of touches) {
     const isOnSwipeAxis = axis(firstTouch, touch) === swipeAxis;
 
     if (!isOnSwipeAxis) {

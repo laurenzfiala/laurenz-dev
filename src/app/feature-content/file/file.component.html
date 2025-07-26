@@ -1,8 +1,8 @@
 @if (content || src) {
   <a
+    class="link p-2 mb-2"
     [href]="content?.src ?? src"
     [download]="(content?.src ?? src)! | filename"
-    class="link p-2 mb-2"
   >
     {{ (content?.src ?? src)! | filename: true }}
   </a>

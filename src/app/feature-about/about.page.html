@@ -65,20 +65,20 @@
         <div>
           <!-- EMAIL -->
           <app-qr-code
-            [active]="_activeQr === 'email'"
-            [subtle]="!!_activeQr"
             overlayUrl="/imgs/about/email_logo.svg"
             qrUrl="/imgs/about/qr_email.svg"
+            [active]="_activeQr === 'email'"
+            [subtle]="!!_activeQr"
             (action)="_activeQr = 'email'"
           ></app-qr-code>
         </div>
 
         <!-- TELEGRAM -->
         <app-qr-code
-          [active]="_activeQr === 'telegram'"
-          [subtle]="!!_activeQr"
           overlayUrl="/imgs/about/telegram_logo.svg"
           qrUrl="/imgs/about/qr_telegram.svg"
+          [active]="_activeQr === 'telegram'"
+          [subtle]="!!_activeQr"
           (action)="_activeQr = 'telegram'"
         ></app-qr-code>
       </div>

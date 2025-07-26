@@ -8,17 +8,17 @@ import { filter, firstValueFrom, Observable, ReplaySubject } from 'rxjs';
  */
 @Injectable()
 export class MediaService {
-  private _media$ = new ReplaySubject<Readonly<Media[]>>(1);
+  private _media$ = new ReplaySubject<readonly Media[]>(1);
 
-  get media$(): Observable<Readonly<Media[]>> {
+  get media$(): Observable<readonly Media[]> {
     return this._media$.pipe(filter((media) => !!media));
   }
 
-  get media(): Promise<Readonly<Media[]>> {
+  get media(): Promise<readonly Media[]> {
     return firstValueFrom(this._media$.pipe(filter((media) => !!media)));
   }
 
-  set media(media: Readonly<Media[]>) {
+  set media(media: readonly Media[]) {
     this._media$.next(media);
   }
 }

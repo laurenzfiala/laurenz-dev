@@ -33,6 +33,7 @@ export default tseslint.config(
       ],
       '@typescript-eslint/no-empty-function': 'off',
       'jsdoc/no-undefined-types': 'error',
+      '@angular-eslint/prefer-inject': 'off',
     },
   },
   {

@@ -67,7 +67,7 @@ export class CvEntryDetailsComponent {
       try {
         const environment = (await this.load(route.paramMap.get('id') ?? bug())).environment;
         title = environment.at ?? '';
-      } catch (e) {
+      } catch {
         title = '(missing)';
       }
 

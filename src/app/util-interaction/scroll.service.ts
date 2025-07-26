@@ -17,7 +17,7 @@ export type PendingScroll = true | 'prevent' | null;
  */
 function child(route: ActivatedRouteSnapshot) {
   let current = route;
-  while (!!current.firstChild) {
+  while (current.firstChild) {
     current = current.firstChild;
   }
 
