@@ -1,5 +1,4 @@
-import { Inject, Injectable, DOCUMENT } from '@angular/core';
-
+import { DOCUMENT, Inject, Injectable } from '@angular/core';
 
 /**
  * Modifies/toggles user interactions with the page.

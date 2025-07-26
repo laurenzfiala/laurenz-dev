@@ -1,5 +1,11 @@
-import { heading, mediaImage, paragraph, section, timeline } from '../../app/feature-content';
-import { Content } from '../../app/feature-content';
+import {
+  Content,
+  heading,
+  mediaImage,
+  paragraph,
+  section,
+  timeline,
+} from '../../app/feature-content';
 import { ProjectPageEnvironment } from '../../app/feature-dev/project/project.page';
 
 export default [

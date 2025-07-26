@@ -1,11 +1,4 @@
-import {
-  booleanAttribute,
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  ElementRef,
-  input,
-} from '@angular/core';
+import { booleanAttribute, Component, computed, ElementRef, input } from '@angular/core';
 
 import { RouterLink } from '@angular/router';
 import { navigated, scrolled } from '../../ui-signals';
@@ -15,7 +8,6 @@ import { NgTemplateOutlet } from '@angular/common';
   selector: 'app-project-link',
   templateUrl: './project-link.component.html',
   styleUrls: ['./project-link.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, NgTemplateOutlet],
 })
 export class ProjectLinkComponent {

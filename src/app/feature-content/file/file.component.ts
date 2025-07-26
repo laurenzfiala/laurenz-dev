@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FileElement } from '../content.interface';
 import { FilenamePipe } from '../../ui-media-fullscreen';
 
@@ -6,7 +6,6 @@ import { FilenamePipe } from '../../ui-media-fullscreen';
   selector: 'app-file',
   templateUrl: './file.component.html',
   styleUrls: ['./file.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [FilenamePipe],
 })
 export class FileComponent {

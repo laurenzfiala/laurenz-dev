@@ -1,14 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  effect,
-  inject,
-  input,
-  signal,
-  untracked,
-} from '@angular/core';
-import { ContentComponent } from '../../feature-content';
-import { Content } from '../../feature-content';
+import { Component, effect, inject, input, signal, untracked } from '@angular/core';
+import { Content, ContentComponent } from '../../feature-content';
 import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
 import { Overlay } from '../../ui-overlay';
 import { bug } from '../../util-error';
@@ -23,7 +14,6 @@ export interface CvEntryDetailsEnvironment {
   imports: [ContentComponent],
   templateUrl: './cv-entry-details.component.html',
   styleUrl: './cv-entry-details.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CvEntryDetailsComponent {
   readonly id = input.required<string>();

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HeadingElement } from '../feature-content';
 import { NgTemplateOutlet } from '@angular/common';
 
@@ -6,7 +6,6 @@ import { NgTemplateOutlet } from '@angular/common';
   selector: 'app-heading',
   templateUrl: './heading.component.html',
   styleUrls: ['./heading.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgTemplateOutlet],
 })
 export class HeadingComponent {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { QrCodeComponent } from '../ui-qr-code';
 import { HeadingComponent } from '../ui-heading';
 import { InfoBoxComponent } from '../ui-info-box';
@@ -8,7 +8,6 @@ import { NgOptimizedImage } from '@angular/common';
   selector: 'app-about',
   templateUrl: './about.page.html',
   styleUrls: ['./about.page.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [HeadingComponent, QrCodeComponent, InfoBoxComponent, NgOptimizedImage],
 })
 export class AboutPage {

@@ -6,8 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-
-import { inject, Injectable, DOCUMENT } from '@angular/core';
+import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { EventManagerPlugin } from '@angular/platform-browser';
 
 /**
