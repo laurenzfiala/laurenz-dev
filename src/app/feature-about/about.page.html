@@ -39,7 +39,7 @@
 
   <!-- LINKS -->
   <div class="flex flex-col flex-wrap items-start gap-4 my-12">
-    <a class="link flex flex-row items-center gap-4" href="#" (click)="sendMail()">
+    <a class="link flex flex-row items-center gap-4" href="#" (click)="sendMail($event)">
       <div class="logo logo--email"></div>
       E-mail
     </a>
@@ -49,38 +49,56 @@
       Telegram
     </a>
 
-    @if (!_showQrCodes) {
-      <button class="link-container flex flex-row items-center gap-4" (click)="_showQrCodes = true">
+    <a
+      href="https://www.linkedin.com/in/laurenz-fiala-081598388"
+      class="link flex flex-row items-center gap-4"
+    >
+      <div class="logo logo--linkedin"></div>
+      LinkedIn
+    </a>
+
+    @if (!_showQrCodes()) {
+      <button
+        class="link-container flex flex-row items-center gap-4"
+        (click)="_showQrCodes.set(true)"
+      >
         <div class="logo logo--qr"></div>
         <span class="link">Scan QR codes instead</span>
       </button>
-    }
-
-    <!-- QR Codes -->
-    @if (_showQrCodes) {
+    } @else {
+      <!-- QR codes -->
       <div
         class="flex flex-row justify-center self-stretch flex-wrap items-center gap-6 mt-4"
-        [class.qr-active]="_activeQr"
+        [class.qr-active]="!!_activeQr()"
       >
         <div>
           <!-- EMAIL -->
           <app-qr-code
             overlayUrl="/imgs/about/email_logo.svg"
             qrUrl="/imgs/about/qr_email.svg"
-            [active]="_activeQr === 'email'"
-            [subtle]="!!_activeQr"
-            (action)="_activeQr = 'email'"
-          ></app-qr-code>
+            [active]="_activeQr() === 'email'"
+            [subtle]="!!_activeQr()"
+            (action)="_activeQr.set('email')"
+          />
         </div>
 
         <!-- TELEGRAM -->
         <app-qr-code
           overlayUrl="/imgs/about/telegram_logo.svg"
           qrUrl="/imgs/about/qr_telegram.svg"
-          [active]="_activeQr === 'telegram'"
-          [subtle]="!!_activeQr"
-          (action)="_activeQr = 'telegram'"
-        ></app-qr-code>
+          [active]="_activeQr() === 'telegram'"
+          [subtle]="!!_activeQr()"
+          (action)="_activeQr.set('telegram')"
+        />
+
+        <!-- LINKEDIN -->
+        <app-qr-code
+          overlayUrl="/imgs/about/linkedin_logo.svg"
+          qrUrl="/imgs/about/qr_linkedin.svg"
+          [active]="_activeQr() === 'linkedin'"
+          [subtle]="!!_activeQr()"
+          (action)="_activeQr.set('linkedin')"
+        />
       </div>
     }
   </div>

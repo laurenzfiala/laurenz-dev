@@ -48,4 +48,10 @@ export interface RouteData {
    * configs, the deactivated route config takes precedence.
    */
   scrollOn?: RouteScrollConfig;
+
+  /**
+   * Set false to hide the global page background.
+   * By default, all pages show a page background.
+   */
+  showBackground?: boolean;
 }
