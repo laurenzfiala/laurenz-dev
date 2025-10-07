@@ -36,10 +36,10 @@
 }
 
 .logo {
+  background: var(--color-text);
   mask-image: url('/imgs/about/email_logo.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
-  background: var(--color-text);
 
   @apply h-[1.35rem] aspect-square;
 
@@ -49,6 +49,10 @@
 
   &.logo--telegram {
     mask-image: url('/imgs/about/telegram_logo.svg');
+  }
+
+  &.logo--linkedin {
+    mask-image: url('/imgs/about/linkedin_logo.svg');
   }
 
   &.logo--qr {

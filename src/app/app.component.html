@@ -1,15 +1,22 @@
-<div class="overflow-clip">
-  @if (showNav$ | async) {
+@if (_showBackground()) {
+  <div class="global-background"></div>
+  <div class="global-background--sliding"></div>
+  <div class="global-background-footer"></div>
+}
+
+<div class="overflow-clip flex flex-col grow">
+  @if (_showNav()) {
     <app-nav />
   }
 
   <div
     appSwipeNavigation="/,/development,/cv"
-    class="swipe-container grow flex flex-col h-full relative"
+    class="swipe-container flex flex-col grow h-full relative"
   >
-    <router-outlet />
+    <div class="flex flex-col grow">
+      <router-outlet />
+    </div>
 
-    <div class="flex-grow"></div>
 
     <app-footer />
   </div>

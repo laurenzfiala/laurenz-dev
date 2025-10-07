@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { QrCodeComponent } from '../ui-qr-code';
 import { HeadingComponent } from '../ui-heading';
 import { InfoBoxComponent } from '../ui-info-box';
 import { NgOptimizedImage } from '@angular/common';
+import { sendMail } from '../util-contact';
 
 @Component({
   selector: 'app-about',
@@ -11,12 +12,7 @@ import { NgOptimizedImage } from '@angular/common';
   imports: [HeadingComponent, QrCodeComponent, InfoBoxComponent, NgOptimizedImage],
 })
 export class AboutPage {
-  private static E_MAIL = 'renz.devmail@lau';
-
-  protected _activeQr: 'email' | 'telegram' | null = null;
-  protected _showQrCodes = false;
-
-  protected sendMail() {
-    location.href = `mailto:${AboutPage.E_MAIL.substring(8)}${AboutPage.E_MAIL.substring(0, 8)}`;
-  }
+  protected _activeQr = signal<'email' | 'telegram' | 'linkedin' | null>(null);
+  protected _showQrCodes = signal(false);
+  protected readonly sendMail = sendMail;
 }
