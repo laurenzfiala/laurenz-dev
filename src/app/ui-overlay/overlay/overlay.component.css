@@ -24,8 +24,8 @@
     background: linear-gradient(
         to bottom,
         transparent 0%,
-        theme('colors.secondary.DEFAULT / 8%') 50%,
-        theme('colors.secondary.DEFAULT / 20%') 100%
+        theme('colors.secondary.DEFAULT / 2%') 50%,
+        theme('colors.secondary.DEFAULT / 8%') 100%
       )
       no-repeat;
     background-size: auto 200%;
