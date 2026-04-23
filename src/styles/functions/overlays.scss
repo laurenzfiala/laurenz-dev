@@ -1,0 +1,27 @@
+@use 'sass:list';
+
+$local-reserved-indices: 10;
+
+/**
+Global overlays, ordered from front to back.
+z-index 0..10 are reserved for local overlays.
+ */
+$overlays: (nav);
+
+@function overlay($overlay) {
+  $index: list.index($overlays, $overlay);
+
+  @if ($index == null) {
+    @error 'Overlay ' + $overlay + ' not found';
+  }
+
+  @return list.index($overlays, $overlay) * 3 + $local-reserved-indices;
+}
+
+@function above($zIndex) {
+  @return $zIndex + 1;
+}
+
+@function below($zIndex) {
+  @return $zIndex - 1;
+}

@@ -1,0 +1,11 @@
+@use 'headings' as *;
+@use 'sections' as *;
+@use 'dividers' as *;
+@use 'links' as *;
+
+@mixin content {
+  @include headings;
+  @include sections;
+  @include dividers;
+  @include links;
+}

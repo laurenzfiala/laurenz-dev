@@ -1,7 +1,0 @@
-:host {
-  display: contents;
-}
-
-.heading-extra-margin {
-  @apply mt-10 mb-6;
-}

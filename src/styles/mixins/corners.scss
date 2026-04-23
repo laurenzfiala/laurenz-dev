@@ -1,0 +1,33 @@
+@use 'sass:list';
+
+@mixin rounded($border-radius, $border-radius-squircle, $sides: '') {
+  border-radius: $border-radius;
+
+  @supports (corner-shape: squircle) {
+    border-radius: $border-radius-squircle;
+    corner-shape: squircle;
+  }
+
+  @if $sides != '' {
+    @if not(list.index($sides, 'top') or list.index($sides, 'left')) {
+      border-top-left-radius: 0;
+    }
+    @if not(list.index($sides, 'top') or list.index($sides, 'right')) {
+      border-top-right-radius: 0;
+    }
+    @if not(list.index($sides, 'bottom') or list.index($sides, 'right')) {
+      border-bottom-right-radius: 0;
+    }
+    @if not(list.index($sides, 'bottom') or list.index($sides, 'left')) {
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+@mixin rounded-sm($sides: '') {
+  @include rounded(6px, 12px, $sides);
+}
+
+@mixin rounded-lg($sides: '') {
+  @include rounded(10px, 20px, $sides);
+}

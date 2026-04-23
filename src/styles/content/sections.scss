@@ -1,0 +1,50 @@
+@use 'mixins';
+
+@mixin sections {
+  :root {
+    --paragraph-width: 42rem;
+    --paragraph-width-wide: 80rem;
+    --paragraph-padding-inline: var(--spacer-3);
+    --paragraph-align-x: max(
+      calc(50% - var(--paragraph-width) / 2 + var(--paragraph-padding-inline)),
+      var(--paragraph-padding-inline)
+    );
+    --section-spacer: var(--spacer-10);
+
+    @include mixins.tablet {
+      --paragraph-padding-inline: var(--spacer-4);
+    }
+  }
+
+  .section,
+  .content {
+    &.wide {
+      --paragraph-width: var(--paragraph-width-wide);
+    }
+
+    &.section,
+    section {
+      position: relative;
+      width: var(--paragraph-width);
+      max-width: 100%;
+      padding-inline: var(--paragraph-padding-inline);
+      margin-inline: auto;
+
+      margin-block-end: var(--section-spacer);
+
+      &.full-width {
+        width: auto;
+      }
+    }
+
+    &.section p,
+    section p {
+      text-align: justify;
+      text-wrap: pretty;
+
+      & + p {
+        margin-block-start: var(--spacer-3);
+      }
+    }
+  }
+}

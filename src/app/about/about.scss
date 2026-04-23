@@ -1,0 +1,116 @@
+.picture-wrapper {
+  position: relative;
+  padding-block-end: var(--spacer-8);
+  display: inline-block;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    height: 60%;
+    width: 110%;
+    z-index: -1;
+
+    transform: translateX(-50%);
+    background: radial-gradient(
+      ellipse farthest-side at center,
+      var(--color-primary-500),
+      transparent
+    );
+    background-repeat: no-repeat;
+    mask-image: url('/imgs/bg/pattern-mask.webp');
+    mask-repeat: repeat;
+    mask-size: 30px;
+  }
+
+  img {
+    mask-image:
+      radial-gradient(ellipse 180% 180% at -20% 40%, white, rgb(255 255 255 / 95%), transparent),
+      url('/imgs/bg/pattern-mask-inverse.webp');
+    mask-repeat: no-repeat, repeat;
+    mask-size: auto, 30px;
+    mask-position: 50% 52.5%;
+  }
+}
+
+.logo {
+  background: var(--color-text);
+  mask-image: url('/imgs/about/email_logo.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  height: 1.35rem;
+  aspect-ratio: 1 / 1;
+
+  &.logo--email {
+    mask-image: url('/imgs/about/email_logo.svg');
+  }
+
+  &.logo--telegram {
+    mask-image: url('/imgs/about/telegram_logo.svg');
+  }
+
+  &.logo--linkedin {
+    mask-image: url('/imgs/about/linkedin_logo.svg');
+  }
+
+  &.logo--qr {
+    mask-image: url('/imgs/icons/qr.svg');
+  }
+}
+
+.portrait-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 var(--spacer-4);
+}
+
+.portrait {
+  display: block;
+  width: 10rem;
+  height: auto;
+  max-width: 80svw;
+
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+}
+
+.intro {
+  flex: 1 0 0;
+  min-width: 200px;
+}
+
+.contact-disclaimer {
+  display: block;
+  margin-block-start: var(--spacer-2);
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--spacer-4);
+  margin-top: var(--spacer-12);
+  margin-bottom: var(--spacer-12);
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacer-2);
+}
+
+.qr-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: stretch;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacer-4);
+  margin-top: var(--spacer-4);
+}

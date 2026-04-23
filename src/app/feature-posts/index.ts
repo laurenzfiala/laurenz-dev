@@ -1,1 +1,0 @@
-export { postsRoutes } from './routes';

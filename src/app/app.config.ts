@@ -2,7 +2,7 @@ import {
   ApplicationConfig,
   inject,
   provideAppInitializer,
-  provideZonelessChangeDetection,
+  provideBrowserGlobalErrorListeners,
 } from '@angular/core';
 import {
   PreloadAllModules,
@@ -10,17 +10,20 @@ import {
   withComponentInputBinding,
   withPreloading,
 } from '@angular/router';
-import { Routes } from './app.routes';
-import { ScrollService } from './util-interaction';
-import { provideSwipe } from './util-swipe';
+
+import { routes } from './app.routes';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { provideEvents } from './util/events';
+import { ScrollService } from '../../../laurenz-dev/src/app/util-interaction/scroll.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZonelessChangeDetection(),
-    provideRouter(Routes, withPreloading(PreloadAllModules), withComponentInputBinding()),
+    provideBrowserGlobalErrorListeners(),
+    provideRouter(routes, withPreloading(PreloadAllModules), withComponentInputBinding()),
+    provideClientHydration(withEventReplay()),
     provideAppInitializer(() => {
       inject(ScrollService);
     }),
-    provideSwipe(),
+    provideEvents(),
   ],
 };

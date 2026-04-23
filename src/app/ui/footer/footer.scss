@@ -1,0 +1,14 @@
+@use 'mixins';
+
+:host {
+  display: block;
+}
+
+footer {
+  padding: var(--spacer-4);
+  padding-block-end: var(--spacer-12);
+
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-align: justify;
+}

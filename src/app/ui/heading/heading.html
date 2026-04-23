@@ -1,0 +1,18 @@
+@if (currentLevel() === 1) {
+  <h1 [class.heading-extra-margin]="!currentShowDivider()">
+    <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+  </h1>
+}
+@if (currentLevel() === 2) {
+  <h2 [class.heading-extra-margin]="!currentShowDivider()">
+    <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+  </h2>
+}
+
+@if (currentShowDivider()) {
+  <div class="divider"></div>
+}
+
+<ng-template #contentTemplate>
+  {{ currentText() }}
+</ng-template>

@@ -1,0 +1,7 @@
+@use 'sass:list';
+
+@mixin transition($properties) {
+  transition-property: $properties;
+  transition-timing-function: var(--transition-timing);
+  transition-duration: var(--transition-duration);
+}

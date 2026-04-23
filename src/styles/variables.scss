@@ -1,0 +1,110 @@
+// TODO split this into multiple files
+@mixin variables {
+  :root {
+    --spacer-1: 0.5rem;
+    --spacer-2: 1rem;
+    --spacer-3: 1.5rem;
+    --spacer-4: 2rem;
+    --spacer-6: 3rem;
+    --spacer-8: 4rem;
+    --spacer-10: 5rem;
+    --spacer-12: 6rem;
+    --spacer-20: 10rem;
+    --spacer-30: 15rem;
+
+    --bg: var(--color-primary-050);
+    --bg-blur-sm: 15px;
+    --bg-blur: 25px;
+
+    --color-text-light: var(--color-primary-050);
+    --color-text-dark: var(--color-primary-900);
+    --color-text: var(--color-text-dark);
+    --color-text-contrast: var(--color-text-light);
+    --color-text-muted: var(--color-primary-500);
+
+    --text-sm: 0.9rem;
+    --text: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.35rem;
+    --text-2xl: 1.65rem;
+    --text-3xl: 1.85rem;
+    --text-4xl: 4rem;
+
+    --border-radius: 4px;
+
+    --transition-duration: 100ms;
+    --transition-duration-long: 350ms;
+    --transition-duration-xlong: 600ms;
+    --transition-duration-scroll: 50ms; // same duration as the throttleScroll() function
+
+    --shadow-color: 11 12 15;
+    --box-shadow-sm: 0 1px 4px 0 rgb(var(--shadow-color) / 0.15);
+    --box-shadow:
+      0 7px 15px -3px rgb(var(--shadow-color) / 0.3), 0 4px 6px -4px rgb(var(--shadow-color) / 0.3);
+    --box-shadow-lg:
+      0 13px 30px -3px rgb(var(--shadow-color) / 0.3), 0 5px 8px -5px rgb(var(--shadow-color) / 0.3);
+
+    --text-shadow: 0 0.05em 0.2em rgb(0 0 0 / 20%);
+    --text-shadow-lg:
+      0 5px 11px rgb(var(--shadow-color) / 0.3), 0 2px 4px rgb(var(--shadow-color) / 0.3);
+
+    --font-family-brand: 'Lexend', sans-serif;
+    --font-family-text: 'Open Sans', sans-serif;
+
+    // --- PALETTES ---
+    // https://coolors.co/1d242a-b051fb-358cd5
+    // https://colorkit.io/shades-tints
+
+    // prettier-ignore
+    & {
+      --color-primary-050: #fafbfb; --color-primary-c050: var(--color-text-dark);
+      --color-primary-100: #f1f2f3; --color-primary-c100: var(--color-text-dark);
+      --color-primary-200: #cfd1d3; --color-primary-c200: var(--color-text-dark);
+      --color-primary-300: #abb0b4; --color-primary-c300: var(--color-text-dark);
+      --color-primary-400: #878f95; --color-primary-c400: var(--color-text-dark);
+      --color-primary-500: #636e76; --color-primary-c500: var(--color-text-dark);
+      --color-primary-600: #4e555c; --color-primary-c600: var(--color-text-light);
+      --color-primary-700: #383d42; --color-primary-c700: var(--color-text-light);
+      --color-primary-800: #222528; --color-primary-c800: var(--color-text-light);
+      --color-primary-900: #0c0d0e; --color-primary-c900: var(--color-text-light);
+    }
+    // prettier-ignore
+    & {
+      --color-secondary-100: #f4e6fe; --color-secondary-c100: var(--color-text-dark);
+      --color-secondary-200: #e3c0fe; --color-secondary-c200: var(--color-text-dark);
+      --color-secondary-300: #d29bfd; --color-secondary-c300: var(--color-text-dark);
+      --color-secondary-400: #c176fc; --color-secondary-c400: var(--color-text-dark);
+      --color-secondary-500: #b051fb; --color-secondary-c500: var(--color-text-light);
+      --color-secondary-600: #893dc4; --color-secondary-c600: var(--color-text-light);
+      --color-secondary-700: #60298b; --color-secondary-c700: var(--color-text-light);
+      --color-secondary-800: #371552; --color-secondary-c800: var(--color-text-light);
+      --color-secondary-900: #0e0119; --color-secondary-c900: var(--color-text-light);
+    }
+    // prettier-ignore
+    & {
+      --color-accent-100: #eaf3fb; --color-accent-c100: var(--color-text-dark);
+      --color-accent-200: #bcdaf3; --color-accent-c200: var(--color-text-dark);
+      --color-accent-300: #8fc0e9; --color-accent-c300: var(--color-text-dark);
+      --color-accent-400: #62a6df; --color-accent-c400: var(--color-text-dark);
+      --color-accent-500: #358cd5; --color-accent-c500: var(--color-text-dark);
+      --color-accent-600: #286ea5; --color-accent-c600: var(--color-text-dark);
+      --color-accent-700: #1c4e75; --color-accent-c700: var(--color-text-light);
+      --color-accent-800: #102e45; --color-accent-c800: var(--color-text-light);
+      --color-accent-900: #040e15; --color-accent-c900: var(--color-text-light);
+    }
+    // prettier-ignore
+    & {
+      --color-warn-500: #c11d0a; --color-warn-c500: var(--color-text-light);
+      --color-warn-700: #8c1a0b; --color-warn-c700: var(--color-text-light);
+    }
+  }
+
+  @media only screen and (prefers-color-scheme: dark) {
+    :root {
+      --bg: #000;
+
+      --color-text: var(--color-text-light);
+      --color-text-contrast: var(--color-text-dark);
+    }
+  }
+}

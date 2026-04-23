@@ -1,0 +1,21 @@
+@if (_contentSections(); as contentSections) {
+  @for (section of contentSections; track $index) {
+    <section [class.wide]="section.section.wide">
+      @for (element of section.content; track $index) {
+        @if (element.type === 'heading') {
+          <x-heading [content]="element" />
+        } @else if (element.type === 'paragraph') {
+          <p>{{ element.text }}</p>
+        } @else if (element.type === 'file') {
+          <x-file [content]="element" />
+        } @else if (element.type === 'timeline') {
+          <x-timeline class="my-10" [ranges]="element.ranges" />
+        } @else if (element.type === 'carousel') {
+          <div style="--carousel-padding: var(--paragraph-align-x)">
+            <x-carousel [media]="element.media" />
+          </div>
+        }
+      }
+    </section>
+  }
+}

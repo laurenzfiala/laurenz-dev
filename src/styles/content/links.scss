@@ -1,0 +1,46 @@
+@use 'mixins';
+
+@mixin links {
+  .link-container {
+    &:hover,
+    &:focus {
+      .link {
+        text-decoration-color: var(--color-secondary-400);
+      }
+    }
+  }
+
+  .link {
+    padding: 0;
+
+    color: var(--color-text);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary-200);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+
+    transition: text-decoration-color var(--transition-duration) ease-in-out;
+
+    @include mixins.dark {
+      text-decoration-color: var(--color-primary-400);
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration-color: var(--color-secondary-400);
+    }
+
+    @include mixins.rounded-sm;
+    @include mixins.focus;
+  }
+
+  .btn-link-bg-hover {
+    &:hover,
+    &:focus {
+      .link {
+        text-decoration-color: transparent;
+      }
+    }
+  }
+}

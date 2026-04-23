@@ -1,0 +1,33 @@
+@mixin base {
+  html {
+    box-sizing: border-box;
+    font-size: 110%;
+    line-height: 1.65;
+    color-scheme: light dark;
+
+    @media (prefers-reduced-motion: no-preference) {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    min-height: 100dvh;
+    font-family: var(--font-family-text);
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  *:not(dialog) {
+    margin: 0;
+  }
+}
