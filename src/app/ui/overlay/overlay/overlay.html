@@ -1,0 +1,15 @@
+@if (_open()) {
+  <!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus,@angular-eslint/template/click-events-have-key-events -->
+  <div cdkTrapFocus cdkTrapFocusAutoCapture class="background" (click)="close($event)">
+    <!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus,@angular-eslint/template/click-events-have-key-events -->
+    <div class="overlay" (click)="_preventClose = $event">
+      <button aria-label="Close overlay" class="close" (click)="close()">
+        <img ngSrc="/imgs/icons/close-sm.svg" alt="Close" width="24" height="24" />
+      </button>
+
+      <div class="content">
+        <ng-content />
+      </div>
+    </div>
+  </div>
+}

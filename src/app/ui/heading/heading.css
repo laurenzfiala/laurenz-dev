@@ -1,0 +1,7 @@
+:host {
+  display: contents;
+}
+
+.heading-extra-margin {
+  margin-block-start: var(--spacer-10) var(--spacer-6);
+}

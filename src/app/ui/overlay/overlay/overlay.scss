@@ -1,0 +1,122 @@
+@use 'mixins';
+
+.background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+
+  overflow-y: auto;
+  backdrop-filter: blur(10px) brightness(90%);
+  animation: -anim-background-light var(--transition-duration-xlong);
+
+  padding-inline: var(--spacer-2);
+  padding-block-end: var(--spacer-8);
+  transition: backdrop-filter var(--transition-duration);
+
+  :host.disable-scroll & {
+    overflow-y: clip;
+    position: static;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .background {
+    backdrop-filter: blur(10px);
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgb(var(--color-secondary-900) / 2%) 50%,
+        rgb(var(--color-secondary-900) / 6%) 100%
+      )
+      no-repeat;
+    background-size: auto 200%;
+    background-position-y: 100%;
+    animation: 0.6s -anim-background-dark;
+  }
+}
+
+@keyframes -anim-background-light {
+  from {
+    backdrop-filter: blur(0px) brightness(100%);
+  }
+  to {
+    backdrop-filter: blur(10px) brightness(90%);
+  }
+}
+
+@keyframes -anim-background-dark {
+  from {
+    background-position-y: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    background-position-y: 100%;
+    backdrop-filter: blur(10px);
+  }
+}
+
+.overlay {
+  max-width: var(--paragraph-width);
+  min-height: 50vh;
+  margin-inline: auto;
+  margin-block-start: min(max(4rem, var(--overlay-offset, 25vh)), 60dvh) !important;
+
+  animation: -anim-overlay var(--transition-duration-long);
+
+  background-color: var(--bg);
+  box-shadow: var(--box-shadow-lg);
+  overflow: hidden;
+
+  @include mixins.rounded-lg;
+}
+
+@keyframes -anim-overlay {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.close {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  float: inline-end;
+  height: 48px;
+  aspect-ratio: 1 / 1;
+  transition: transform var(--transition-duration);
+
+  @include mixins.rounded-sm;
+  @include mixins.focus;
+
+  @include mixins.dark {
+    filter: invert(1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  > img {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+.content {
+  padding-block: var(--spacer-8);
+
+  @include mixins.tablet {
+    padding-inline: var(--spacer-3);
+  }
+}

@@ -1,0 +1,89 @@
+<!-- PICTURE -->
+<section class="section portrait-section">
+  <div class="picture-wrapper">
+    <img
+      ngSrc="/imgs/about/portrait.webp"
+      alt="Portrait of Laurenz Fiala smiling, brown eyes, brown chin-length hair, big glasses and a gray shirt."
+      class="portrait"
+      height="300"
+      width="300"
+      priority
+    />
+  </div>
+  <div class="intro">
+    <x-heading text="Hi 👋" />
+
+    <p>I'm Laurenz Fiala, a software and usability engineer.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact">
+  <x-heading text="Contact" />
+
+  <p>
+    Feel free to send me a message via e-mail or telegram! I am glad to talk about anything UX or
+    tech related. 😄 If you're looking to hire, I am also happy to hear from you.
+  </p>
+
+  <x-info-box class="contact-disclaimer">
+    Any personal information will be deleted 30 days after the last message.
+  </x-info-box>
+
+  <!-- LINKS -->
+  <div class="contact-links">
+    <a class="link" href="#" (click)="sendMail($event)">
+      <div class="logo logo--email"></div>
+      E-mail
+    </a>
+
+    <a href="https://t.me/laurenzfiala" class="link">
+      <div class="logo logo--telegram"></div>
+      Telegram
+    </a>
+
+    <a href="https://www.linkedin.com/in/laurenz-fiala-081598388" class="link">
+      <div class="logo logo--linkedin"></div>
+      LinkedIn
+    </a>
+
+    @if (!_showQrCodes()) {
+      <button class="link" (click)="_showQrCodes.set(true)">
+        <div class="logo logo--qr"></div>
+        <span>Scan QR codes instead</span>
+      </button>
+    } @else {
+      <!-- QR codes -->
+      <div class="qr-container" [class.qr-active]="!!_activeQr()">
+        <div>
+          <!-- EMAIL -->
+          <x-qr-code
+            overlayUrl="/imgs/about/email_logo.svg"
+            qrUrl="/imgs/about/qr_email.svg"
+            [active]="_activeQr() === 'email'"
+            [cloak]="!!_activeQr()"
+            (action)="_activeQr.set('email')"
+          />
+        </div>
+
+        <!-- TELEGRAM -->
+        <x-qr-code
+          overlayUrl="/imgs/about/telegram_logo.svg"
+          qrUrl="/imgs/about/qr_telegram.svg"
+          [active]="_activeQr() === 'telegram'"
+          [cloak]="!!_activeQr()"
+          (action)="_activeQr.set('telegram')"
+        />
+
+        <!-- LINKEDIN -->
+        <x-qr-code
+          overlayUrl="/imgs/about/linkedin_logo.svg"
+          qrUrl="/imgs/about/qr_linkedin.svg"
+          [active]="_activeQr() === 'linkedin'"
+          [cloak]="!!_activeQr()"
+          (action)="_activeQr.set('linkedin')"
+        />
+      </div>
+    }
+  </div>
+</section>

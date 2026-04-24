@@ -1,0 +1,59 @@
+@use 'mixins';
+
+.qr-activator {
+  position: relative;
+  width: var(--spacer-12);
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &.active {
+    @include mixins.dark {
+      background-color: white;
+    }
+
+    .overlay {
+      opacity: 0;
+    }
+
+    .qr {
+      filter: blur(0) drop-shadow(0 10px 8px rgb(0 0 0 / 0.2));
+
+      @include mixins.dark {
+        filter: none;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  width: 2rem;
+
+  transform: translate(-50%, -50%);
+  filter: invert(1);
+
+  transition: opacity var(--transition-duration);
+
+  @include mixins.dark {
+    filter: invert(0);
+  }
+}
+
+.qr {
+  display: block;
+  width: 100%;
+
+  filter: blur(0.25rem);
+
+  transition: filter var(--transition-duration);
+
+  @include mixins.dark {
+    filter: invert(1);
+  }
+}

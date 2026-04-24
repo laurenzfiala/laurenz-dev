@@ -1,0 +1,20 @@
+@use './media';
+
+@mixin name {
+  font-size: var(--text-xl);
+  font-weight: 200;
+  white-space: nowrap;
+
+  @include media.desktop {
+    font-size: var(--text-2xl);
+  }
+}
+
+@mixin name-details {
+  font-size: var(--text);
+  font-weight: 200;
+
+  @include media.desktop {
+    font-size: var(--text-lg);
+  }
+}

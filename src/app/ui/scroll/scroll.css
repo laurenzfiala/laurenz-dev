@@ -1,0 +1,14 @@
+.scrollbar-wrapper {
+  margin-block-start: var(--scrollbar-margin-block-start);
+}
+
+.scrollbar-container:not(.__active) .scrollbar-handle {
+  @apply transition-all duration-75;
+}
+
+@media (pointer: fine) {
+  .scrollbar-container:hover > .scrollbar,
+  .scrollbar-container.__active > .scrollbar {
+    height: 5px;
+  }
+}

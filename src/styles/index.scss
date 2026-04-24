@@ -1,0 +1,21 @@
+@use 'variables' as *;
+@use 'background' as *;
+@use 'fonts' as *;
+@use 'outlines' as *;
+@use 'themes' as *;
+@use 'base' as *;
+@use 'reset' as *;
+@use 'body-interaction-toggles' as *;
+@use 'content' as *;
+
+@layer global {
+  @include body-interaction-toggles;
+  @include reset;
+  @include base;
+  @include fonts;
+  @include outlines;
+  @include background;
+  @include variables;
+  @include themes;
+  @include content;
+}

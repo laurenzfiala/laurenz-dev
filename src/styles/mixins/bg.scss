@@ -1,0 +1,20 @@
+@use './themes';
+
+@mixin bg-secondary {
+  background: blue;
+
+  background: radial-gradient(
+    farthest-corner at 80% 80%,
+    color-mix(in srgb, var(--color-secondary-400), transparent),
+    color-mix(in srgb, var(--color-secondary-200), transparent)
+  );
+
+  @include themes.dark {
+    border-color: var(--color-secondary-800);
+    background: radial-gradient(
+      farthest-corner at 80% 80%,
+      var(--color-secondary-800),
+      var(--color-secondary-900)
+    );
+  }
+}

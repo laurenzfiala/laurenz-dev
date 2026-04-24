@@ -1,0 +1,12 @@
+@mixin themes {
+  @media screen and (prefers-color-scheme: light) {
+    .theme-dark {
+      display: none;
+    }
+  }
+  @media screen and (prefers-color-scheme: dark) {
+    .theme-light {
+      display: none;
+    }
+  }
+}

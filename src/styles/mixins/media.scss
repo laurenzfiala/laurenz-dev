@@ -1,0 +1,23 @@
+@mixin tablet {
+  @media screen and (width >= 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (width >= 1280px) {
+    @content;
+  }
+}
+
+@mixin desktop-hd {
+  @media screen and (width >= 1600px) {
+    @content;
+  }
+}
+
+@mixin desktop-uhd {
+  @media screen and (width >= 1921px) {
+    @content;
+  }
+}

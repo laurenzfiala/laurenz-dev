@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+.link {
+  padding: var(--spacer-2);
+  margin-block-end: var(--spacer-2);
+}

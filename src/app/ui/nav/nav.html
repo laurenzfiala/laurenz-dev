@@ -1,0 +1,39 @@
+<div class="wrapper" [class.sticky]="_isSticky()">
+  <nav>
+    <a
+      routerLink="/"
+      routerLinkActive
+      aria-label="About"
+      class="nav-link nav-link--logo"
+      [ngClass]="activeClass(0)"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (isActiveChange)="activeChange(0, $event)"
+    ></a>
+    <a
+      routerLink="/development"
+      routerLinkActive
+      class="nav-link"
+      [ngClass]="activeClass(1)"
+      (isActiveChange)="activeChange(1, $event)"
+      >dev</a
+    >
+    <!--
+    <a
+      routerLink="/posts"
+      routerLinkActive
+      class="nav-link"
+      [ngClass]="activeClass(2)"
+      (isActiveChange)="activeChange(2, $event)"
+      >posts</a
+    >
+    -->
+    <a
+      routerLink="/cv"
+      routerLinkActive
+      class="nav-link"
+      [ngClass]="activeClass(3)"
+      (isActiveChange)="activeChange(3, $event)"
+      >cv</a
+    >
+  </nav>
+</div>

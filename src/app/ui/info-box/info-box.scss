@@ -1,0 +1,35 @@
+@use 'mixins';
+
+.wrapper {
+  display: flex;
+  gap: 2px;
+}
+
+.icon {
+  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-family-brand);
+  background: var(--color-accent-500);
+  color: var(--color-text-contrast);
+  font-weight: bold;
+
+  @include mixins.rounded-lg(left);
+}
+
+.content {
+  flex: 1 0 0;
+  padding: var(--spacer-2);
+
+  font-size: var(--text-sm);
+  text-align: justify;
+  background: color-mix(in srgb, var(--color-accent-500), transparent 80%);
+
+  @include mixins.rounded-lg(right);
+}
+
+.heading {
+  display: block;
+}
