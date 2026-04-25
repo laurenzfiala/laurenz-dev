@@ -1,0 +1,58 @@
+@use 'mixins';
+
+:host {
+  --padding: var(--carousel-padding, 0);
+
+  display: block;
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacer-2);
+  width: max-content;
+  padding-inline: var(--padding);
+  margin-block-end: var(--spacer-5);
+}
+
+.carousel-item {
+  position: relative;
+  display: block;
+  padding: 0;
+
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  @include mixins.rounded-sm;
+  @include mixins.focus;
+
+  &.is-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: center / 2.5rem no-repeat url('/imgs/icons/play.svg');
+    opacity: 0.3;
+    transition: opacity var(--transition-duration);
+  }
+
+  &:hover {
+    &.is-video::after {
+      opacity: 0.6;
+    }
+
+    .carousel-image {
+      box-shadow: var(--box-shadow);
+    }
+  }
+}
+
+.carousel-image {
+  height: 12rem;
+  width: auto;
+  display: block;
+
+  transition: box-shadow var(--transition-duration);
+
+  @include mixins.rounded-sm;
+}

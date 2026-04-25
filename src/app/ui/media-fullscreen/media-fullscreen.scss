@@ -8,7 +8,6 @@
 
   background-color: rgb(0 0 0 / 80%);
   color: var(--color-text-contrast);
-  pointer-events: none;
   opacity: 0;
 
   transition: opacity var(--transition-duration);
@@ -29,7 +28,6 @@
 }
 
 .slide {
-  width: 100%;
   box-shadow: var(--box-shadow-lg);
 }
 
@@ -38,6 +36,7 @@
 }
 
 .constrain-h {
+  width: auto;
   height: calc(100dvh - 7rem);
 }
 
@@ -66,17 +65,19 @@
 
 .nav {
   position: absolute;
-  inset: auto var(--spacer-4) var(--spacer-2) var(--spacer-4);
+  inset: auto var(--spacer-4) var(--spacer-1) var(--spacer-4);
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--spacer-1);
   height: 2rem;
 }
 
 .nav-button {
-  flex: 1 0 auto;
-  padding-inline: var(--spacer-4);
+  flex: 0 0 auto;
   height: 100%;
+  padding-inline: var(--spacer-2);
+
   opacity: 50%;
 
   transition:
@@ -91,7 +92,7 @@
   }
 
   &:active {
-    transform: scale(80%);
+    transform: scale(90%);
   }
 
   .icon {
@@ -101,21 +102,23 @@
 }
 
 .nav-indicator {
-  flex: 1 1 auto;
-  width: 2rem;
+  flex: 0 0 auto;
+  width: 1.5rem;
   height: 3px;
-  padding-inline: var(--spacer-1);
+
+  border-radius: 99px;
 
   &::after {
     content: '';
+    display: block;
     width: 100%;
     height: 100%;
 
     background-color: rgb(255 255 255 / 20%);
     border-radius: 99px;
+  }
 
-    &.active {
-      background-color: rgb(255 255 255 / 50%);
-    }
+  &.active::after {
+    background-color: rgb(255 255 255 / 50%);
   }
 }

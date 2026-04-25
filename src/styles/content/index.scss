@@ -2,10 +2,12 @@
 @use 'sections' as *;
 @use 'dividers' as *;
 @use 'links' as *;
+@use 'btn-links' as *;
 
 @mixin content {
   @include headings;
   @include sections;
   @include dividers;
   @include links;
+  @include btn-links;
 }

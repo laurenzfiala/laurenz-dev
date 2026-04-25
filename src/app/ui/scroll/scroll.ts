@@ -1,4 +1,11 @@
-import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { InteractionService } from '../../util/interaction';
 
 /**
@@ -11,56 +18,58 @@ import { InteractionService } from '../../util/interaction';
 @Component({
   selector: 'x-scroll',
   templateUrl: './scroll.html',
-  styleUrls: ['./scroll.css'],
+  styleUrls: ['./scroll.scss'],
+  standalone: true,
+  host: {
+    '(document:mouseup)': 'endScroll($event)',
+    '(document:mousemove)': 'scroll($event)',
+  },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Scroll {
-  @ViewChild('scrollContainer', { static: true })
-  protected _scrollContainer!: ElementRef<HTMLElement>;
+  protected readonly _scrollContainer =
+    viewChild.required<ElementRef<HTMLElement>>('scrollContainer');
+  protected readonly _scrollbarHandle =
+    viewChild.required<ElementRef<HTMLElement>>('scrollbarHandle');
+  protected readonly _scrollbarContainer =
+    viewChild.required<ElementRef<HTMLElement>>('scrollbarContainer');
 
-  @ViewChild('scrollbarHandle', { static: true })
-  protected _scrollbarHandle!: ElementRef<HTMLElement>;
-
-  @ViewChild('scrollbarContainer', { static: true })
-  protected _scrollbarContainer!: ElementRef<HTMLElement>;
-
-  protected _scroll = false;
+  protected readonly _scroll = signal(false);
 
   private readonly _interactionService = inject(InteractionService);
 
   startScroll(event: MouseEvent) {
-    this._scroll = true;
+    this._scroll.set(true);
     this._interactionService.preventSelection();
     this.scroll(event);
   }
 
   protected onScroll() {
     requestAnimationFrame(() => {
-      if (this._scroll) {
+      if (this._scroll()) {
         return;
       }
-      const scrollLeft = this._scrollContainer.nativeElement.scrollLeft;
-      const scrollLeftMax = this.scrollLeftMax(this._scrollContainer.nativeElement);
+      const scrollLeft = this.nativeScrollContainer.scrollLeft;
+      const scrollLeftMax = this.scrollLeftMax(this.nativeScrollContainer);
       const handleLeftMax = this.nativeScrollbar.clientWidth - this.nativeHandle.clientWidth;
       const position = scrollLeft / scrollLeftMax;
 
-      this._scrollbarHandle.nativeElement.style.left = `${position * handleLeftMax}px`;
+      this.nativeHandle.style.left = `${position * handleLeftMax}px`;
     });
   }
 
-  @HostListener('document:mouseup', ['$event'])
   protected endScroll(event: MouseEvent) {
     this.scroll(event);
     this._interactionService.allowSelection();
-    this._scroll = false;
+    this._scroll.set(false);
   }
 
-  @HostListener('document:mousemove', ['$event'])
   protected scroll(event: MouseEvent) {
-    if (!this._scroll || window.matchMedia('(pointer: coarse)').matches) {
+    if (!this._scroll() || window.matchMedia('(pointer: coarse)').matches) {
       return;
     }
 
-    const deadzone = this._scrollbarHandle.nativeElement.clientWidth / 2;
+    const deadzone = this.nativeHandle.clientWidth / 2;
     const scrollbarContainerWidth = this.nativeScrollbar.clientWidth;
     const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
     const position = clamp(
@@ -70,9 +79,9 @@ export class Scroll {
       1,
     );
 
-    this._scrollContainer.nativeElement.scrollLeft =
+    this.nativeScrollContainer.scrollLeft =
       position * this.scrollLeftMax(this.nativeScrollContainer);
-    this._scrollbarHandle.nativeElement.style.left = `${
+    this.nativeHandle.style.left = `${
       position * (this.nativeScrollbar.clientWidth - this.nativeHandle.clientWidth)
     }px`;
   }
@@ -82,14 +91,14 @@ export class Scroll {
   }
 
   private get nativeScrollContainer() {
-    return this._scrollContainer.nativeElement;
+    return this._scrollContainer().nativeElement;
   }
 
   private get nativeScrollbar() {
-    return this._scrollbarContainer.nativeElement;
+    return this._scrollbarContainer().nativeElement;
   }
 
   private get nativeHandle() {
-    return this._scrollbarHandle.nativeElement;
+    return this._scrollbarHandle().nativeElement;
   }
 }

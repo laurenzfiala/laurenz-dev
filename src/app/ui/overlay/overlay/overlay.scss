@@ -2,10 +2,7 @@
 
 .background {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: 30;
 
   overflow-y: auto;
@@ -64,11 +61,11 @@
   margin-inline: auto;
   margin-block-start: min(max(4rem, var(--overlay-offset, 25vh)), 60dvh) !important;
 
-  animation: -anim-overlay var(--transition-duration-long);
-
   background-color: var(--bg);
   box-shadow: var(--box-shadow-lg);
   overflow: hidden;
+
+  animation: -anim-overlay var(--transition-duration-long);
 
   @include mixins.rounded-lg;
 }
@@ -91,9 +88,11 @@
   align-items: center;
   justify-content: center;
   margin: 1rem;
-  float: inline-end;
   height: 48px;
   aspect-ratio: 1 / 1;
+
+  float: inline-end;
+
   transition: transform var(--transition-duration);
 
   @include mixins.rounded-sm;
@@ -110,13 +109,5 @@
   > img {
     height: 1.5rem;
     width: 1.5rem;
-  }
-}
-
-.content {
-  padding-block: var(--spacer-8);
-
-  @include mixins.tablet {
-    padding-inline: var(--spacer-3);
   }
 }

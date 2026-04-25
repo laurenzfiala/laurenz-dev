@@ -1,15 +1,13 @@
 .picture-wrapper {
   position: relative;
-  padding-block-end: var(--spacer-8);
   display: inline-block;
 
   &::before {
     content: '';
 
     position: absolute;
-    top: 30%;
-    left: 50%;
-    height: 60%;
+    inset: 19% auto -19% 50%;
+    height: 100%;
     width: 110%;
     z-index: -1;
 
@@ -64,7 +62,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0 var(--spacer-4);
+  gap: var(--spacer-6) var(--spacer-4);
 }
 
 .portrait {
@@ -92,8 +90,8 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: var(--spacer-4);
-  margin-top: var(--spacer-12);
+  gap: var(--spacer-2);
+  margin-top: var(--spacer-4);
   margin-bottom: var(--spacer-12);
 }
 

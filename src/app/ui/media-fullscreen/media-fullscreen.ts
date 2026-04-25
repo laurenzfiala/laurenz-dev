@@ -21,6 +21,7 @@ import { bug } from '../../util/error';
 import { App } from '../../app';
 import { routePath } from '../../util/routes';
 import { AsyncPipe } from '@angular/common';
+import { CdkTrapFocus } from '@angular/cdk/a11y';
 
 /**
  * Shows the given media in a navigable full-viewport overlay.
@@ -30,7 +31,7 @@ import { AsyncPipe } from '@angular/common';
   templateUrl: './media-fullscreen.html',
   styleUrls: ['./media-fullscreen.scss'],
   exportAs: 'mediaFullscreen',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, CdkTrapFocus],
   host: {
     '(window:keydown.escape)': 'hide($event)',
     '(window:keydown.arrowLeft)': 'previous()',
@@ -157,6 +158,7 @@ export class MediaFullscreen {
       mediaAspect = el.videoWidth / el.videoHeight;
     }
 
+    // TODO make this a computed
     if (viewportAspect >= mediaAspect) {
       el.classList.replace('constrain-w', 'constrain-h');
     } else {

@@ -1,0 +1,34 @@
+<div class="project-link-container">
+  @if (link(); as link) {
+    <a
+      class="project-link btn-link-bg btn-link-bg-hover"
+      [routerLink]="link"
+      [info]="_overlayHints()"
+    >
+      <ng-container [ngTemplateOutlet]="workInfo" />
+    </a>
+  } @else {
+    <div class="project-link-placeholder">
+      <ng-container [ngTemplateOutlet]="workInfo" />
+    </div>
+  }
+</div>
+
+<div class="project-link-content">
+  <ng-content></ng-content>
+</div>
+
+<ng-template #workInfo>
+  <div class="work-info">
+    @if (thumbnailSrc(); as thumbnailSrc) {
+      <img class="work-thumbnail" alt="Logo" [src]="thumbnailSrc" />
+    } @else {
+      <div class="work-thumbnail-placeholder"></div>
+    }
+
+    <div class="work-text">
+      <strong class="ellipsis" [class.link]="link()">{{ heading() }}</strong>
+      <div class="subheading ellipsis">{{ subheading() }}</div>
+    </div>
+  </div>
+</ng-template>

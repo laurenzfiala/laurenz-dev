@@ -15,6 +15,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { OverlayHints } from '../hints';
 import { Overlay, WriteableOverlay } from '../overlay.provider';
 import { routePath } from '../../../util/routes';
+import { NgOptimizedImage } from '@angular/common';
+import { CdkTrapFocus } from '@angular/cdk/a11y';
 
 /**
  * Overlay component wrapping a {@link RouterOutlet}.
@@ -37,7 +39,7 @@ import { routePath } from '../../../util/routes';
   styleUrl: './overlay.scss',
   exportAs: 'overlay',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [],
+  imports: [NgOptimizedImage, CdkTrapFocus],
   providers: [
     {
       provide: Overlay,

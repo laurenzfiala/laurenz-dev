@@ -13,17 +13,16 @@
           <!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus,@angular-eslint/template/click-events-have-key-events -->
           <img
             #imageEl
-            class="slide image"
+            class="slide image constrain-w"
             [src]="selectedMedia.src"
             [alt]="selectedMedia.alt"
             (click)="next(); _preventClose = $event"
             (load)="_isLoading = false; updateMediaConstraint()"
           />
-        }
-        @if (selectedMedia.type === 'video') {
+        } @else if (selectedMedia.type === 'video') {
           <video
             #videoEl
-            class="slide video"
+            class="slide video constrain-w"
             loop
             autoplay
             [defaultMuted]="true"

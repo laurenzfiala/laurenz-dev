@@ -26,10 +26,12 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 - Keep components small and focused on a single responsibility
 - Use `input()` and `output()` functions instead of decorators
+  - these should always be `readonly`
 - Use `computed()` for derived state
+  - these should always be `readonly`
 - Set `changeDetection: ChangeDetectionStrategy.OnPush` in `@Component` decorator
 - Prefer inline templates for small components
-- Prefer Reactive forms instead of Template-driven ones
+- Prefer Signal forms instead of Reactive or Template-driven ones
 - Do NOT use `ngClass`, use `class` bindings instead
 - Do NOT use `ngStyle`, use `style` bindings instead
 - When using external templates/styles, use paths relative to the component TS file.
@@ -54,3 +56,36 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Design services around a single responsibility
 - Use the `providedIn: 'root'` option for singleton services
 - Use the `inject()` function instead of constructor injection
+
+## Style
+
+Global style is in `src/styles/`.
+Use global CSS variables for colors, fonts, margin/padding, etc.
+
+Style declarations should be ordered and grouped:
+1. CSS vars
+2. Empty line
+2. Layout/display rules
+2. Size and spacing rules
+3. Empty line
+4. Other rules
+5. Empty line
+6. Animations and transitions
+
+Components must use SCSS files for styles.
+
+### Mixins
+
+There are many global mixins for common styling patterns.
+Include them using `@use 'mixins';` in the component SCSS file.
+
+### Do not use Tailwind CSS
+
+Whenevery you touch a style file, migrate away from `@apply`
+and Tailwind classes in favor of SCSS and mixins.
+
+### Duplication
+
+If there is a lot of duplication in styles, consider adding a new mixin,
+but ask first, providing a justification.
+

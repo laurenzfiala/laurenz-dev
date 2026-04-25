@@ -1,0 +1,11 @@
+<div class="header">
+  <h1>{{ _environment()?.workRole ?? '' }}</h1>
+  <div class="workplace">{{ _environment()?.at ?? '' }}</div>
+  <div class="divider"></div>
+</div>
+
+@if (_content(); as content) {
+  <x-content [content]="content" />
+} @else if (_error()) {
+  <div class="error">{{ _error()!.message }}</div>
+}

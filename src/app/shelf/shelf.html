@@ -1,0 +1,15 @@
+<ol class="item-list" tabindex="-1">
+  @for (item of _items(); track item) {
+    <li class="item">
+      <x-item [item]="item" (action)="_selectedItem.set(item)" />
+    </li>
+  }
+  <li class="more-item"><button>Show more</button></li>
+</ol>
+
+@if (_selectedItem(); as item) {
+  <div class="selected-item-info">
+    <h2>{{ item.title }}</h2>
+    <p>test</p>
+  </div>
+}

@@ -1,0 +1,97 @@
+<section xTimelineGroup [max]="_now" class="section">
+  <x-heading text="Employment" />
+
+  <div class="entries">
+    <x-cv-entry
+      link="last-minute-tours"
+      workRole="Senior Frontend Developer"
+      at="Last Minute Tours GmbH, Vienna"
+      [ranges]="[{ from: '2025-04-15', to: 'ongoing' }]"
+    />
+
+    <x-cv-entry
+      link="care-development"
+      workRole="Senior Angular Frontend Developer"
+      at="Care Development GmbH, Vienna"
+      [ranges]="[{ from: '2022-10-01', to: '2025-02-28' }]"
+    />
+
+    <div class="anniversary">✨ 10-year career anniversary (2013 - 2023)</div>
+
+    <x-cv-entry
+      link="plus"
+      workRole="Full-Stack Software Engineer"
+      at="Freelance work for University of Salzburg (PLUS)"
+      [ranges]="[{ from: '2017-12-01', to: '2023-05-31' }]"
+    />
+
+    <x-cv-entry
+      link="universal-music"
+      workRole="Software Engineer"
+      at="Universal Music GmbH, Salzburg"
+      [ranges]="[{ from: '2017-12-01', to: '2018-07-30' }]"
+    />
+
+    <x-cv-entry
+      workRole="Civil Service (mandatory in Austria)"
+      at="SOS Children's Villages – Clearing House, Salzburg"
+      [ranges]="[{ from: '2017-03-01', to: '2017-11-30' }]"
+    />
+
+    <x-cv-entry
+      link="sony-dadc"
+      workRole="Apprenticeship: IT - Software Engineering"
+      at="Sony DADC Austria GmbH, Salzburg"
+      [ranges]="[{ from: '2013-08-01', to: '2017-01-31' }]"
+    />
+  </div>
+</section>
+
+<section xTimelineGroup [max]="_now" class="section">
+  <x-heading text="Education and Vocational Training" />
+
+  <div class="entries">
+    <x-cv-entry
+      workRole="Bachelor's Degree – Media Informatics and Visual Computing (paused)"
+      at="Technical University Vienna (TU Wien), Vienna"
+      [ranges]="[{ from: '2018-10-01', to: '2022-06-30' }]"
+    />
+
+    <x-cv-entry
+      workRole="Berufsreifeprüfung (A-Levels)"
+      at="WIFI Salzburg"
+      [ranges]="[{ from: '2014-10-01', to: '2018-03-12' }]"
+    />
+
+    <x-cv-entry
+      workRole="Vocational school – Information Technology"
+      at="Landesberufsschule 4, Salzburg"
+      [ranges]="[{ from: '2013-08-01', to: '2017-01-31' }]"
+    />
+
+    <x-cv-entry
+      workRole="Gymnasium with focus on Information- and Communication Technology"
+      at="Bundesoberstufenrealgymnasium, Salzburg"
+      [ranges]="[{ from: '2011-09', to: '2013-07' }]"
+    />
+  </div>
+</section>
+
+<section class="section">
+  <x-heading text="Language Skills" />
+
+  <h2>German</h2>
+  <div class="language-meta">Mother tongue</div>
+
+  <h2>English</h2>
+
+  Listening – <strong>C2</strong><br />
+  Reading – <strong>C1</strong><br />
+  Coherent speaking – <strong>C1</strong><br />
+  Participating in conversations – <strong>C1</strong><br />
+  Writing – <strong>C1</strong>
+</section>
+
+<x-overlay [outlet]="outlet">
+  <router-outlet #outlet="outlet" />
+</x-overlay>

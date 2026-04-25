@@ -1,0 +1,39 @@
+@use 'mixins';
+
+.item-list {
+  display: grid;
+  grid-template-rows: 200px;
+  grid-auto-flow: column;
+  gap: var(--spacer-2);
+  padding: var(--spacer-1);
+
+  overflow: auto hidden;
+  scrollbar-width: none;
+  list-style: none;
+
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+}
+
+.item {
+  padding: 0;
+
+  scroll-snap-align: start;
+}
+
+.selected-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-1);
+  padding: var(--spacer-2);
+
+  background-color: var(--color-primary-200);
+}
+
+.more-item {
+  white-space: nowrap;
+  place-self: center;
+  transform: translateY(-0.5lh);
+
+  @include mixins.focus;
+}

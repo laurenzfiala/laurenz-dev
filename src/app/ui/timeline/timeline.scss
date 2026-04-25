@@ -1,0 +1,164 @@
+@use 'mixins';
+
+:host {
+  --height: 3rem;
+  --range-min-width: 1.5rem;
+
+  display: block;
+
+  &.timeline--thin {
+    --height: 12px;
+    --range-min-width: 12px;
+  }
+}
+
+.timeline-container {
+  position: relative;
+  margin: var(--spacer-4) 0;
+}
+
+.timeline-years {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: flex-end;
+}
+
+.timeline-year {
+  position: relative;
+  height: var(--height);
+  display: flex;
+  flex-direction: row;
+  flex-basis: 0;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-primary-100);
+
+  @include mixins.dark {
+    background-color: var(--color-primary-800);
+  }
+
+  &:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  &:last-child {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+}
+
+.timeline-separator {
+  position: absolute;
+  left: -1px;
+  height: 15%;
+  width: 2px;
+  border-radius: 9999px;
+  background-color: var(--color-primary-400);
+}
+
+.timeline-year-label {
+  color: var(--color-primary-400);
+}
+
+.timeline-year-overlay-label {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-contrast);
+  opacity: 0.6;
+}
+
+.label-overlay {
+  mask-image: linear-gradient(
+    to right,
+    transparent var(--start),
+    white var(--start) var(--end),
+    transparent var(--end)
+  );
+}
+
+.timeline-ranges-container {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: visible;
+}
+
+.timeline-range {
+  position: absolute;
+  top: 0;
+  left: min(var(--left, 0), calc(100% - var(--range-min-width)));
+  min-width: var(--range-min-width);
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+
+  background: linear-gradient(to right, var(--color-accent-500), var(--color-accent-600));
+
+  @include mixins.dark {
+    box-shadow: none;
+  }
+}
+
+.timeline-range-label-top,
+.timeline-range-label-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: -0.125rem;
+}
+
+.timeline-range-label-top {
+  bottom: 100%;
+  padding-block-end: calc(var(--spacer-1) * 0.5);
+}
+
+.timeline-range-label-bottom {
+  top: 100%;
+  padding-block-start: calc(var(--spacer-1) * 0.5);
+}
+
+.timeline-range-label-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
+  white-space: nowrap;
+  max-width: 100%;
+
+  &.is-end {
+    justify-content: flex-end;
+  }
+}
+
+.timeline-range-dot {
+  color: var(--color-accent-500);
+  line-height: 0.8;
+
+  &.is-start {
+    margin-inline-end: calc(var(--spacer-1) * 0.5);
+  }
+
+  &.is-end {
+    margin-inline-start: calc(var(--spacer-1) * 0.5);
+  }
+}
+
+.timeline-range-date {
+  font-size: var(--text-xs);
+}

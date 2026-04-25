@@ -1,0 +1,28 @@
+<div class="cv-entry" [class.muted]="muted()">
+  @if (link(); as link) {
+    <a
+      [routerLink]="link"
+      [info]="_overlayHints()"
+      class="entry-link btn-link-bg btn-link-bg-hover"
+    >
+      <ng-container [ngTemplateOutlet]="workInfo" />
+    </a>
+  } @else {
+    <div class="entry-no-link">
+      <ng-container [ngTemplateOutlet]="workInfo" />
+    </div>
+  }
+
+  <x-timeline class="timeline" mode="thin" [ranges]="ranges()" />
+</div>
+
+<div class="extra-content">
+  <ng-content></ng-content>
+</div>
+
+<ng-template #workInfo>
+  <div class="work-info">
+    <strong [class.link]="link()">{{ workRole() }}</strong>
+    <div class="at">{{ at() }}</div>
+  </div>
+</ng-template>

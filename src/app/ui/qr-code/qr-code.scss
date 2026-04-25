@@ -48,12 +48,13 @@
 .qr {
   display: block;
   width: 100%;
+  padding: calc(var(--spacer-1) * 0.5);
 
   filter: blur(0.25rem);
 
   transition: filter var(--transition-duration);
 
   @include mixins.dark {
-    filter: invert(1);
+    filter: invert(1) blur(0.25rem);
   }
 }

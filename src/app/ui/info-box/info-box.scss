@@ -6,7 +6,7 @@
 }
 
 .icon {
-  width: 3.5rem;
+  width: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,18 +16,18 @@
   color: var(--color-text-contrast);
   font-weight: bold;
 
-  @include mixins.rounded-lg(left);
+  @include mixins.rounded-sm(left);
 }
 
 .content {
   flex: 1 0 0;
-  padding: var(--spacer-2);
+  padding: var(--spacer-1) var(--spacer-1) var(--spacer-1) var(--spacer-2);
 
   font-size: var(--text-sm);
   text-align: justify;
   background: color-mix(in srgb, var(--color-accent-500), transparent 80%);
 
-  @include mixins.rounded-lg(right);
+  @include mixins.rounded-sm(right);
 }
 
 .heading {

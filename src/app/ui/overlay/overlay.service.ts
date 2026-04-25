@@ -1,5 +1,5 @@
 import { computed, effect, Injectable, signal } from '@angular/core';
-import { InteractionService } from '../../../../../laurenz-dev/src/app/util-interaction';
+import { InteractionService } from '../../util/interaction';
 
 let nextId = 0;
 

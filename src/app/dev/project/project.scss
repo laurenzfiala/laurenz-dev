@@ -1,0 +1,35 @@
+@use 'mixins';
+
+:host {
+  display: block;
+}
+
+.bg-fade-top {
+  --bg-src: var(--bg);
+
+  height: 20svh;
+  margin-block-end: calc(-20svh + var(--spacer-10));
+
+  background:
+    linear-gradient(to bottom, color-mix(in srgb, var(--bg), transparent 70%) 0%, var(--bg) 100%),
+    center / cover no-repeat var(--bg-src);
+  mask-image: url('/imgs/bg/pattern-mask.webp');
+  mask-repeat: repeat;
+  mask-size: 30px;
+
+  padding: var(--spacer-2);
+
+  @include mixins.tablet {
+    background:
+      radial-gradient(80% 100% at 50% -30%, transparent 0%, var(--bg) 70%),
+      center / cover no-repeat var(--bg-src);
+  }
+}
+
+.project-content {
+  padding: 0 var(--paragraph-padding-inline) var(--spacer-4) var(--paragraph-padding-inline);
+
+  > * {
+    --paragraph-padding-inline: 0;
+  }
+}

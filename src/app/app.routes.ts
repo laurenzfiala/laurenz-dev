@@ -1,6 +1,9 @@
 import { HistoryService } from './util/back';
 import { aboutRoutes } from './about';
 import { Route } from './util/router';
+import { devRoutes } from './dev';
+
+import { cvRoutes } from './cv';
 
 export const routes: Route[] = [
   {
@@ -8,11 +11,6 @@ export const routes: Route[] = [
     canActivateChild: [HistoryService.canActivateApplicationChild()],
     children: [
       ...aboutRoutes(),
-      /*
-      {
-        path: 'hello',
-        children: helloRoutes(),
-      },
       {
         path: 'development',
         children: devRoutes(),
@@ -21,11 +19,6 @@ export const routes: Route[] = [
         path: 'cv',
         children: cvRoutes(),
       },
-      {
-        path: 'posts',
-        children: postsRoutes(),
-      },
-       */
       {
         path: '**',
         redirectTo: '',

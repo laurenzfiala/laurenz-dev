@@ -1,0 +1,92 @@
+<section class="section">
+  <a
+    href="https://github.com/laurenzfiala"
+    class="github-link btn-link-bg btn-link-bg-hover link-container"
+  >
+    <div class="github-logo-container">
+      <img
+        alt="GitHub Logo"
+        src="/imgs/3rdparty/github/github-mark.svg"
+        class="github-logo-light"
+      />
+      <img
+        alt="GitHub Logo"
+        src="/imgs/3rdparty/github/github-mark-white.svg"
+        class="github-logo-dark"
+      />
+    </div>
+    <div class="github-label-container">
+      <span class="link">GitHub</span>
+      <img
+        alt="Arrow pointing to the top right"
+        ngSrc="/imgs/icons/arrow-right-sm.svg"
+        class="external-icon"
+        width="16"
+        height="16"
+      />
+    </div>
+  </a>
+</section>
+
+<section class="section">
+  <x-heading text="Projects" />
+
+  <x-project-link
+    link="laurenz-dev"
+    heading="laurenz.dev"
+    subheading="My personal website and blog"
+    thumbnailSrc="/imgs/projects/laurenz_dev.webp"
+    current
+  />
+
+  <div class="mb-12"></div>
+
+  <x-project-link
+    link="ngx-visual-cd"
+    heading="ngx-visual-cd"
+    subheading="Visual learning tool for Angular change detection"
+    thumbnailSrc="/imgs/projects/ngx-visual-cd.svg"
+  />
+
+  <x-project-link
+    link="cool-trees-and-sensors"
+    heading="Cool Trees & Sensors"
+    subheading="Freelance software project"
+    thumbnailSrc="/imgs/projects/cool_trees_and_sensors.svg"
+  ></x-project-link>
+
+  <x-project-link
+    link="tuw-mental-health-checker"
+    heading="MentalHealthChecker"
+    subheading="University project"
+    thumbnailSrc="/imgs/projects/tuw_mental_health_checker.svg"
+  />
+
+  <x-project-link link="tuw-viral-load" heading="Viral Load" subheading="University project" />
+
+  <x-project-link
+    link="tuw-matterialist"
+    heading="Matterialist"
+    subheading="University project"
+    thumbnailSrc="/imgs/projects/tuw_matterialist.jpg"
+  />
+
+  <x-project-link
+    link="tobiaskropp-at"
+    heading="tobiaskropp.at"
+    subheading="Freelance website project"
+    thumbnailSrc="/imgs/projects/tobiaskropp-at.svg"
+  />
+
+  <x-project-link
+    heading="Urban Trees as Climate Messengers"
+    subheading="Freelance software project"
+    thumbnailSrc="/imgs/projects/urban_trees.jpg"
+  />
+
+  <x-project-link heading="OneTime" subheading="Android app project" />
+</section>
+
+<x-overlay [outlet]="outlet">
+  <router-outlet #outlet="outlet" />
+</x-overlay>

@@ -3,16 +3,13 @@
   <div class="global-background-footer"></div>
 }
 
-<div class="overflow-clip flex flex-col grow">
+<div class="main-wrapper">
   @if (_showNav()) {
     <x-nav />
   }
 
-  <div
-    xSwipeNavigation="/,/development,/cv"
-    class="swipe-container flex flex-col grow h-full relative"
-  >
-    <div class="flex flex-col grow">
+  <div xSwipeNavigation="/,/development,/cv" class="swipe-container">
+    <div class="content-wrapper">
       <router-outlet />
     </div>
 

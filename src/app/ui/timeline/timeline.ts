@@ -8,7 +8,7 @@ import {
   signal,
   untracked,
 } from '@angular/core';
-import { DatePipe, NgStyle } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { TimelineService } from './timeline.service';
 import { bug } from '../../util/error';
 
@@ -62,8 +62,8 @@ const rangeInput = (ranges: InputRange[]): DateRange[] => {
 @Component({
   selector: 'x-timeline',
   templateUrl: './timeline.html',
-  styleUrls: ['./timeline.css'],
-  imports: [NgStyle, DatePipe],
+  styleUrls: ['./timeline.scss'],
+  imports: [DatePipe],
   host: {
     '[class]': "'timeline--' + mode()",
   },

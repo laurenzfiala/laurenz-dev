@@ -1,15 +1,18 @@
 <x-scroll class="img-carousel" style="--scrollbar-margin-block-start: -2.5rem">
-  <div class="w-max px-[var(--carousel-padding)] flex flex-row gap-4 mb-10">
-    @for (media of media(); track $index) {
+  <div class="carousel-container">
+    @for (item of media(); track $index) {
       <button
-        class="carousel-item rounded-xl with-outline"
-        [routerLink]="['media', media.src | filename]"
-        [class.is-video]="media.type === 'video'"
+        class="carousel-item"
+        [routerLink]="['media', item.src | filename]"
+        [class.is-video]="item.type === 'video'"
+        [attr.aria-label]="item.type === 'image' ? item.alt || 'View image' : 'Play video'"
       >
         <img
-          class="h-[12rem] rounded-xl shadow-md shadow-black/30 cursor-pointer transition-all hover:shadow-lg hover:shadow-black/40"
-          [src]="media.type === 'image' ? media.src : media.thumbnailSrc"
-          [alt]="media.type === 'image' ? media.alt : null"
+          class="carousel-image"
+          [ngSrc]="item.type === 'image' ? item.src : item.thumbnailSrc!"
+          [alt]="item.type === 'image' ? item.alt : ''"
+          height="192"
+          width="300"
         />
       </button>
     }

@@ -4,12 +4,13 @@ import { sendMail } from '../util/contact';
 import { QrCode } from '../ui/qr-code';
 import { InfoBox } from '../ui/info-box';
 import { NgOptimizedImage } from '@angular/common';
+import { Shelf } from '../shelf/shelf';
 
 @Component({
   selector: 'x-about',
   templateUrl: './about.html',
   styleUrls: ['./about.scss'],
-  imports: [Heading, QrCode, InfoBox, NgOptimizedImage],
+  imports: [Heading, QrCode, InfoBox, NgOptimizedImage, Shelf],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutPage {

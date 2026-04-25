@@ -1,0 +1,83 @@
+@use 'mixins';
+
+:host {
+  display: block;
+}
+
+.project-link-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-link {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-inline: calc(var(--spacer-2) * -1);
+  padding: var(--spacer-1) var(--spacer-2);
+
+  text-align: start;
+}
+
+.project-link-placeholder {
+  padding-block: var(--spacer-1);
+}
+
+.work-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+
+  text-align: start;
+}
+
+.work-thumbnail {
+  flex-shrink: 0;
+  width: 2.5rem;
+  aspect-ratio: 1 / 1;
+  margin-inline-end: var(--spacer-1);
+
+  @include mixins.rounded-lg;
+
+  @include mixins.tablet {
+    width: 3rem;
+  }
+}
+
+.work-thumbnail-placeholder {
+  width: 2.5rem;
+  flex-shrink: 0;
+  margin-inline-end: var(--spacer-1);
+
+  @include mixins.tablet {
+    width: 3rem;
+  }
+}
+
+.work-text {
+  flex-grow: 1;
+  min-width: 0;
+  overflow: hidden;
+  margin-inline-start: var(--spacer-1);
+}
+
+.subheading {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.project-link-content {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  margin-block-start: var(--spacer-2);
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

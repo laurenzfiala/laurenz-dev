@@ -9,7 +9,7 @@
       calc(50% - var(--paragraph-width) / 2 + var(--paragraph-padding-inline)),
       var(--paragraph-padding-inline)
     );
-    --section-spacer: var(--spacer-10);
+    --section-spacer: var(--spacer-8);
 
     @include mixins.tablet {
       --paragraph-padding-inline: var(--spacer-4);

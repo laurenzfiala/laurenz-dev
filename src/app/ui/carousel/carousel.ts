@@ -1,5 +1,6 @@
-import { Component, effect, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 import { FilenamePipe, Media, MediaService } from '../media-fullscreen';
 import { Scroll } from '../scroll';
 
@@ -16,8 +17,9 @@ import { Scroll } from '../scroll';
 @Component({
   selector: 'x-carousel',
   templateUrl: './carousel.html',
-  styleUrls: ['./carousel.css'],
-  imports: [Scroll, RouterLink, FilenamePipe],
+  styleUrl: './carousel.scss',
+  imports: [Scroll, RouterLink, FilenamePipe, NgOptimizedImage],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Carousel {
   media = input.required<Media[]>();
