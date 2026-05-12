@@ -1,5 +1,5 @@
 import { Directive, effect, inject, input, ViewContainerRef } from '@angular/core';
-import { SwipeDirective, SwipeEvent } from './swipe.directive';
+import { SwipeDirective, SwipeEvent } from './swipe';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -11,7 +11,7 @@ import { OverlayService } from '../../ui/overlay';
  * it based on the current swipe position.
  *
  * Note: Make sure a parent of the host element has
- * `overflow: hidden` to avoid overflow suring swiping.
+ * `overflow: hidden` to avoid overflow during swiping.
  */
 @Directive({
   selector: '[xSwipeNavigation]',
@@ -26,7 +26,7 @@ import { OverlayService } from '../../ui/overlay';
     '(swipeEnd)': 'swipe($event)',
   },
 })
-export class SwipeNavigateDirective {
+export class SwipeNavigationDirective {
   paths = input.required<string[], string>({
     alias: 'xSwipeNavigation',
     transform: (v: unknown) => String(v).split(','),

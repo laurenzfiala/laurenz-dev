@@ -1,2 +1,2 @@
-export { SwipeDirective } from './swipe.directive';
-export { SwipeNavigateDirective } from './swipe-navigation.directive';
+export { SwipeDirective } from './swipe';
+export { SwipeNavigationDirective } from './swipe-navigation';

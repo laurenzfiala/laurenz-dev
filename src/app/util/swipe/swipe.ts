@@ -1,4 +1,5 @@
 import { Directive, output } from '@angular/core';
+import { getScrollParent } from './scroll-parent';
 
 export type SwipeAxis = 'horizontal' | 'vertical';
 export type SwipeDirection = 'up' | 'right' | 'down' | 'left';
@@ -77,7 +78,11 @@ export class SwipeDirective {
   private _touchEvents: Touch[] = [];
 
   protected touchstart(event: Event) {
-    if (event instanceof TouchEvent && event.touches.length === 1) {
+    if (
+      event instanceof TouchEvent &&
+      event.touches.length === 1 &&
+      getScrollParent(event.target as HTMLElement) === document.documentElement
+    ) {
       const touch = event.touches[0];
       this._touchEvents = [{ x: touch.clientX, y: touch.clientY }];
     }

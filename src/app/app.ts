@@ -4,13 +4,13 @@ import { HistoryService } from './util/back';
 import { map } from 'rxjs';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './ui/footer';
-import { SwipeNavigateDirective } from './util/swipe';
+import { SwipeNavigationDirective } from './util/swipe';
 import { Nav } from './ui/nav';
 import { RouteData } from './util/router';
 
 @Component({
   selector: 'x-root',
-  imports: [RouterOutlet, Footer, SwipeNavigateDirective, Nav],
+  imports: [RouterOutlet, Footer, SwipeNavigationDirective, Nav],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
