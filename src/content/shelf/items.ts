@@ -1,6 +1,13 @@
 import { bluRay, book, cinemaMovie } from '../../app/shelf';
 
 export default [
+  bluRay({
+    title: '12th fail',
+    imdbId: 'tt23849204',
+    coverPath: '/content/shelf/12th-fail.svg',
+    rating: 8,
+    watchedOn: '2026-05-14',
+  }),
   book({
     title: 'Black Ember',
     author: 'Helia James',
