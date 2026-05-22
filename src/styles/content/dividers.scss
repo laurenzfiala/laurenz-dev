@@ -1,15 +1,15 @@
 @use 'mixins';
 
 @mixin dividers {
-  $length: 40px;
-  $thickness: 3px;
+  $length: 50px;
+  $thickness: 2px;
 
   .divider,
   .divider-h {
     display: block;
     width: $length;
     height: $thickness;
-    margin-block: var(--spacer-2) var(--spacer-4);
+    margin-block: var(--spacer-1) var(--spacer-2);
 
     border-radius: 99px;
     background-color: var(--color-primary-200);

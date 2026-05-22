@@ -1,8 +1,8 @@
 @use 'mixins';
 
 :host {
-  --bg-color-a: rgba(0, 15, 70, 0.1);
-  --bg-color-b: rgba(0, 15, 70, 0.2);
+  --bg-color-a: var(--color-primary-400);
+  --bg-color-b: var(--color-primary-500);
 
   display: contents;
 
@@ -45,13 +45,14 @@
 
 nav {
   display: flex;
-  gap: calc(var(--spacer-1) / 4);
+  gap: 2px;
   justify-content: start;
   align-items: stretch;
   height: 3rem;
 
   font-family: 'Recursive', sans-serif;
   font-size: var(--text-lg);
+  font-weight: 600;
   backdrop-filter: blur(30px);
   border-radius: var(--border-radius);
   scrollbar-width: none;
@@ -69,17 +70,17 @@ nav {
   padding: var(--spacer-3);
 
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-text-contrast);
   font-family: var(--font-family-brand);
 
   @include mixins.focus;
 
   &:first-child {
-    @include mixins.rounded-sm('left');
+    @include mixins.rounded-sm(left);
   }
 
   &:last-child {
-    @include mixins.rounded-sm('right');
+    @include mixins.rounded-sm(right);
   }
 
   &:active {
@@ -116,7 +117,7 @@ nav {
     &::after {
       content: '';
 
-      mask-image: url('/imgs/logo_square_mask.webp');
+      mask-image: url('/imgs/logo_square_mask2.webp');
       mask-size: cover;
 
       position: absolute;

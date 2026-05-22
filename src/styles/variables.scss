@@ -50,25 +50,22 @@
     --text-shadow-lg:
       0 5px 11px rgb(var(--shadow-color) / 0.3), 0 2px 4px rgb(var(--shadow-color) / 0.3);
 
-    --font-family-brand: 'Lexend', sans-serif;
-    --font-family-text: 'Open Sans', sans-serif;
-
     // --- PALETTES ---
     // https://coolors.co/1d242a-b051fb-358cd5
     // https://colorkit.io/shades-tints
 
     // prettier-ignore
     & {
-      --color-primary-050: #fafbfb; --color-primary-c050: var(--color-text-dark);
-      --color-primary-100: #f1f2f3; --color-primary-c100: var(--color-text-dark);
-      --color-primary-200: #cfd1d3; --color-primary-c200: var(--color-text-dark);
-      --color-primary-300: #abb0b4; --color-primary-c300: var(--color-text-dark);
-      --color-primary-400: #878f95; --color-primary-c400: var(--color-text-dark);
-      --color-primary-500: #636e76; --color-primary-c500: var(--color-text-dark);
-      --color-primary-600: #4e555c; --color-primary-c600: var(--color-text-light);
-      --color-primary-700: #383d42; --color-primary-c700: var(--color-text-light);
-      --color-primary-800: #222528; --color-primary-c800: var(--color-text-light);
-      --color-primary-900: #0c0d0e; --color-primary-c900: var(--color-text-light);
+      --color-primary-050: #eff2f6; --color-primary-c050: var(--color-text-dark);
+      --color-primary-100: #c6c8cd; --color-primary-c100: var(--color-text-dark);
+      --color-primary-200: #9b9fa5; --color-primary-c200: var(--color-text-dark);
+      --color-primary-300: #70767d; --color-primary-c300: var(--color-text-dark);
+      --color-primary-400: #454d55; --color-primary-c400: var(--color-text-dark);
+      --color-primary-500: #1a242d; --color-primary-c500: var(--color-text-dark);
+      --color-primary-600: #151f25; --color-primary-c600: var(--color-text-light);
+      --color-primary-700: #11191e; --color-primary-c700: var(--color-text-light);
+      --color-primary-800: #0d1317; --color-primary-c800: var(--color-text-light);
+      --color-primary-900: #090d10; --color-primary-c900: var(--color-text-light);
     }
     // prettier-ignore
     & {

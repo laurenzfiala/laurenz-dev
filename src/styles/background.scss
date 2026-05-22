@@ -1,29 +1,28 @@
 @mixin background {
+  $mask-size: 50px;
+
   body {
     position: relative;
   }
 
   .global-background {
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 100%;
+    inset: 0;
 
-    mask-image: url('/imgs/bg/pattern-mask.webp');
+    mask-image: url('/imgs/bg/pattern-mask2.svg');
     mask-repeat: repeat;
-    mask-size: 30px;
+    mask-size: $mask-size;
 
     background-image: radial-gradient(
       100% 150px at top center,
-      var(--color-primary-200),
+      var(--color-primary-100),
       transparent
     );
 
     @media only screen and (prefers-color-scheme: dark) {
       background-image: radial-gradient(
-        100% 200px at top center,
-        var(--color-primary-800),
+        100% 150px at top center,
+        var(--color-primary-900),
         transparent
       );
     }
@@ -31,21 +30,18 @@
 
   .global-background-footer {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
 
     background: radial-gradient(
       ellipse farthest-side at bottom,
-      var(--color-accent-500),
+      var(--color-accent-300),
       transparent
     );
-    background-size: min(150%, 1000px) 10rem;
+    background-size: min(150%, 1300px) 10rem;
     background-position: bottom center;
     background-repeat: no-repeat;
-    mask-image: url('/imgs/bg/pattern-mask.webp');
+    mask-image: url('/imgs/bg/pattern-mask2.svg');
     mask-repeat: repeat;
-    mask-size: 30px;
+    mask-size: $mask-size;
   }
 }

@@ -1,35 +1,43 @@
 @mixin fonts {
+  $brandFont: 'Unbounded';
+  $textFont: 'OpenSans';
+
+  :root {
+    --font-family-brand: #{$brandFont}, sans-serif;
+    --font-family-text: #{$textFont}, sans-serif;
+  }
+
   @font-face {
-    font-family: 'Lexend';
+    font-family: $brandFont;
     font-weight: normal;
-    src: url('/fonts/Lexend-Regular.ttf');
+    src: url('/fonts/#{$brandFont}-Regular.ttf');
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Lexend';
+    font-family: $brandFont;
     font-weight: 500;
-    src: url('/fonts/Lexend-Medium.ttf');
+    src: url('/fonts/#{$brandFont}-Medium.ttf');
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Lexend';
+    font-family: $brandFont;
     font-weight: 600;
-    src: url('/fonts/Lexend-SemiBold.ttf');
+    src: url('/fonts/#{$brandFont}-SemiBold.ttf');
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Lexend';
+    font-family: $brandFont;
     font-weight: bold;
-    src: url('/fonts/Lexend-Bold.ttf');
+    src: url('/fonts/#{$brandFont}-Bold.ttf');
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Open Sans';
-    src: url('/fonts/OpenSans-VariableFont.ttf');
+    font-family: $textFont;
+    src: url('/fonts/#{$textFont}-VariableFont.ttf');
     font-display: swap;
   }
 }
