@@ -2,11 +2,14 @@
   <h1 [class.heading-extra-margin]="!currentShowDivider()">
     <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
   </h1>
-}
-@if (currentLevel() === 2) {
+} @else if (currentLevel() === 2) {
   <h2 [class.heading-extra-margin]="!currentShowDivider()">
     <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
   </h2>
+} @else if (currentLevel() === 3) {
+  <h3 [class.heading-extra-margin]="!currentShowDivider()">
+    <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+  </h3>
 }
 
 @if (currentShowDivider()) {

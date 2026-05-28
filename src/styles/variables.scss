@@ -25,7 +25,7 @@
 
     --text-xs: 0.8rem;
     --text-sm: 0.9rem;
-    --text: 1rem;
+    --text: 1.1rem;
     --text-lg: 1.15rem;
     --text-xl: 1.35rem;
     --text-2xl: 1.65rem;
@@ -56,16 +56,16 @@
 
     // prettier-ignore
     & {
-      --color-primary-050: #eff2f6; --color-primary-c050: var(--color-text-dark);
-      --color-primary-100: #c6c8cd; --color-primary-c100: var(--color-text-dark);
-      --color-primary-200: #9b9fa5; --color-primary-c200: var(--color-text-dark);
-      --color-primary-300: #70767d; --color-primary-c300: var(--color-text-dark);
-      --color-primary-400: #454d55; --color-primary-c400: var(--color-text-dark);
-      --color-primary-500: #1a242d; --color-primary-c500: var(--color-text-dark);
-      --color-primary-600: #151f25; --color-primary-c600: var(--color-text-light);
-      --color-primary-700: #11191e; --color-primary-c700: var(--color-text-light);
-      --color-primary-800: #0d1317; --color-primary-c800: var(--color-text-light);
-      --color-primary-900: #090d10; --color-primary-c900: var(--color-text-light);
+      --color-primary-050: #f1f2f3; --color-primary-c050: var(--color-text-dark);
+      --color-primary-100: #cfd4d7; --color-primary-c100: var(--color-text-dark);
+      --color-primary-200: #afb5b9; --color-primary-c200: var(--color-text-dark);
+      --color-primary-300: #8f969b; --color-primary-c300: var(--color-text-dark);
+      --color-primary-400: #6f777d; --color-primary-c400: var(--color-text-dark);
+      --color-primary-500: #4f585f; --color-primary-c500: var(--color-text-dark);
+      --color-primary-600: #40494e; --color-primary-c600: var(--color-text-light);
+      --color-primary-700: #333a3e; --color-primary-c700: var(--color-text-light);
+      --color-primary-800: #262b2e; --color-primary-c800: var(--color-text-light);
+      --color-primary-900: #0c0d0e; --color-primary-c900: var(--color-text-light);
     }
     // prettier-ignore
     & {

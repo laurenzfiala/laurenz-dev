@@ -5,11 +5,11 @@
       [routerLink]="link"
       [info]="_overlayHints()"
     >
-      <ng-container [ngTemplateOutlet]="workInfo" />
+      <ng-container [ngTemplateOutlet]="projectInfo" />
     </a>
   } @else {
     <div class="project-link-placeholder">
-      <ng-container [ngTemplateOutlet]="workInfo" />
+      <ng-container [ngTemplateOutlet]="projectInfo" />
     </div>
   }
 </div>
@@ -18,15 +18,15 @@
   <ng-content></ng-content>
 </div>
 
-<ng-template #workInfo>
-  <div class="work-info">
+<ng-template #projectInfo>
+  <div class="project-info">
     @if (thumbnailSrc(); as thumbnailSrc) {
-      <img class="work-thumbnail" alt="Logo" [src]="thumbnailSrc" />
+      <img class="project-thumbnail" alt="Logo" [src]="thumbnailSrc" />
     } @else {
-      <div class="work-thumbnail-placeholder"></div>
+      <div class="project-thumbnail-placeholder"></div>
     }
 
-    <div class="work-text">
+    <div class="project-text">
       <strong class="ellipsis" [class.link]="link()">{{ heading() }}</strong>
       <div class="subheading ellipsis">{{ subheading() }}</div>
     </div>

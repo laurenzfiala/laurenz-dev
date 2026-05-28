@@ -7,8 +7,12 @@ import { ShelfItem } from '../types';
   templateUrl: './item.html',
   styleUrl: './item.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[class.selected]': 'selected()',
+  },
 })
 export class Item {
   readonly item = input.required<ShelfItem>();
+  readonly selected = input.required<boolean>();
   readonly action = output();
 }

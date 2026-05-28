@@ -1,5 +1,5 @@
 <!-- PICTURE -->
-<section class="section portrait-section">
+<section class="section portrait-section" [style.--portrait-mask]="_portraitMask">
   <div class="picture-wrapper">
     <img
       ngSrc="/imgs/about/portrait.webp"
@@ -11,7 +11,7 @@
     />
   </div>
   <div class="intro">
-    <x-heading text="Hi 👋" />
+    <h1 class="hi">Hi 👋</h1>
 
     <p>I'm Laurenz Fiala, a software and usability engineer.</p>
   </div>

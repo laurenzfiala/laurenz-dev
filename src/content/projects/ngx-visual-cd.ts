@@ -5,6 +5,7 @@ import {
   mediaImage,
   paragraph,
   section,
+  subheading,
   timeline,
 } from '../../app/content';
 import { ProjectEnvironment } from '../../app/dev/project/project';
@@ -25,7 +26,7 @@ export default [
   `),
 
   section(),
-  heading(`Timeline`),
+  subheading(`Timeline`),
   timeline({ from: '2023-08-25', to: '2023-09-17' }),
   paragraph(`
   The project is currently on the backburner as long as this website is my priority.

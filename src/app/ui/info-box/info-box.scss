@@ -12,9 +12,10 @@
   justify-content: center;
 
   font-family: var(--font-family-brand);
+  line-height: 0;
+  font-weight: bold;
   background: var(--color-accent-500);
   color: var(--color-text-contrast);
-  font-weight: bold;
 
   @include mixins.rounded-sm(left);
 }
@@ -25,9 +26,13 @@
 
   font-size: var(--text-sm);
   text-align: justify;
-  background: color-mix(in srgb, var(--color-accent-500), transparent 80%);
+  background: var(--color-accent-200);
 
   @include mixins.rounded-sm(right);
+
+  @include mixins.dark {
+    background: var(--color-accent-800);
+  }
 }
 
 .heading {

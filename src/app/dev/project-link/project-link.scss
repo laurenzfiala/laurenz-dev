@@ -24,7 +24,7 @@
   padding-block: var(--spacer-1);
 }
 
-.work-info {
+.project-info {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
@@ -35,30 +35,30 @@
   text-align: start;
 }
 
-.work-thumbnail {
+.project-thumbnail {
   flex-shrink: 0;
   width: 2.5rem;
   aspect-ratio: 1 / 1;
   margin-inline-end: var(--spacer-1);
 
-  @include mixins.rounded-lg;
+  border-radius: 999px;
 
   @include mixins.tablet {
     width: 3rem;
   }
-}
 
-.work-thumbnail-placeholder {
-  width: 2.5rem;
-  flex-shrink: 0;
-  margin-inline-end: var(--spacer-1);
+  &-placeholder {
+    width: 2.5rem;
+    flex-shrink: 0;
+    margin-inline-end: var(--spacer-1);
 
-  @include mixins.tablet {
-    width: 3rem;
+    @include mixins.tablet {
+      width: 3rem;
+    }
   }
 }
 
-.work-text {
+.project-text {
   flex-grow: 1;
   min-width: 0;
   overflow: hidden;

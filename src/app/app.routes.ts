@@ -2,7 +2,6 @@ import { HistoryService } from './util/back';
 import { aboutRoutes } from './about';
 import { Route } from './util/router';
 import { devRoutes } from './dev';
-
 import { cvRoutes } from './cv';
 
 export const routes: Route[] = [
@@ -18,6 +17,10 @@ export const routes: Route[] = [
       {
         path: 'cv',
         children: cvRoutes(),
+      },
+      {
+        path: 'hello',
+        redirectTo: '',
       },
       {
         path: '**',

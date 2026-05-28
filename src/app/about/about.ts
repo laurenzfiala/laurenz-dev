@@ -17,4 +17,5 @@ export class AboutPage {
   protected _activeQr = signal<'email' | 'telegram' | 'linkedin' | null>(null);
   protected _showQrCodes = signal(false);
   protected readonly sendMail = sendMail;
+  protected readonly _portraitMask = `url('/imgs/about/portrait-masks/${Math.floor(Math.random() * 7) + 1}.svg')`;
 }

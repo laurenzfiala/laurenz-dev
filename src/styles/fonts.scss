@@ -1,6 +1,6 @@
 @mixin fonts {
   $brandFont: 'Unbounded';
-  $textFont: 'OpenSans';
+  $textFont: 'Onest';
 
   :root {
     --font-family-brand: #{$brandFont}, sans-serif;

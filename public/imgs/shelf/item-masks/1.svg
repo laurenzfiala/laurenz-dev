@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 30 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-80,0)">
+        <g id="item-highlight-mask" transform="matrix(1,0,0,1.333333,0,0)">
+            <rect x="80" y="0" width="30" height="30" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="80" y="0" width="30" height="30"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(1.100184,-0.057952,0.077578,0.82843,-9.880706,5.017033)">
+                    <path d="M106.732,3.832C104.646,0.747 97.387,0.45 94.217,2.997C91.047,5.544 89.661,13.782 87.711,19.114C85.798,24.344 79.64,29.496 82.517,34.991C83.766,37.377 96.499,35.814 99.395,34.442C103.083,32.695 104.889,26.714 106.732,21.502C108.152,17.49 108.818,6.916 106.732,3.832Z"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

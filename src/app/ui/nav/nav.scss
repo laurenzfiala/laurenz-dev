@@ -1,14 +1,15 @@
 @use 'mixins';
+@use 'sass:color';
 
 :host {
-  --bg-color-a: var(--color-primary-400);
-  --bg-color-b: var(--color-primary-500);
+  --bg-color-a: #{color.mix(#262b2e, transparent, $weight: 75%)};
+  --bg-color-b: #{color.mix(#0c0d0e, transparent, $weight: 75%)};
 
   display: contents;
 
   @include mixins.dark {
-    --bg-color-a: rgba(241, 245, 249, 0.15);
-    --bg-color-b: rgba(241, 245, 249, 0.25);
+    --bg-color-a: #{color.mix(#f1f2f3, transparent, $weight: 75%)};
+    --bg-color-b: #{color.mix(#afb5b9, transparent, $weight: 75%)};
   }
 }
 
@@ -117,7 +118,7 @@ nav {
     &::after {
       content: '';
 
-      mask-image: url('/imgs/logo_square_mask2.webp');
+      mask-image: url('/imgs/logo-square-mask.webp');
       mask-size: cover;
 
       position: absolute;

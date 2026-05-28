@@ -1,7 +1,7 @@
 @use 'mixins';
 
 @mixin dividers {
-  $length: 50px;
+  $length: 80px;
   $thickness: 2px;
 
   .divider,

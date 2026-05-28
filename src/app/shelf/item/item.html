@@ -1,4 +1,6 @@
 <button type="button" class="container" (click)="action.emit()">
-  <img class="cover" [src]="item().coverPath" alt="" aria-hidden="true" />
+  <div class="cover">
+    <img [src]="item().coverPath" alt="" aria-hidden="true" />
+  </div>
   <div class="title" aria-hidden="true">{{ item().title }}</div>
 </button>

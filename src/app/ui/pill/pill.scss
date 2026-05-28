@@ -1,0 +1,17 @@
+@use 'mixins';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--spacer-1);
+
+  color: var(--color-accent-c700);
+  font-size: var(--text-xs);
+  background: var(--color-accent-700);
+  border-radius: 999px;
+
+  @include mixins.dark {
+    background: var(--color-accent-400);
+    color: var(--color-accent-c400);
+  }
+}

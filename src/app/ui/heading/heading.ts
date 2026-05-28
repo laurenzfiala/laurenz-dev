@@ -5,7 +5,7 @@ import { NgTemplateOutlet } from '@angular/common';
 @Component({
   selector: 'x-heading',
   templateUrl: './heading.html',
-  styleUrls: ['./heading.css'],
+  styleUrl: './heading.scss',
   imports: [NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

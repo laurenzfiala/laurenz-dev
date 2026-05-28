@@ -9,7 +9,7 @@
     position: absolute;
     inset: 0;
 
-    mask-image: url('/imgs/bg/pattern-mask2.svg');
+    mask-image: url('/imgs/bg/pattern-mask.webp');
     mask-repeat: repeat;
     mask-size: $mask-size;
 
@@ -22,7 +22,7 @@
     @media only screen and (prefers-color-scheme: dark) {
       background-image: radial-gradient(
         100% 150px at top center,
-        var(--color-primary-900),
+        var(--color-primary-500),
         transparent
       );
     }
@@ -40,7 +40,7 @@
     background-size: min(150%, 1300px) 10rem;
     background-position: bottom center;
     background-repeat: no-repeat;
-    mask-image: url('/imgs/bg/pattern-mask2.svg');
+    mask-image: url('/imgs/bg/pattern-mask.webp');
     mask-repeat: repeat;
     mask-size: $mask-size;
   }

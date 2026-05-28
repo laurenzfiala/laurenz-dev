@@ -1,0 +1,64 @@
+@use 'mixins';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--spacer-1);
+  margin-top: -20px;
+  padding-block-start: var(--spacer-2);
+}
+
+.top-divider {
+  height: 2px;
+  width: 100%;
+
+  border-radius: 99px;
+  background-color: var(--color-primary-200);
+
+  @include mixins.dark {
+    background-color: var(--color-primary-400);
+  }
+}
+
+.heading {
+  line-height: 1.2;
+}
+
+.subheading {
+  opacity: 0.6;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+
+  li {
+    display: list-item;
+    margin: 0;
+  }
+}
+
+.more-item {
+  white-space: nowrap;
+  place-self: center;
+  transform: translateY(-0.5lh);
+
+  @include mixins.focus;
+}
+
+// TODO move to component or global style
+.external-icon {
+  display: inline-block;
+  height: 0.8em;
+  rotate: -45deg;
+
+  @include mixins.dark {
+    filter: invert(1);
+  }
+}

@@ -5,6 +5,7 @@ import {
   paragraph,
   section,
   subheading,
+  subsubheading,
   timeline,
 } from '../../app/content';
 import { ProjectEnvironment } from '../../app/dev/project/project';
@@ -32,15 +33,15 @@ export default [
   `),
 
   section(),
-  heading(`Upcoming features`),
+  subheading(`Upcoming features`),
 
-  subheading(`Improved accessibility`),
+  subsubheading(`Improved accessibility`),
   paragraph(`
   There are a few spots with bigger issues, and a few others with minor ones.
   For example, the fullscreen image carousel has no navigation aids at all.
   `),
 
-  subheading(`Blog page`),
+  subsubheading(`Blog page`),
   paragraph(`
   This is a big new feature, coming up at the end of 2023. It's an additional page accessible via the main
   navigation menu, where you can find new 'blog'-style posts from me. I want to focus on things I am interested in

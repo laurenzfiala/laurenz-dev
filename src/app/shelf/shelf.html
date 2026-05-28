@@ -1,15 +1,17 @@
-<ol class="item-list" tabindex="-1">
+<ol #itemList class="item-list" tabindex="-1" (touchstart)="_onTouchStart($event)" (touchend)="_onTouchEnd($event)">
   @for (item of _items(); track item) {
-    <li class="item">
-      <x-item [item]="item" (action)="_selectedItem.set(item)" />
+    <li #itemEl class="item">
+      <x-item [item]="item" [selected]="_selectedItem() === item" (action)="select(item, itemEl)" />
     </li>
   }
   <li class="more-item"><button>Show more</button></li>
+  <!-- TODO -->
 </ol>
 
-@if (_selectedItem(); as item) {
-  <div class="selected-item-info">
-    <h2>{{ item.title }}</h2>
-    <p>test</p>
-  </div>
-}
+<div class="details-list">
+  @for (item of _items(); track id(item)) {
+    @if (item === _selectedItem()) {
+      <x-shelf-item-details class="details" animate.enter="in" animate.leave="out" [item]="item" />
+    }
+  }
+</div>

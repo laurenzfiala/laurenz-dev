@@ -1,4 +1,3 @@
-
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
 
 ## TypeScript Best Practices
@@ -63,20 +62,21 @@ Global style is in `src/styles/`.
 Use global CSS variables for colors, fonts, margin/padding, etc.
 
 Style declarations should be ordered and grouped:
+
 1. CSS vars
 2. Empty line
-2. Layout/display rules
-2. Size and spacing rules
-3. Empty line
-4. Other rules
+3. Layout/display rules
+4. Size and spacing rules
 5. Empty line
-6. Animations and transitions
+6. Other rules
+7. Empty line
+8. Animations and transitions
 
 Components must use SCSS files for styles.
 
 ### Mixins
 
-There are many global mixins for common styling patterns. 
+There are many global mixins for common styling patterns.
 Include them using `@use 'mixins';` in the component SCSS file.
 
 ### Do not use Tailwind CSS

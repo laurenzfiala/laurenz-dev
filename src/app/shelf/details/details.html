@@ -1,0 +1,59 @@
+<div class="top-divider"></div>
+
+<div class="heading">
+  <h2>{{ item().title }}</h2>
+  <div class="subheading">
+    @if (bookItem(); as book) {
+      {{ book.author }}
+    } @else if (movieItem(); as movie) {
+      {{ movie.yearOfRelease }}
+    }
+  </div>
+</div>
+
+@if (bookItem(); as book) {
+  @if (book.reading) {
+    <x-pill>Currently reading</x-pill>
+  }
+}
+
+<p>
+  {{ item().review }}
+</p>
+
+<ul class="actions">
+  @if (bookItem(); as book) {
+    @if (book.isbn13) {
+      <li><button class="link">Copy ISBN</button></li>
+      <li>
+        <a class="link" [href]="book.hrefs.thalia" target="_blank">
+          Thalia.at
+          <img
+            alt="Arrow pointing to the top right"
+            ngSrc="/imgs/icons/arrow-right-sm.svg"
+            class="external-icon"
+            aria-hidden="true"
+            width="16"
+            height="16"
+          />
+        </a>
+      </li>
+      <li>
+        <a class="link" [href]="book.hrefs.goodreads" target="_blank">
+          Goodreads
+          <img
+            alt="Arrow pointing to the top right"
+            ngSrc="/imgs/icons/arrow-right-sm.svg"
+            class="external-icon"
+            aria-hidden="true"
+            width="16"
+            height="16"
+          />
+        </a>
+      </li>
+    }
+  }
+  @if (movieItem(); as movie) {
+    <li>Personal rating: {{ movie.rating }}</li>
+  }
+</ul>

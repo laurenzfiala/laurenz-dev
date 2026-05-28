@@ -31,6 +31,15 @@ export function subheading(text: string): HeadingElement {
   };
 }
 
+export function subsubheading(text: string): HeadingElement {
+  return {
+    type: 'heading',
+    level: 3,
+    text: text,
+    showDivider: false,
+  };
+}
+
 export function paragraph(text: string): ParagraphElement {
   return {
     type: 'paragraph',
