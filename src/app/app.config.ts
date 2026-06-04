@@ -15,6 +15,7 @@ import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideEvents } from './util/events';
 import { ScrollService } from './util/interaction';
+import { provideThemes } from './util/themes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,5 +26,6 @@ export const appConfig: ApplicationConfig = {
       inject(ScrollService);
     }),
     provideEvents(),
+    provideThemes(),
   ],
 };

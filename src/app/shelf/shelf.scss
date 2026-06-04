@@ -1,20 +1,23 @@
 @use 'mixins';
 
+.shelf-viewport {
+  overflow: hidden;
+
+  margin-block: -50px;
+}
+
 .item-list {
-  display: grid;
-  grid-template-rows: 200px;
-  grid-auto-flow: column;
+  display: flex;
   gap: var(--spacer-2);
-  padding: var(--spacer-1) 0 35px 0;
+  padding: 50px 0;
+  height: 300px;
 
-  overflow: auto hidden;
-  scrollbar-width: none;
   list-style: none;
-
-  -webkit-overflow-scrolling: touch;
 }
 
 .item {
+  flex: 0 0 auto;
+  min-width: 0;
   padding: 0;
 }
 

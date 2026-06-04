@@ -3,9 +3,7 @@
   "version": 1,
   "cli": {
     "packageManager": "pnpm",
-    "schematicCollections": [
-      "angular-eslint"
-    ]
+    "schematicCollections": ["angular-eslint"]
   },
   "newProjectRoot": "projects",
   "schematics": {
@@ -56,7 +54,15 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles/layers.scss", "src/styles/index.scss"],
+            "styles": [
+              "src/styles/layers.scss",
+              "src/styles/index.scss",
+              {
+                "input": "src/styles/themes/pride.scss",
+                "inject": false,
+                "bundleName": "pride"
+              }
+            ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
             },
@@ -108,10 +114,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }

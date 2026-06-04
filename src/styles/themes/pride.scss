@@ -1,0 +1,18 @@
+@layer theme {
+  $rainbow: #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3;
+
+  .global-background {
+    opacity: 60%;
+    background: linear-gradient(to right, $rainbow);
+    mask-image:
+      radial-gradient(100% 150px at top center, white, transparent),
+      url('/imgs/bg/pattern-mask.webp');
+    mask-repeat: no-repeat, repeat;
+    mask-size: cover, 50px;
+    mask-composite: intersect;
+  }
+
+  .portrait-section .picture-wrapper::before {
+    background: linear-gradient(135deg, $rainbow) !important;
+  }
+}

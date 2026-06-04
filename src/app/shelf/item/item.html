@@ -1,5 +1,5 @@
 <button type="button" class="container" (click)="action.emit()">
-  <div class="cover">
+  <div class="cover" [style.--highlight-mask]="_highlightMask()">
     <img [src]="item().coverPath" alt="" aria-hidden="true" />
   </div>
   <div class="title" aria-hidden="true">{{ item().title }}</div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, input, output, signal } from '@angular/core';
 import { ShelfItem } from '../types';
 
 @Component({
@@ -15,4 +15,18 @@ export class Item {
   readonly item = input.required<ShelfItem>();
   readonly selected = input.required<boolean>();
   readonly action = output();
+
+  readonly _highlightMask = signal(``);
+
+  constructor() {
+    effect(() => {
+      const selected = this.selected();
+
+      if (selected) {
+        this._highlightMask.set(
+          `url('/imgs/shelf/item-masks/${Math.floor(Math.random() * 3) + 1}.svg')`,
+        );
+      }
+    });
+  }
 }
